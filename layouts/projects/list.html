@@ -1,0 +1,35 @@
+{{ define "main" -}}
+<ul class="posts">
+  <h1>{{ .Title }}</h1>
+  <div style="margin-bottom: .5rem">Most recent crypto pet projects</div>
+  {{ range .Data.Pages -}}
+  <li>
+    <span>
+        <a href="{{ .Params.link }}" target="_blank">{{ .Title }}</a>
+        {{ if eq .Kind "page" }}
+        <time class="pull-right post-list" datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ .Date.Format "Jan 2006" }}</time>
+        {{ end }}
+    </span>
+  </li>
+  {{- end }}
+</ul>
+
+<br>
+
+<ul class="posts">
+  <h3>Archive</h3>
+  <div style="margin-bottom: .5rem">Childhood era gamedev toy projects</div>
+  <li>
+    <span>
+        <a href="/games/pazaak2.zip" target="_blank">🃏 Pazaak 2</a> (Win32)
+        <time class="pull-right post-list" datetime="2005-12-05T00:00:00Z0700">Dec 2005</time>
+    </span>
+  </li>
+  <li>
+    <span>
+        <a href="/games/sabacc.zip" target="_blank">🎲 Sabacc Tournament</a> (Win32)
+        <time class="pull-right post-list" datetime="2005-09-14T00:00:00Z0700">Sep 2005</time>
+    </span>
+  </li>  
+</ul>
+{{- end }}
