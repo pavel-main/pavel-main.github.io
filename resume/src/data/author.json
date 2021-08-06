@@ -1,0 +1,35 @@
+{
+	"name": "Pavel Kiselyov",
+	"occupation": "Tech Lead",
+	"location": "London, UK",
+	"avatar": "avatar.jpg",
+	"email": "pavel.kiselyov@pm.me",
+	"website": "https://pavel-main.github.io",
+	"skills": [
+		"Applied Cryptography",
+		"Cross-Platform Development",
+		"Distributed Systems",
+		"Functional Programming",
+		"Site Reliability Engineering",
+		"Technical Leadership"
+	],
+	"languages": [
+		"Kotlin",
+		"Golang",
+		"Scala",
+		"Swift",
+		"C/C++",
+		"Solidity"
+	],
+	"social": [{
+			"name": "Github",
+			"user": "pavel-bc",
+			"url": "https://github.com/pavel-bc"
+		},
+		{
+			"name": "Linkedin",
+			"user": "pavel-main",
+			"url": "https://www.linkedin.com/in/pavel-main"
+		}
+	]
+}

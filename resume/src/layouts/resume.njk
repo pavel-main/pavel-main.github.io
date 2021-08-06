@@ -1,0 +1,56 @@
+---
+layout: base
+---
+
+<main class="main">
+    <div class="sections container">
+
+        <section class="section" id="section-introduction">
+            <h2 class="section__title">About Me</h2>
+            <div class="lead p-summary" data-spellcheck>
+                {{ content | safe }}
+            </div>
+        </section>
+
+        <section class="section" id="section-experience">
+            <h2 class="section__title">Work Experience</h2>
+            {% set entries = collections.work %}
+            {% set microformat = "p-experience" %}
+            {% include "entrylist.njk" %}
+        </section>
+
+        {% if author.skills %}
+        <section class="section section--half" id="section-skills">
+            <h2 class="section__title">Skills</h2>
+            <ul class="bulletlist">
+            {% for item in author.skills %}
+                <li class="p-skill">{{ item }}</li>
+            {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        {% if author.languages %}
+        <section class="section section--half" id="section-languages">
+            <h2 class="section__title">Languages</h2>
+            <ul class="bulletlist">
+            {% for item in author.languages %}
+                <li class="p-skill">{{ item }}</li>
+            {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        {% if collections.projects.length %}
+            {% set projects = collections.projects|first %}
+            <section class="section" id="section-projects">
+                {% if projects.data.title %}
+                    <h2 class="section__title">{{ projects.data.title }}</h2>
+                {% endif %}
+                <div class="markdown bulletlist">
+                    {{ projects.templateContent | safe }}
+                </div>
+            </section>
+        {% endif %}
+    </div>
+</main>
