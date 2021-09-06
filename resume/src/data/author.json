@@ -15,11 +15,11 @@
 	],
 	"languages": [
 		"Kotlin",
-		"Golang",
+		"Go",
 		"Scala",
 		"Swift",
 		"C/C++",
-		"Solidity"
+		"Rust"
 	],
 	"social": [{
 			"name": "Github",
