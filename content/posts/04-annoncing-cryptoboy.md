@@ -5,7 +5,6 @@ draft: false
 tags:
   - mobile
   - crypto
-  - swift
 flag: 🇷🇺
 ---
 
