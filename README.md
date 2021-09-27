@@ -1,3 +1,3 @@
 # blog
 
-✍️ My Engineering Blog
+✍🏻 My Engineering Blog
