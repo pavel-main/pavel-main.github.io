@@ -11,12 +11,14 @@
 		"Distributed Systems",
 		"Functional Programming",
 		"Site Reliability Engineering",
+		"Smart Contracts",
 		"Technical Leadership"
 	],
 	"languages": [
 		"Kotlin",
 		"Go",
 		"Scala",
+		"Rust",
 		"Swift",
 		"C/C++",
 		"Solidity"
