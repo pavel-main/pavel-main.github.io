@@ -21,7 +21,13 @@
 		"C/C++",
 		"Solidity"
 	],
-	"social": [{
+	"social": [
+		{
+			"name": "Github",
+			"user": "pavel-main",
+			"url": "https://github.com/pavel-main"
+		},		
+		{
 			"name": "Github",
 			"user": "pavel-bc",
 			"url": "https://github.com/pavel-bc"
