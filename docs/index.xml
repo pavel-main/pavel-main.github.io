@@ -6,7 +6,16 @@
     <description>Recent content on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🐙 Hydra - Ethereum HD Tools implementation in Rust</title>
+      <link>https://pavel-main.github.io/projects/06-hydra/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/projects/06-hydra/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Self-Esteem Podcast #27</title>
       <link>https://pavel-main.github.io/posts/05-self-esteem-podcast/</link>
