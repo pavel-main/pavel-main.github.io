@@ -58,7 +58,7 @@ customJs = ["js/blog.js"]
   url = "/projects/"  
 
   [[menu.main]]
-  name = "Resume"
+  name = "Résumé"
   weight = 300
   identifier = "cv"
   url = "/cv/"  
