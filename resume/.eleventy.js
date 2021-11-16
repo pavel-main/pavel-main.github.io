@@ -37,7 +37,7 @@ module.exports = function (config) {
         markdownIt({
             html: true,
             breaks: true,
-            linkify: true,
+            linkify: false,
             typographer: true
         })
     )
