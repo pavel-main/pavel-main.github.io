@@ -35,7 +35,7 @@
   <link type="text/css" rel="stylesheet" href="{{ . | relURL }}">
   {{- end}}
 
-  <link rel="stylesheet"
+  <link defer rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
   <link rel="apple-touch-icon-precomposed"
@@ -63,5 +63,8 @@
   {{- end}}
 
   {{ template "_internal/google_analytics_async.html" . }}
+
+  <script type="text/javascript" src="{{ .Site.BaseURL }}js/lightbox.js"></script>
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/lightbox.css">  
 </body>
 </html>

@@ -10,7 +10,11 @@ flag: 🇷🇺
 
 Had a live talk with a couple of Russian streamers based in Japan (Tokyo & Okinawa) about crypto:
 
-{{< youtube 73QyigHW3kU >}}
+{{< rawhtml >}}
+  <a href="https://www.youtube.com/watch?v=73QyigHW3kU">
+    {{< img "Click to Play" "podcast-preview-2-sd.jpg" >}}
+  </a>
+{{< /rawhtml >}}
 
 <!--more-->
 &nbsp;

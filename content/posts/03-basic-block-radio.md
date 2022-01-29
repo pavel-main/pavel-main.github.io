@@ -10,6 +10,10 @@ flag: 🇷🇺
 
 Participated in Russian podcast called [Basic Block](https://basicblockradio.com/e132/) about software engineering in blockchain and cryptocurrency space.
 
-{{< youtube CNDCSwNzMmw >}}
+{{< rawhtml >}}
+  <a href="https://www.youtube.com/watch?v=CNDCSwNzMmw">
+    {{< img "Click to Play" "podcast-preview-1-sd.jpg" >}}
+  </a>
+{{< /rawhtml >}}
 
 <!--more-->
