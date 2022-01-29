@@ -22,27 +22,6 @@ themeColor = "#1e2a62"
 customCss = ["css/blog.css"]
 customJs = ["js/blog.js"]
 
-  ## Set as many as you want.
-  [[params.socialIcons]]
-  icon = "fa-github"
-  title = "GitHub"
-  url = "https://github.com/pavel-main"
-
-  [[params.socialIcons]]
-  icon = "fa-github"
-  title = "GitHub"
-  url = "https://github.com/pavel-bc"
-
-  [[params.socialIcons]]
-  icon = "fa-linkedin"
-  title = "Linkedin"
-  url = "https://www.linkedin.com/in/pavel-main"
-
-  [[params.socialIcons]]
-  icon = "fa fa-map-marked-alt"
-  title = "Nomad List"
-  url = "https://nomadlist.com/@pavel"
-
 [menu]
 
   [[menu.main]]
