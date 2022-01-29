@@ -9,7 +9,7 @@ flag: 🇬🇧
 
 A mini-project I've implemented on my FPGA development board
 
-{{< tweet 1398367560584867849 >}}
+https://twitter.com/CryptoBoy2283/status/1398367560584867849
 
 <!--more-->
 
