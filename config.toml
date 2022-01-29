@@ -19,8 +19,8 @@ copyright = "Pavel Kiselyov"
 themeColor = "#1e2a62"
 
 ## Set custom CSS and/or JS to override site defaults.
-customCss = ["css/blog.css"]
-customJs = ["js/blog.js"]
+customCss = []
+customJs = []
 
 [menu]
 
