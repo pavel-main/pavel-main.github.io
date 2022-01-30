@@ -74,6 +74,10 @@
   color: #fff;
 }
 
+.sidebar img {
+  display: inline;
+}
+
 /* About section */
 .sidebar-about h1 {
   color: #fff;
@@ -97,6 +101,7 @@ a.sidebar-nav-item:focus {
 .sidebar-nav-item.active {
   font-weight: bold;
 }
+
 
 /* Container
  *
