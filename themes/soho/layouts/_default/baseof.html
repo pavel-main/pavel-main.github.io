@@ -35,12 +35,6 @@
   <link type="text/css" rel="stylesheet" href="{{ . | relURL }}">
   {{- end}}
 
-  <link rel="apple-touch-icon-precomposed"
-        sizes="160x160"
-        href="{{ .Site.BaseURL }}apple-touch-icon.png">
-
-  <link rel="shortcut icon" href="{{ .Site.BaseURL }}favicon.png">
-
   <!-- RSS -->
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
