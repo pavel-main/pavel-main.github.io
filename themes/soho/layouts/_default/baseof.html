@@ -35,6 +35,8 @@
   <link type="text/css" rel="stylesheet" href="{{ . | relURL }}">
   {{- end}}
 
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
   <!-- RSS -->
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
