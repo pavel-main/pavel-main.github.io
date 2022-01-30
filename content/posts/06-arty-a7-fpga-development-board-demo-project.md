@@ -9,7 +9,7 @@ flag: 🇬🇧
 
 A mini-project I've implemented on my FPGA development board
 
-[▶️ Click to Play Video](https://youtu.be/QC35B2kBs3M)
+[🎥 Click to Play Video](https://youtu.be/QC35B2kBs3M)
 
 <!--more-->
 
