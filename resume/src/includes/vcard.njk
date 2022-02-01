@@ -1,7 +1,9 @@
 <div class="vcard h-card">
     {% if author.avatar %}
-        {%- set avatarUrl -%}/assets/images/{{ author.avatar }}{% endset %}
-        <img class="vcard__avatar u-photo" src="{{ avatarUrl | base64file }}" width="200" height="200" alt="{{ author.name }}" />
+        <a href="{{ author.website }}">
+            {%- set avatarUrl -%}/assets/images/{{ author.avatar }}{% endset %}
+            <img class="vcard__avatar u-photo" src="{{ avatarUrl | base64file }}" width="200" height="200" alt="{{ author.name }}" />
+        </a>
     {% endif %}
 
     <div class="vcard__content">
@@ -44,12 +46,6 @@
                             <span class="sr-only">on {{ social.name }}</a>
                         </a>
                     {% endfor %}
-                    {% if author.website %}
-                        <a class="vcard__link u-url" aria-label="Website" href="{{ author.website }}">
-                            {% icon "laptop" %}
-                            {{ author.website | stripProtocol }}
-                        </a>
-                    {% endif %}
                 </div>
             {% endif %} 
         </div>
