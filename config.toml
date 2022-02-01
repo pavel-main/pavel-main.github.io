@@ -36,7 +36,7 @@ customJs = []
   url = "/projects/"  
 
   [[menu.main]]
-  name = "Résumé"
+  name = "CV"
   weight = 300
   identifier = "cv"
   url = "/cv/"  
