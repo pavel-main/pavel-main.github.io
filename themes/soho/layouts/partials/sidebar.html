@@ -6,13 +6,11 @@
         <img src="https://www.gravatar.com/avatar/{{md5 .}}?s=200&d=mp" class="img-circle img-headshot center" alt="Gravatar">
       </div>
       {{ else }}
-        {{ with .Site }}
         <div class="author-image">
-          <a href="{{ .BaseURL }}">
-            <img src="{{ .Params.profilePicture | relURL }}" class="img-circle img-headshot center" alt="Profile Picture">
+          <a href="{{ .Site.BaseURL }}">
+            <img src="{{ .Site.Params.profilePicture | relURL }}" class="img-circle img-headshot center" alt="Profile Picture">
           </a>
         </div>
-        {{ end }}
       {{ end }}
 
       <h1>{{ .Site.Params.author }}</h1>
