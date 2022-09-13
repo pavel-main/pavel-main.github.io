@@ -1,5 +1,5 @@
 # blog
 
-<a href="https://512kb.club"><img src="https://512kb.club/assets/images/green-team.svg" /></a>
+[![pages-build-deployment](https://github.com/pavel-main/pavel-main.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/pavel-main/pavel-main.github.io/actions/workflows/pages/pages-build-deployment)
 
 ✍🏻 My Engineering Blog
