@@ -3,8 +3,8 @@ title: "Self-Esteem Podcast #27"
 date: 2021-05-06
 draft: false
 tags:
-  - podcasts
   - crypto
+  - podcasts
 flag: 🇷🇺
 ---
 

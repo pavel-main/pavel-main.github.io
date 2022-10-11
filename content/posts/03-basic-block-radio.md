@@ -3,8 +3,8 @@ title: "BB-132: Pavel Kiselyov on ICO industry and Blockchain"
 date: 2020-07-22
 draft: false
 tags:
-  - podcasts
   - crypto
+  - podcasts
 flag: 🇷🇺
 ---
 

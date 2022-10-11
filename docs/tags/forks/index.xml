@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>forks on Pavel Kiselyov - Engineering Blog</title>
+    <link>https://pavel-main.github.io/tags/forks/</link>
+    <description>Recent content in forks on Pavel Kiselyov - Engineering Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 11 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/forks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Month of Hard Forks</title>
+      <link>https://pavel-main.github.io/posts/07-month-of-hardforks/</link>
+      <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/posts/07-month-of-hardforks/</guid>
+      <description>&lt;p&gt;Mid September to mid October of 2022 was pretty intense - several cryptocurrencies have performed major protocol upgrades.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

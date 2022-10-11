@@ -6,16 +6,16 @@
     <description>Recent content in projects on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Self-Esteem Podcast #27</title>
-      <link>https://pavel-main.github.io/posts/06-arty-a7-fpga-mini-project/</link>
-      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      <title>CryptoBoy - Swiss Army Knife for crypto engineers</title>
+      <link>https://pavel-main.github.io/posts/04-annoncing-cryptoboy/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://pavel-main.github.io/posts/06-arty-a7-fpga-mini-project/</guid>
-      <description>tba:
-pic.twitter.com/ObaZfkVgXx
-&amp;mdash; CryptoBoy (@CryptoBoy2283) May 28, 2021  </description>
+      <guid>https://pavel-main.github.io/posts/04-annoncing-cryptoboy/</guid>
+      <description>&lt;h3 id=&#34;расскажите-о-себе-и-сути-проекта&#34;&gt;Расскажите о себе и сути проекта?&lt;/h3&gt;
+&lt;p&gt;Привет!&lt;/p&gt;
+&lt;p&gt;Уже несколько лет занимаюсь прикладной криптографией в блокчейн-проектах. Приходится возиться с различными алгоритмами шифрования, хэширования, консенсуса, парсить разные форматы, кодировки, протоколы итп.&lt;/p&gt;</description>
     </item>
     
   </channel>

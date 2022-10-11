@@ -3,6 +3,7 @@ title: "Arty A7 FPGA Development Board Demo Project"
 date: 2020-04-28
 draft: false
 tags:
+  - hobbies
   - fpga
 flag: 🇬🇧
 ---
