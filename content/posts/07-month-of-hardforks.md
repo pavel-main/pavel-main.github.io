@@ -1,14 +1,14 @@
 ---
 title: "The Month of Hard Forks"
 date: 2022-10-12
-draft: true
+draft: false
 tags:
   - crypto
   - forks
 flag: 🇬🇧
 ---
 
-Mid September to mid October of 2022 was pretty intense - several cryptocurrencies have performed major protocol upgrades.
+Mid September to mid October of 2022 was a pretty intense period for crypto engineers & coin node operators - multiple cryptocurrencies have performed major protocol upgrades.
 
 <!--more-->
 
