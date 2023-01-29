@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Pavel Kiselyov - Engineering Blog</title>
+    <link>https://pavel-main.github.io/projects/</link>
+    <description>Recent content in Projects on Pavel Kiselyov - Engineering Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🐙 Hydra - Ethereum HD Tools implementation in Rust</title>
+      <link>https://pavel-main.github.io/projects/06-hydra/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/projects/06-hydra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>🥷 CryptoBoy - your cryptography Swiss Army Knife</title>
+      <link>https://pavel-main.github.io/projects/03-cryptoboy/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/projects/03-cryptoboy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>🔌 Blockchain.com Exchange API client written in Scala</title>
+      <link>https://pavel-main.github.io/projects/02-exchange4s/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/projects/02-exchange4s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ethereum HD Tools - BIP44-compatible ETH wallet utilities</title>
+      <link>https://pavel-main.github.io/projects/04-ethereum-hd-tools/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/projects/04-ethereum-hd-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bitcore Wallet Service API client implementation in Go</title>
+      <link>https://pavel-main.github.io/projects/01-bws-go/</link>
+      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/projects/01-bws-go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coinflip - token sale smart contract management server</title>
+      <link>https://pavel-main.github.io/projects/05-coinflip/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/projects/05-coinflip/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
