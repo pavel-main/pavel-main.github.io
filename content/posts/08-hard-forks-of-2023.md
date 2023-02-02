@@ -15,7 +15,7 @@ Following intense hard fork avalanche in late 2022, there will be at least 3 pla
 ### List of upgrades
 
 1. 🗓️ `17 Jan 2023` - **Polygon**, [Delhi Hardfork](https://forum.polygon.technology/t/pip-7-delhi-hardfork/10904)
-1. 🗓️ `30 Jan 2023` - **Tron**, [Aristotle upgrade](https://github.com/tronprotocol/java-tron/releases/tag/GreatVoyage-v4.7.0.1)<sup>1</sup>
+1. 🗓️ `31 Jan 2023` - **Tron**, [Aristotle upgrade](https://github.com/tronprotocol/java-tron/releases/tag/GreatVoyage-v4.7.0.1)<sup>1</sup>
 1. 🗓️ `06 Feb 2023` - **Decentralized Social**, [Associations and Access Groups fork](https://github.com/deso-protocol/core/releases/tag/v3.1.1)
 1. 🗓️ `20 Feb 2023` - **Blockstack**, [Stacks 2.1](https://stacks.org/stacks-21-what-to-expect)<sup>2</sup>
 1. 🗓️ `?? Mar 2023` - **Ethereum**, [Shanghai Upgrade](https://github.com/ethereum/pm/issues/450)
@@ -23,7 +23,7 @@ Following intense hard fork avalanche in late 2022, there will be at least 3 pla
 
 #### Footnotes
 
-1. Tron developers [made an announcement](https://discord.com/channels/491685925227724801/494678858340237312/1068844678432178176) in their Discord community two days before the forced upgrade, stating:
+1. Tron developers [made an announcement](https://discord.com/channels/491685925227724801/494678858340237312/1068844678432178176) in their Discord community 3 days before the forced upgrade, stating:
 
     > Please complete your deployment to the new version before 23:59 January 30, 2023 (SGT). Otherwise, it will affect the node synchronization.
 
