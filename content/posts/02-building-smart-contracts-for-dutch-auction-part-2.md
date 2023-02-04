@@ -9,7 +9,7 @@ tags:
 flag: 🇬🇧
 ---
 
-In the previous article, we've figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.
+In [the previous article]({{< ref 01-building-smart-contracts-for-dutch-auction-part-1 >}}), we've figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.
 
 Now it’s time to write an actual Dutch Auction in Solidity!
 

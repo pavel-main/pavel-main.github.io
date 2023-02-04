@@ -143,7 +143,7 @@ A built-in step-by-step [debugger included in Truffle](https://www.trufflesuite.
 
 ## Wrap-up
 
-So far we’ve defined some foundational terminology together, in next parts we will talk about the actual requirements fulfillment, while overcoming or implementing things like:
+So far we’ve defined some foundational terminology together, [in next parts]({{< ref 02-building-smart-contracts-for-dutch-auction-part-2 >}}) we will talk about the actual requirements fulfillment, while overcoming or implementing things like:
 
 - Solidity’s arithmetic limitations
 - Measuring gas price through benchmarks
