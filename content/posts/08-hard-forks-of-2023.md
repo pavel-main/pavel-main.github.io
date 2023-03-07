@@ -18,6 +18,8 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `31 Jan 2023` - **Tron**, [Aristotle](https://github.com/tronprotocol/java-tron/releases/tag/GreatVoyage-v4.7.0.1)<sup>1</sup>
 1. 🗓️ `06 Feb 2023` - **Decentralized Social**, [Associations and Access Groups fork](https://github.com/deso-protocol/core/releases/tag/v3.1.1)
 1. 🗓️ `13 Feb 2023` - **NEAR**, [Release 1.31.0](https://github.com/near/nearcore/releases/tag/1.31.0)<sup>2</sup>
+1. 🗓️ `08 Mar 2023` - **Decentralized Social**, [Associations spending limits improvements](https://github.com/deso-protocol/core/releases/tag/v3.2.0)
+1. 🗓️ `20 Mar 2023` - **NEAR**, [Meta Transactions](https://github.com/near/nearcore/releases/tag/1.32.0-rc.1)
 1. 🗓️ `20 Mar 2023` - **Blockstack**, [Stacks 2.1](https://stacks.org/stacks-21-what-to-expect)
 1. 🗓️ `?? Apr 2023` - **Ethereum**, [Shanghai Upgrade](https://github.com/ethereum/pm/issues/450)
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
