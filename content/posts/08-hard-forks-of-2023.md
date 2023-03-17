@@ -41,6 +41,9 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 3. From NEAR developers:
 
     > 13/03/2023 - testnet vote - nodes vote to upgrade the protocol version
+    > 
     > 14/03/2023 - testnet upgrade - nodes start using the new protocol version
-    > 20/03/2023 - mainnet release - tagging the branchas 1.32.0
+    > 
+    > 20/03/2023 - mainnet release - tagging the branch 1.32.0
+    > 
     > 27/03/2023 - mainnet vote
