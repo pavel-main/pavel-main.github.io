@@ -20,9 +20,9 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `13 Feb 2023` - **NEAR**, [Protocol v58](https://github.com/near/nearcore/releases/tag/1.31.0)<sup>2</sup>
 1. 🗓️ `08 Mar 2023` - **Decentralized Social**, [Associations spending limits improvements](https://github.com/deso-protocol/core/releases/tag/v3.2.0)
 1. 🗓️ `20 Mar 2023` - **Blockstack**, [Stacks 2.1](https://stacks.org/stacks-21-what-to-expect)
-1. 🗓️ `27 Mar 2023` - **NEAR**, [Meta Transactions](https://github.com/near/nearcore/releases/tag/1.32.0-rc.1)<sup>3</sup>
-1. 🗓️ `29 Mar 2023` - **Tezos**, [Mumbai](https://tzstats.com/election/46)
-1. 🗓️ `12 Apr 2023` - **Ethereum**, [Shapella](https://twitter.com/terencechain/status/1636372120581324801)
+1. 🗓️ `27 Mar 2023` - **NEAR**, [Meta Transactions](https://github.com/near/nearcore/releases/tag/1.32.0)<sup>3</sup>
+1. 🗓️ `29 Mar 2023` - **Tezos**, [Mumbai](https://tzstats.com/election/44)
+1. 🗓️ `12 Apr 2023` - **Ethereum**, [Shapella](https://blog.ethereum.org/2023/03/28/shapella-mainnet-announcement)
 1. 🗓️ `?? Apr 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
 
