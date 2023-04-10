@@ -23,7 +23,7 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `27 Mar 2023` - **NEAR**, [Meta Transactions](https://github.com/near/nearcore/releases/tag/1.32.0)<sup>3</sup>
 1. 🗓️ `29 Mar 2023` - **Tezos**, [Mumbai](https://tzstats.com/election/44)
 1. 🗓️ `12 Apr 2023` - **Ethereum**, [Shapella](https://blog.ethereum.org/2023/03/28/shapella-mainnet-announcement)
-1. 🗓️ `21 Apr 2023` - **Decentralized Social**, [v3.3.0](https://github.com/deso-protocol/core/releases/tag/v3.3.0)
+1. 🗓️ `21 Apr 2023` - **Decentralized Social**, [Accounting model migration](https://github.com/deso-protocol/core/releases/tag/v3.3.0)
 1. 🗓️ `?? Apr 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
 
