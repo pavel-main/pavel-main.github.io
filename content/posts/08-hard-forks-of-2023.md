@@ -24,6 +24,7 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `29 Mar 2023` - **Tezos**, [Mumbai](https://tzstats.com/election/44)
 1. 🗓️ `12 Apr 2023` - **Ethereum**, [Shapella](https://blog.ethereum.org/2023/03/28/shapella-mainnet-announcement)
 1. 🗓️ `21 Apr 2023` - **DeSo Protocol**, [Accounting model migration](https://github.com/deso-protocol/core/releases/tag/v3.3.0)
+1. 🗓️ `?? Apr 2023` - **Ripple**, [Version 1.10.0](https://github.com/XRPLF/rippled/releases/tag/1.10.0)<sup>4</sup>
 1. 🗓️ `?? Apr 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
 
@@ -48,3 +49,11 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
     > 20/03/2023 - mainnet release - tagging the branch 1.32.0
     > 
     > 27/03/2023 - mainnet vote
+
+4. From release notes:
+
+    > Six new amendments are now open for voting according to the XRP Ledger's [amendment process](https://xrpl.org/amendments.html), which enables protocol changes following two weeks of >80% support from trusted validators.
+    > 
+    > If you operate an XRP Ledger server, upgrade to version 1.10.0 by March 21 to ensure service continuity. The exact time that protocol changes take effect depends on the voting decisions of the decentralized network.
+    > 
+    > For a live view of amendment voting, see the [XRPScan Amendments Dashboard](https://xrpscan.com/amendments).
