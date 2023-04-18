@@ -24,6 +24,7 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `29 Mar 2023` - **Tezos**, [Mumbai](https://tzstats.com/election/44)
 1. 🗓️ `12 Apr 2023` - **Ethereum**, [Shapella](https://blog.ethereum.org/2023/03/28/shapella-mainnet-announcement)
 1. 🗓️ `21 Apr 2023` - **DeSo Protocol**, [Accounting model migration](https://github.com/deso-protocol/core/releases/tag/v3.3.0)
+1. 🗓️ `25 Apr 2023` - **Avalanche**, [Cortina](https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
 1. 🗓️ `?? Apr 2023` - **Ripple**, [Version 1.10.0](https://github.com/XRPLF/rippled/releases/tag/1.10.0)<sup>4</sup>
 1. 🗓️ `?? Apr 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
