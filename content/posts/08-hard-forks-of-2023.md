@@ -29,6 +29,7 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `?? Apr 2023` - **Ripple**, [Version 1.10.0](https://github.com/XRPLF/rippled/releases/tag/1.10.0)<sup>4</sup>
 1. 🗓️ `?? Apr 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
+1. 🗓️ `23 Jun 2023` - **Tezos**, [Nairobi](https://tzstats.com/election/46)
 
 #### Footnotes
 
