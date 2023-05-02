@@ -26,8 +26,8 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `21 Apr 2023` - **DeSo Protocol**, [Accounting model migration](https://github.com/deso-protocol/core/releases/tag/v3.3.0)
 1. 🗓️ `25 Apr 2023` - **Avalanche**, [Cortina](https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
 1. 🗓️ `30 Apr 2023` - **Stacks**, [Emergency Fix to PoX Stacking Increases](https://forum.stacks.org/t/a-bug-in-stacks-increase-call-is-impacting-stacking-rewards-this-cycle/14867?u=cuevasm)
-1. 🗓️ `?? Apr 2023` - **Ripple**, [Version 1.10.0](https://github.com/XRPLF/rippled/releases/tag/1.10.0)<sup>4</sup>
-1. 🗓️ `?? Apr 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
+1. 🗓️ `?? May 2023` - **Ripple**, [Version 1.10.0](https://github.com/XRPLF/rippled/releases/tag/1.10.0)<sup>4</sup>
+1. 🗓️ `?? May 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
 1. 🗓️ `23 Jun 2023` - **Tezos**, [Nairobi](https://tzstats.com/election/46)
 
