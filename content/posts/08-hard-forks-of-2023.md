@@ -31,9 +31,10 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `30 Apr 2023` - **Stacks**, [Emergency Fix to PoX Stacking Increases](https://forum.stacks.org/t/a-bug-in-stacks-increase-call-is-impacting-stacking-rewards-this-cycle/14867?u=cuevasm)
 1. 🗓️ `02 May 2023` - **NEAR**, [Protocol v60](https://github.com/near/nearcore/releases/tag/1.33.0)
 1. 🗓️ `04 May 2023` - **Stacks**, [Emergency Fix to Trait Invocation Behavior](https://forum.stacks.org/t/issue-passing-trait-arguments-in-epoch-2-2/14938/4)
-1. 🗓️ `?? May 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
 1. 🗓️ `23 Jun 2023` - **Tezos**, [Nairobi](https://tzstats.com/election/46)
+1. 🗓️ `Summer 2023` - **Optimism**, [Bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/)
+
 
 #### Footnotes
 
