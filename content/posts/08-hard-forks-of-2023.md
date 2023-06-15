@@ -34,6 +34,7 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `15 May 2023` - **Bitcoin Cash**, [2023-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2023-05-15-upgrade/)
 1. 🗓️ `26 May 2023` - **Stacks**, [Emergency Fix to Data Validation and Serialization Behavior](https://github.com/stacksgov/sips/blob/main/sips/sip-024/sip-024-least-supertype-fix.md)
 1. 🗓️ `06 Jun 2023` - **Optimism**, [Bedrock](https://oplabs.notion.site/Bedrock-Mission-Control-EXTERNAL-fca344b1f799447cb1bcf3aae62157c5)
+1. 🗓️ `12 Jun 2023` - **NEAR**, [Protocol v61](https://github.com/near/nearcore/releases/tag/1.34.0)
 1. 🗓️ `23 Jun 2023` - **Tezos**, [Nairobi](https://tzstats.com/election/46)
 
 #### Footnotes
