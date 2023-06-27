@@ -18,9 +18,7 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `31 Jan 2023` - **TRON**, [Aristotle](https://github.com/tronprotocol/java-tron/releases/tag/GreatVoyage-v4.7.0.1)<sup>1</sup>
 1. 🗓️ `06 Feb 2023` - **DeSo Protocol**, [Associations and Access Groups fork](https://github.com/deso-protocol/core/releases/tag/v3.1.1)
 1. 🗓️ `13 Feb 2023` - **NEAR**, [Protocol v58](https://github.com/near/nearcore/releases/tag/1.31.0)<sup>2</sup>
-1. 🗓️ `15 Feb 2023` - **Cosmos**, [v8-Rho](https://www.mintscan.io/cosmos/proposals/97)
 1. 🗓️ `08 Mar 2023` - **DeSo Protocol**, [Associations spending limits improvements](https://github.com/deso-protocol/core/releases/tag/v3.2.0)
-1. 🗓️ `15 Mar 2023` - **Cosmos**, [v9-Lambda](https://www.mintscan.io/cosmos/proposals/187)
 1. 🗓️ `20 Mar 2023` - **Stacks**, [Stacks 2.1](https://stacks.org/stacks-21-what-to-expect)
 1. 🗓️ `21 Mar 2023` - **Ripple**, [Version 1.10.0](https://github.com/XRPLF/rippled/releases/tag/1.10.0)<sup>3</sup>
 1. 🗓️ `27 Mar 2023` - **NEAR**, [Meta Transactions](https://github.com/near/nearcore/releases/tag/1.32.0)<sup>4</sup>
@@ -36,6 +34,8 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `06 Jun 2023` - **Optimism**, [Bedrock](https://oplabs.notion.site/Bedrock-Mission-Control-EXTERNAL-fca344b1f799447cb1bcf3aae62157c5)
 1. 🗓️ `12 Jun 2023` - **NEAR**, [Protocol v61](https://github.com/near/nearcore/releases/tag/1.34.0)
 1. 🗓️ `23 Jun 2023` - **Tezos**, [Nairobi](https://tzstats.com/election/46)
+1. 🗓️ `27 Jun 2023` - **Algorand**, [Double protocol upgrade](https://github.com/algorand/go-algorand/releases/tag/v3.16.2-stable)<sup>5</sup>
+
 
 #### Footnotes
 
@@ -66,3 +66,7 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
     > 20/03/2023 - mainnet release - tagging the branch 1.32.0
     > 
     > 27/03/2023 - mainnet vote
+
+5. From Algorand release notes:
+
+    > This release contains a double protocol upgrade (Consensus v37 and v38). No action is needed from node runners but is called out for transparency. Consensus v37 is a technical upgrade released in unison with Consensus v38. v37 is needed to allow nodes to build up a necessary state to support State Proof related options in consensus v38.
