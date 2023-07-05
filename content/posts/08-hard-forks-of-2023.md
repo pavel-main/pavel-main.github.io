@@ -36,7 +36,7 @@ Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-20
 1. 🗓️ `23 Jun 2023` - **Tezos**, [Nairobi](https://tzstats.com/election/46)
 1. 🗓️ `27 Jun 2023` - **Algorand**, [Double protocol upgrade](https://github.com/algorand/go-algorand/releases/tag/v3.16.2-stable)<sup>5</sup>
 1. 🗓️ `07 Jul 2023` - **Ripple**, [Version 1.11.0](https://github.com/XRPLF/rippled/releases/tag/1.11.0)
-
+1. 🗓️ `11 Jul 2023` - **TRON**, [Periander](https://github.com/tronprotocol/java-tron/releases/tag/GreatVoyage-v4.7.2)
 
 #### Footnotes
 
