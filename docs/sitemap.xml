@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://pavel-main.github.io/tags/engineering/</loc>
-    <lastmod>2023-07-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/posts/09-lessons-from-a-year-in-engineering-management/</loc>
-    <lastmod>2023-07-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/tags/management/</loc>
-    <lastmod>2023-07-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/</loc>
-    <lastmod>2023-07-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/posts/</loc>
-    <lastmod>2023-07-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/tags/</loc>
-    <lastmod>2023-07-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://pavel-main.github.io/tags/crypto/</loc>
     <lastmod>2023-01-22T00:00:00+00:00</lastmod>
   </url><url>
@@ -27,6 +9,15 @@
     <lastmod>2023-01-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavel-main.github.io/posts/08-hard-forks-of-2023/</loc>
+    <lastmod>2023-01-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavel-main.github.io/</loc>
+    <lastmod>2023-01-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavel-main.github.io/posts/</loc>
+    <lastmod>2023-01-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavel-main.github.io/tags/</loc>
     <lastmod>2023-01-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavel-main.github.io/posts/07-hard-forks-of-2022/</loc>

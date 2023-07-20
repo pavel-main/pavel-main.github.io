@@ -1,6 +1,6 @@
 ---
-title: "Lessons from a Year in Engineering Management"
-date: 2023-07-16
+title: "Lessons from a Year as an Engineering Manager"
+date: 2023-07-20
 draft: false
 tags:
   - engineering
@@ -8,7 +8,7 @@ tags:
 flag: 🇬🇧
 ---
 
-As I reflect on my first year as Director of Engineering (and earlier as an Engineering Manager), I am grateful for the valuable experiences and insights that have shaped me both personally and professionally. This journey has taught me important lessons in planning, sleep management, and risk assessment, which I believe are crucial for any leader in the tech industry. 
+As I reflect on my first year as an Engineering Manager, I am grateful for the valuable experiences and insights that have shaped me both personally and professionally. This journey has taught me important lessons in planning, sleep management, and risk assessment, which I believe are crucial for any leader in the tech industry. 
 
 In this article, I will share these three main ideas and touch on some minor factors that have contributed to my growth.
 
