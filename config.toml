@@ -32,12 +32,6 @@ unsafe = true
   identifier = "posts"
   url = "/posts/"
 
-  [[menu.main]]
-  name = "Projects"
-  weight = 200
-  identifier = "projects"
-  url = "/projects/"
-
 [taxonomies]
   category = "categories"
   series = "series"
