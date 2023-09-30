@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai</title>
+      <link>https://pavel-main.github.io/tags/ai/</link>
+      <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>podcasts</title>
+      <link>https://pavel-main.github.io/tags/podcasts/</link>
+      <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/tags/podcasts/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>engineering</title>
       <link>https://pavel-main.github.io/tags/engineering/</link>
@@ -40,15 +58,6 @@
       <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://pavel-main.github.io/tags/forks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>podcasts</title>
-      <link>https://pavel-main.github.io/tags/podcasts/</link>
-      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://pavel-main.github.io/tags/podcasts/</guid>
       <description></description>
     </item>
     

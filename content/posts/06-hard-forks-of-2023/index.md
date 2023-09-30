@@ -8,7 +8,7 @@ tags:
 flag: 🇬🇧
 ---
 
-Following [intense hard fork avalanche in late 2022]({{< ref 07-hard-forks-of-2022 >}}), there will be at least 5 planned protocol upgrades coming this year.
+Following [intense hard fork avalanche in late 2022]({{< ref 05-hard-forks-of-2022 >}}), there will be at least 5 planned protocol upgrades coming this year.
 
 <!--more-->
 

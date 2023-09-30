@@ -16,7 +16,7 @@ In this article, I will share these three main ideas and touch on some minor fac
 
 ### 1) The Eisenhower Matrix
 
-{{< img "Plans are useless, but planning is indispensable" "posts/09/eisenhower.jpg" >}}
+{{< figure src="images/eisenhower.jpg" title="Plans are useless, but planning is indispensable" >}}
 
 Effective planning is the backbone of successful leadership. One tool that has proven to be immensely helpful is the Eisenhower Matrix. 
 
@@ -35,7 +35,7 @@ Embracing this matrix has allowed me to focus on high-impact tasks, minimize dis
 
 ### 2) Embracing the "Let Me Sleep with That Idea" Approach
 
-{{< img "Early to bed and early to rise makes a man healthy, wealthy, and wise" "posts/09/franklin.webp" >}}
+{{< figure src="images/franklin.webp" title="Early to bed and early to rise makes a man healthy, wealthy, and wise" >}}
 
 As a leader, making critical decisions is a daily occurrence. There's a colloquialism that goes, **"Let me sleep with that idea"** and it holds more truth than you might think. Often, in the pursuit of efficiency, leaders are expected to make decisions quickly. However, I've learned that sometimes it's better to give yourself time to process and contemplate important matters.
 
@@ -45,7 +45,7 @@ Taking the time to "sleep on it" allows your subconscious mind to work through c
 
 ### 3) Utilizing the Rumsfeld Matrix
 
-{{< img "But there are also unknown unknowns, the ones we don't know we don't know" "posts/09/rumsfeld.jpg" >}}
+{{< figure src="images/rumsfeld.jpg" title="But there are also unknown unknowns, the ones we don't know we don't know" >}}
 
 In software engineering, risk management is a constant challenge. The Rumsfeld Matrix, named after former US Secretary of Defense Donald Rumsfeld, is a valuable tool for assessing and addressing risks systematically. The matrix categorizes risks into four types:
 
@@ -64,7 +64,7 @@ In addition to the major lessons mentioned above, I've also learned the importan
 
 ### Conclusion
 
-{{< img "There is no great revelation, no great secret. There is only you" "posts/09/kreia.jpg" >}}
+{{< figure src="images/kreia.jpg" title="There is no great revelation, no great secret. There is only you" >}}
 
 At the end of the day, there is no secret recipe for becoming a successful Engineering Manager. The journey is full of challenges and learning opportunities. What matters most is your willingness to adapt, learn, and grow. Embrace planning, value your sleep, and manage risks with thoughtful approaches. 
 
