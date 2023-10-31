@@ -38,8 +38,8 @@ Following [intense hard fork avalanche in late 2022]({{< ref 05-hard-forks-of-20
 1. 🗓️ `07 Jul 2023` - **Ripple**, [Version 1.11.0](https://github.com/XRPLF/rippled/releases/tag/1.11.0)
 1. 🗓️ `11 Jul 2023` - **TRON**, [Periander](https://github.com/tronprotocol/java-tron/releases/tag/GreatVoyage-v4.7.2)
 1. 🗓️ `01 Aug 2023` - **NEAR**, [Protocol v62](https://github.com/near/nearcore/releases/tag/1.35.0)
-1. 🗓️ `13 Nov 2023` - **NEAR**, [Protocol v63](https://github.com/near/nearcore/releases/tag/1.36.0)
 1. 🗓️ `17 Oct 2023` - **Tezos**, [Oxford](https://tzstats.com/election/50)
+1. 🗓️ `13 Nov 2023` - **NEAR**, [Protocol v63](https://github.com/near/nearcore/releases/tag/1.36.0)
 
 #### Footnotes
 
