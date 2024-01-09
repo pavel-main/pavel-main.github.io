@@ -176,6 +176,7 @@ Ability to accept Bitcoin-funded bids
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">If programming languages were tools. (via <a href="https://twitter.com/9GAG?ref_src=twsrc%5Etfw">@9gag</a>) <a href="https://twitter.com/hashtag/devhumor?src=hash&amp;ref_src=twsrc%5Etfw">#devhumor</a> <a href="https://t.co/tmdKa2SGo0">pic.twitter.com/tmdKa2SGo0</a></p>&mdash; Microsoft Developer UK (@msdevUK) <a href="https://twitter.com/msdevUK/status/714794487042727936?ref_src=twsrc%5Etfw">March 29, 2016</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+
 <p><a href="https://www.trufflesuite.com">Truffle Suite</a> is an industry-leading development framework for smart contracts, which provides automated compilation, scripting, unit testing (both in Solidity and JavaScript), and deployment to multiple Ethereum networks.</p>
 <p>Another very helpful tool from the Truffle team is <a href="https://github.com/trufflesuite/ganache-cli">ganache-cli</a> (formerly TestRPC), which allows you to run a local simulation of Ethereum blockchain without it being necessary to download ~3 million mainnet blocks worth hundreds of gigabytes.</p>
 <p><a href="https://github.com/OpenZeppelin/openzeppelin-contracts">OpenZeppelin</a> is a Solidity library containing a set of token, crowdsale contracts, and other interfaces, which are continuously tested and security audited by the development community. It also provides a lot of helpful test functions for development with Ganache. Notable examples include <code>expectThrow()</code>, which allows to tests to catch EVM exceptions, and <code>increaseTime()</code>, which enables local environment time movement simulation.</p>
@@ -200,6 +201,7 @@ Ability to accept Bitcoin-funded bids
 <p>Even experienced software engineers make mistakes. A typo, an environment-specific (mis)configuration, or an unobvious EVM behaviour can lead to problems. It’s very important to be able to detect parts of the code responsible for them.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Debugging is like being the detective in a crime movie where you are also the murderer.</p>&mdash; Filipe Fortes (@fortes) <a href="https://twitter.com/fortes/status/399339918213652480?ref_src=twsrc%5Etfw">November 10, 2013</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 <p>In Solidity, all of the logging is achieved through the concept of <a href="https://solidity.readthedocs.io/en/v0.4.21/contracts.html#events">Events</a>. Whenever you’re having a failure in tests, Truffle console shows exact events that were emitted during test transactions, helping you to figure out which parts of the code weren’t reached:</p>
 
