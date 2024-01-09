@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>crypto</title>
+      <link>https://pavel-main.github.io/tags/crypto/</link>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/tags/crypto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>forks</title>
+      <link>https://pavel-main.github.io/tags/forks/</link>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavel-main.github.io/tags/forks/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ai</title>
       <link>https://pavel-main.github.io/tags/ai/</link>
@@ -40,24 +58,6 @@
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://pavel-main.github.io/tags/management/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>crypto</title>
-      <link>https://pavel-main.github.io/tags/crypto/</link>
-      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://pavel-main.github.io/tags/crypto/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>forks</title>
-      <link>https://pavel-main.github.io/tags/forks/</link>
-      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://pavel-main.github.io/tags/forks/</guid>
       <description></description>
     </item>
     
