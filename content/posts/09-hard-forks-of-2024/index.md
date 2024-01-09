@@ -8,13 +8,14 @@ tags:
 flag: 🇬🇧
 ---
 
-Following [26 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will be at least 5 planned protocol upgrades coming this year. Giant kudos to Bitcoin Cash development team, giving 6 months notice once again! 
+Following [26 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will be at least 6 planned protocol upgrades coming this year. Giant kudos to Bitcoin Cash development team, giving 6 months notice once again! 
 
 <!--more-->
 
 ### List of upgrades
 
 1. 🗓️ `16 Jan 2024` - **Algorand**, [Consensus Upgrade](https://forum.algorand.org/t/algorand-indexer-v3-4-0-and-conduit-v1-6-0-updates/10925)<sup>1</sup>
+1. 🗓️ `22 Jan 2024` - **Ripple**, [Ledger version 2.0.0](https://github.com/XRPLF/rippled/blob/master/RELEASENOTES.md)
 1. 🗓️ `31 Jan 2024` - **Ethereum Classic**, [Spiral](https://ecips.ethereumclassic.org/ECIPs/ecip-1109)
 1. 🗓️ `09 Feb 2024` - **Tezos**, [Proxford](https://tzstats.com/election/55)
 1. 🗓️ `Q1 2024` - **DeSo Protocol**, [Revolution PoS](https://twitter.com/desoprotocol/status/1736095728328425790)
