@@ -17,7 +17,7 @@ Following [26 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `16 Jan 2024` - **Algorand**, [Consensus Upgrade](https://forum.algorand.org/t/mainnet-and-testnet-update-go-algorand-3-21-0/10971)<sup>1</sup>
 1. 🗓️ `22 Jan 2024` - **Ripple**, [Ledger version 2.0.0](https://github.com/XRPLF/rippled/blob/master/RELEASENOTES.md)
 1. 🗓️ `31 Jan 2024` - **Ethereum Classic**, [Spiral](https://ecips.ethereumclassic.org/ECIPs/ecip-1109)
-1. 🗓️ `09 Feb 2024` - **Tezos**, [Proxford](https://tzstats.com/election/55)
+1. 🗓️ `09 Feb 2024` - **Tezos**, [Oxford](https://tzstats.com/election/55)
 1. 🗓️ `Q1 2024` - **DeSo Protocol**, [Revolution PoS](https://twitter.com/desoprotocol/status/1736095728328425790)
 1. 🗓️ `15 May 2024` - **Bitcoin Cash**, [2024-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2024-05-15-upgrade/)
 
