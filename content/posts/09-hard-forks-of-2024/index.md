@@ -20,6 +20,7 @@ Following [26 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `31 Jan 2024` - **Ethereum Classic**, [Spiral](https://ecips.ethereumclassic.org/ECIPs/ecip-1109)
 1. 🗓️ `09 Feb 2024` - **Tezos**, [Oxford](https://tzstats.com/election/55)
 1. 🗓️ `06 Mar 2024` - **Avalanche**, [Durango](https://github.com/ava-labs/avalanchego/releases/tag/v1.11.0)
+1. 🗓️ `11 Mar 2023` - **NEAR**, [Protocol v65](https://github.com/near/nearcore/releases/tag/1.37.0)
 1. 🗓️ `13 Mar 2024` - **Ethereum**, [Deneb](https://github.com/prysmaticlabs/prysm/releases/tag/v5.0.0)
 1. 🗓️ `Q1 2024` - **DeSo Protocol**, [Revolution PoS](https://twitter.com/desoprotocol/status/1736095728328425790)
 1. 🗓️ `15 May 2024` - **Bitcoin Cash**, [2024-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2024-05-15-upgrade/)
