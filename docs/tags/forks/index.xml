@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>forks on Pavel Kiselyov - Engineering Blog</title>
+    <title>Forks on Pavel Kiselyov - Engineering Blog</title>
     <link>https://pavel-main.github.io/tags/forks/</link>
-    <description>Recent content in forks on Pavel Kiselyov - Engineering Blog</description>
+    <description>Recent content in Forks on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/forks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pavel-main.github.io/tags/forks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hard Forks of 2024</title>
       <link>https://pavel-main.github.io/posts/09-hard-forks-of-2024/</link>
       <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://pavel-main.github.io/posts/09-hard-forks-of-2024/</guid>
       <description>&lt;p&gt;Following &lt;a href=&#34;https://pavel-main.github.io/posts/06-hard-forks-of-2023/&#34;&gt;26 hard forks in 2023&lt;/a&gt;, there will be at least 6 planned protocol upgrades coming this year. Giant kudos to Bitcoin Cash development team, giving 6 months notice once again!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hard Forks of 2023</title>
       <link>https://pavel-main.github.io/posts/06-hard-forks-of-2023/</link>
       <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://pavel-main.github.io/posts/06-hard-forks-of-2023/</guid>
       <description>&lt;p&gt;Following &lt;a href=&#34;https://pavel-main.github.io/posts/05-hard-forks-of-2022/&#34;&gt;intense hard fork avalanche in late 2022&lt;/a&gt;, there will be at least 5 planned protocol upgrades coming this year.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hard Forks of 2022</title>
       <link>https://pavel-main.github.io/posts/05-hard-forks-of-2022/</link>
       <pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://pavel-main.github.io/posts/05-hard-forks-of-2022/</guid>
       <description>&lt;p&gt;Fall season of 2022 was a pretty intense period for crypto engineers &amp;amp; coin node operators - multiple cryptocurrencies have performed major protocol upgrades.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

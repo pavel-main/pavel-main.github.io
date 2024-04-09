@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ai on Pavel Kiselyov - Engineering Blog</title>
+    <title>Ai on Pavel Kiselyov - Engineering Blog</title>
     <link>https://pavel-main.github.io/tags/ai/</link>
-    <description>Recent content in ai on Pavel Kiselyov - Engineering Blog</description>
+    <description>Recent content in Ai on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pavel-main.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My podcast translated into 8 languages</title>
       <link>https://pavel-main.github.io/posts/08-blockchain-podcast-translated-into-8-languages/</link>
       <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://pavel-main.github.io/posts/08-blockchain-podcast-translated-into-8-languages/</guid>
       <description>&lt;p&gt;Translation of my &lt;a href=&#34;https://pavel-main.github.io/posts/03-basic-block-radio/&#34;&gt;first podcast&lt;/a&gt; summary (30s) from Russian to 8 different languages using HeyGen Labs &lt;a href=&#34;https://labs.heygen.com/video-translate&#34;&gt;Video Translate&lt;/a&gt; AI tool.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

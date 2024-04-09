@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>podcasts on Pavel Kiselyov - Engineering Blog</title>
+    <title>Podcasts on Pavel Kiselyov - Engineering Blog</title>
     <link>https://pavel-main.github.io/tags/podcasts/</link>
-    <description>Recent content in podcasts on Pavel Kiselyov - Engineering Blog</description>
+    <description>Recent content in Podcasts on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://pavel-main.github.io/tags/podcasts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pavel-main.github.io/tags/podcasts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My podcast translated into 8 languages</title>
       <link>https://pavel-main.github.io/posts/08-blockchain-podcast-translated-into-8-languages/</link>
       <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://pavel-main.github.io/posts/08-blockchain-podcast-translated-into-8-languages/</guid>
       <description>&lt;p&gt;Translation of my &lt;a href=&#34;https://pavel-main.github.io/posts/03-basic-block-radio/&#34;&gt;first podcast&lt;/a&gt; summary (30s) from Russian to 8 different languages using HeyGen Labs &lt;a href=&#34;https://labs.heygen.com/video-translate&#34;&gt;Video Translate&lt;/a&gt; AI tool.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Self-Esteem Podcast #27</title>
       <link>https://pavel-main.github.io/posts/04-self-esteem-podcast/</link>
       <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://pavel-main.github.io/posts/04-self-esteem-podcast/</guid>
-      <description>&lt;p&gt;Had a live talk with a couple of Russian streamers based in Japan (Tokyo &amp;amp; Okinawa) about crypto:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://youtu.be/73QyigHW3kU&#34;&gt;🎥 Click to Play Video&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Had a live talk with a couple of Russian streamers based in Japan (Tokyo &amp;amp; Okinawa) about crypto:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://youtu.be/73QyigHW3kU&#34;&gt;🎥 Click to Play Video&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>BB-132: Pavel Kiselyov on ICO industry and Blockchain</title>
       <link>https://pavel-main.github.io/posts/03-basic-block-radio/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://pavel-main.github.io/posts/03-basic-block-radio/</guid>
-      <description>&lt;p&gt;Participated in Russian podcast called &lt;a href=&#34;https://basicblockradio.com/e132/&#34;&gt;Basic Block&lt;/a&gt; about software engineering in blockchain and cryptocurrency space.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://youtu.be/CNDCSwNzMmw&#34;&gt;🎥 Click to Play Video&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Participated in Russian podcast called &lt;a href=&#34;https://basicblockradio.com/e132/&#34;&gt;Basic Block&lt;/a&gt; about software engineering in blockchain and cryptocurrency space.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://youtu.be/CNDCSwNzMmw&#34;&gt;🎥 Click to Play Video&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
