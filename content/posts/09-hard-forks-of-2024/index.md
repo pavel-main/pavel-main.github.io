@@ -24,9 +24,9 @@ Following [26 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `13 Mar 2024` - **Ethereum**, [Dencun](https://blog.ethereum.org/2024/02/27/dencun-mainnet-announcement)
 1. 🗓️ `21 Mar 2024` - **NEAR**, [Protocol v65](https://github.com/near/nearcore/releases/tag/1.38.0)
 1. 🗓️ `10 Apr 2024` - **NEAR**, [Protocol v66](https://github.com/near/nearcore/releases/tag/1.39.0)
-1. 🗓️ `16 Apr 2024` - **Stacks**, [Nakamoto Instantiation](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan/nakamoto-for-exchanges) 
+1. 🗓️ `16 Apr 2024` - **Stacks**, [Nakamoto Instantiation](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan) 
 1. 🗓️ `18 Apr 2024` - **Binance Smart Chain**, [Feynman](https://github.com/bnb-chain/bsc/releases/tag/v1.3.13)
-1. 🗓️ `May 2024` - **Stacks**, [Nakamoto Activation](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan/nakamoto-for-exchanges) 
+1. 🗓️ `May 2024` - **Stacks**, [Nakamoto Activation](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan) 
 1. 🗓️ `Q1 2024` - **DeSo Protocol**, [Revolution PoS](https://twitter.com/desoprotocol/status/1736095728328425790)
 1. 🗓️ `15 May 2024` - **Bitcoin Cash**, [2024-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2024-05-15-upgrade/)
 
