@@ -26,9 +26,10 @@ Following [26 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `10 Apr 2024` - **NEAR**, [Protocol v66](https://github.com/near/nearcore/releases/tag/1.39.0)
 1. 🗓️ `16 Apr 2024` - **Stacks**, [Nakamoto Instantiation](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan) 
 1. 🗓️ `18 Apr 2024` - **Binance Smart Chain**, [Feynman](https://github.com/bnb-chain/bsc/releases/tag/v1.3.13)
-1. 🗓️ `May 2024` - **Stacks**, [Nakamoto Activation](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan) 
-1. 🗓️ `Q1 2024` - **DeSo Protocol**, [Revolution PoS](https://twitter.com/desoprotocol/status/1736095728328425790)
 1. 🗓️ `15 May 2024` - **Bitcoin Cash**, [2024-05-15 Network Upgrade](https://upgradespecs.bitcoincashnode.org/2024-05-15-upgrade/)
+1. 🗓️ `May 2024` - **Stacks**, [Nakamoto Activation](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan) 
+1. 🗓️ `May 2024` - **Chiliz Chain** - [Dragon8](https://docs.chiliz.com/learn/about-chiliz-chain/2024-dragon8-hard-fork)
+1. 🗓️ `Q1 2024` - **DeSo Protocol**, [Revolution PoS](https://twitter.com/desoprotocol/status/1736095728328425790)
 
 #### Footnotes
 
