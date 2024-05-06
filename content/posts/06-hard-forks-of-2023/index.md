@@ -8,7 +8,7 @@ tags:
 flag: 🇬🇧
 ---
 
-Following [14 hard forks in Q4 2023]({{< ref 06-hard-forks-of-2023 >}}), there will be at least 5 planned protocol upgrades coming this year.
+Following [14 hard forks in Q4 2023]({{< ref 05-hard-forks-of-2022 >}}), there will be at least 5 planned protocol upgrades coming this year.
 
 <!--more-->
 
