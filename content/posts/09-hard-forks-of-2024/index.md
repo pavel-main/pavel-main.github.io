@@ -8,7 +8,7 @@ tags:
 flag: 🇬🇧
 ---
 
-Following [26 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will be at least 6 planned protocol upgrades coming this year. Giant kudos to Bitcoin Cash development team, giving 6 months notice once again! 
+Following [25 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will be at least 6 planned protocol upgrades coming this year. Giant kudos to Bitcoin Cash development team, giving 6 months notice once again! 
 
 <!--more-->
 
