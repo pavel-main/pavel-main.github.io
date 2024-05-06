@@ -8,7 +8,7 @@ tags:
 flag: 🇬🇧
 ---
 
-Following [14 hard forks in Q4 2022]({{< ref 05-hard-forks-of-2022 >}}), there will be at least 5 planned protocol upgrades coming this year.
+Following [16 hard forks in Q4 2022]({{< ref 05-hard-forks-of-2022 >}}), there will be at least 5 planned protocol upgrades coming this year.
 
 <!--more-->
 
@@ -21,7 +21,7 @@ Following [14 hard forks in Q4 2022]({{< ref 05-hard-forks-of-2022 >}}), there w
 1. 🗓️ `08 Mar 2023` - **DeSo Protocol**, [Associations spending limits improvements](https://github.com/deso-protocol/core/releases/tag/v3.2.0)
 1. 🗓️ `20 Mar 2023` - **Stacks**, [Stacks 2.1](https://stacks.org/stacks-21-what-to-expect)
 1. 🗓️ `21 Mar 2023` - **Ripple**, [Version 1.10.0](https://github.com/XRPLF/rippled/releases/tag/1.10.0)<sup>3</sup>
-1. 🗓️ `27 Mar 2023` - **NEAR**, [Meta Transactions](https://github.com/near/nearcore/releases/tag/1.32.0)<sup>4</sup>
+1. 🗓️ `27 Mar 2023` - **NEAR**, [Protocol v59](https://github.com/near/nearcore/releases/tag/1.32.0)<sup>4</sup>
 1. 🗓️ `29 Mar 2023` - **Tezos**, [Mumbai](https://tzstats.com/election/44)
 1. 🗓️ `12 Apr 2023` - **Ethereum**, [Shapella](https://blog.ethereum.org/2023/03/28/shapella-mainnet-announcement)
 1. 🗓️ `21 Apr 2023` - **DeSo Protocol**, [Accounting model migration](https://github.com/deso-protocol/core/releases/tag/v3.3.0)
