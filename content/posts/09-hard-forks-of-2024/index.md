@@ -19,9 +19,11 @@ Following [25 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `27 Jan 2024` - **Arbitrum**, [ArbOS version 11](https://forum.arbitrum.foundation/t/aip-arbos-version-11/19696)
 1. 🗓️ `31 Jan 2024` - **Ethereum Classic**, [Spiral](https://ecips.ethereumclassic.org/ECIPs/ecip-1109)
 1. 🗓️ `09 Feb 2024` - **Tezos**, [Oxford](https://tzstats.com/election/55)
+1. 🗓️ `22 Feb 2024` - **Optimism**, [Delta](https://github.com/ethereum-optimism/optimism/releases/tag/v1.5.0)
 1. 🗓️ `06 Mar 2024` - **Avalanche**, [Durango](https://github.com/ava-labs/avalanchego/releases/tag/v1.11.0)
 1. 🗓️ `11 Mar 2024` - **NEAR**, [Protocol v64](https://github.com/near/nearcore/releases/tag/1.37.0)
 1. 🗓️ `13 Mar 2024` - **Ethereum**, [Dencun](https://blog.ethereum.org/2024/02/27/dencun-mainnet-announcement)
+1. 🗓️ `14 Mar 2024` - **Optimism**, [Ecotone](https://github.com/ethereum-optimism/optimism/releases/tag/v1.7.0)
 1. 🗓️ `21 Mar 2024` - **NEAR**, [Protocol v65](https://github.com/near/nearcore/releases/tag/1.38.0)
 1. 🗓️ `10 Apr 2024` - **NEAR**, [Protocol v66](https://github.com/near/nearcore/releases/tag/1.39.0)
 1. 🗓️ `18 Apr 2024` - **Binance Smart Chain**, [Feynman](https://github.com/bnb-chain/bsc/releases/tag/v1.3.13)
@@ -34,6 +36,8 @@ Following [25 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `24 Jun 2024` - **NEAR**, [Protocol v66](https://github.com/near/nearcore/releases/tag/1.40.0)
 1. 🗓️ `28 Aug 2024` - **Stacks**, [Nakamoto](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan)
 1. 🗓️ `02 Jul 2024` - **DeSo Protocol**, [Revolution Proof-of-Stake](https://github.com/deso-protocol/core/releases/tag/v4.0.0)
+1. 🗓️ `10 Jul 2024` - **Optimism**, [Fjord](https://github.com/ethereum-optimism/optimism/releases/tag/v1.7.7)
+
 
 #### Footnotes
 
