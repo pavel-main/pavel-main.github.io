@@ -33,13 +33,13 @@ Following [25 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `15 Jun 2024` - **Tron**, [Cleobulus](https://medium.com/tronnetwork/mainnet-cleobulus-announcement-7103a4cc0bcd)
 1. 🗓️ `20 Jun 2024` - **Binance Smart Chain**, [Tycho](https://github.com/bnb-chain/bsc/releases/tag/v1.4.7)<sup>2</sup>
 1. 🗓️ `20 Jun 2024` - **Binance Smart Chain**, [Haber](https://github.com/bnb-chain/bsc/releases/tag/v1.4.8)<sup>2</sup>
-1. 🗓️ `24 Jun 2024` - **NEAR**, [Protocol v66](https://github.com/near/nearcore/releases/tag/1.40.0)
+1. 🗓️ `24 Jun 2024` - **NEAR**, [Protocol v67](https://github.com/near/nearcore/releases/tag/1.40.0)
 1. 🗓️ `28 Aug 2024` - **Stacks**, [Nakamoto](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan)
 1. 🗓️ `01 Jul 2024` - **Polkadot**, [Runtime v1.2.5](https://polkadot.subsquare.io/referenda/841)<sup>3</sup>
 1. 🗓️ `02 Jul 2024` - **DeSo Protocol**, [Revolution Proof-of-Stake](https://github.com/deso-protocol/core/releases/tag/v4.0.0)
 1. 🗓️ `10 Jul 2024` - **Optimism**, [Fjord](https://github.com/ethereum-optimism/optimism/releases/tag/v1.7.7)
-1. 🗓️ `12 Aug 2024` - **NEAR**, [Protocol v67](https://github.com/near/nearcore/releases/tag/2.0.0)
-1. 🗓️ `14 Aug 2024` - **NEAR**, [Protocol v68](https://github.com/near/nearcore/releases/tag/2.0.0)
+1. 🗓️ `12 Aug 2024` - **NEAR**, [Protocol v68](https://github.com/near/nearcore/releases/tag/2.0.0)
+1. 🗓️ `14 Aug 2024` - **NEAR**, [Protocol v69](https://github.com/near/nearcore/releases/tag/2.0.0)
 1. 🗓️ `04 Sep 2024` - **Polygon**, [MATIC → POL Migration](https://polygon.technology/blog/save-the-date-matic-pol-migration-coming-september-4th-everything-you-need-to-know)
 1. 🗓️ `Aug 2024` - **Cardano**, [Chang](https://docs.intersectmbo.org/cardano/cardano-hardforks-and-upgrades/chang-upgrade)
 
