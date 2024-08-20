@@ -41,7 +41,7 @@ Following [25 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `12 Aug 2024` - **NEAR**, [Protocol v68](https://github.com/near/nearcore/releases/tag/2.0.0)
 1. 🗓️ `14 Aug 2024` - **NEAR**, [Protocol v69](https://github.com/near/nearcore/releases/tag/2.0.0)
 1. 🗓️ `04 Sep 2024` - **Polygon**, [MATIC → POL Migration](https://polygon.technology/blog/save-the-date-matic-pol-migration-coming-september-4th-everything-you-need-to-know)
-1. 🗓️ `26 Aug 2024` - **NEAR**, [Protocol v70](https://github.com/near/nearcore/releases/tag/2.1.0)
+1. 🗓️ `26 Aug 2024` - **NEAR**, [Protocol v70](https://github.com/near/nearcore/releases/tag/2.1.1)
 1. 🗓️ `Sep 2024` - **Cardano**, [Chang](https://docs.intersectmbo.org/cardano/cardano-hardforks-and-upgrades/chang-upgrade)
 
 #### Footnotes
