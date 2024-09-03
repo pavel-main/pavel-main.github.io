@@ -1,14 +1,14 @@
 ---
-title: "My podcast translated into 8 languages"
+title: "My podcast translated into 9 languages"
 date: 2023-09-30
 draft: false
 tags:
   - podcasts
   - ai
-flag: 🇷🇺🇬🇧🇮🇹🇵🇹🇮🇳🇪🇸🇵🇱🇯🇵🇨🇳
+flag: 🇷🇺🇬🇧🇫🇷🇮🇹🇵🇹🇮🇳🇪🇸🇵🇱🇯🇵🇨🇳
 ---
 
-Translation of my [first podcast]({{< ref 03-basic-block-radio >}}) summary (30s) from Russian to 8 different languages using HeyGen Labs [Video Translate](https://labs.heygen.com/video-translate) AI tool. 
+Translation of my [first podcast]({{< ref 03-basic-block-radio >}}) summary (30s) from Russian to 9 different languages using HeyGen Labs [Video Translate](https://labs.heygen.com/video-translate) AI tool. 
 
 <!--more-->
 
@@ -18,6 +18,10 @@ Translation of my [first podcast]({{< ref 03-basic-block-radio >}}) summary (30s
 
 {{< detail-tag "🇬🇧 English" >}}
   {{<video src="videos/bb-132-intro-english">}}
+{{< /detail-tag >}}
+
+{{< detail-tag "🇫🇷 French" >}}
+  {{<video src="videos/bb-132-intro-french">}}
 {{< /detail-tag >}}
 
 {{< detail-tag "🇮🇹 Italian" >}}
