@@ -1,5 +1,5 @@
 ---
-title: "My podcast translated into 12 languages"
+title: "My podcast translated to 12 languages"
 date: 2023-09-30
 draft: false
 tags:
