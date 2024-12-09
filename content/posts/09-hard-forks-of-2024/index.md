@@ -46,6 +46,7 @@ Following [25 hard forks in 2023]({{< ref 06-hard-forks-of-2023 >}}), there will
 1. 🗓️ `29 Oct 2024` - **Stacks**, [Nakamoto](https://docs.stacks.co/nakamoto-upgrade/nakamoto-rollout-plan)
 1. 🗓️ `06 Nov 2024` - **Solana**, [Agave v2.0](https://github.com/anza-xyz/agave/wiki/Agave-v2.0-Transition-Guide)
 1. 🗓️ `11 Nov 2024` - **NEAR**, [Protocol v72](https://github.com/near/nearcore/releases/tag/2.3.0)
+1. 🗓️ `15 Dec 2024` - **NEAR**, [Protocol v73](https://github.com/near/nearcore/releases/tag/2.4.0)
 
 #### Footnotes
 
