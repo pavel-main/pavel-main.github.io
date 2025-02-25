@@ -26,9 +26,21 @@ Bummer, however our team have hosted a [separate event](https://lu.ma/m8cp6j1p) 
 
 {{< figure src="images/blockchain-team.jpg" title="Blockchain.com Team at Consensus" >}}
 
-## Day 1 - Emerging Protocols
+## Day 1 - Emerging Networks
 
-A vibe is something that's easier to show rather than tell, so I'll be injecting a bunch of videos captured by my [Ray-Ban / Meta Smart Glasses](https://www.ray-ban.com/usa/ray-ban-meta-smart-glasses)
+A _vibe_ is something that's easier to show rather than tell, so I'll be injecting a bunch of videos captured via [Ray-Ban / Meta Smart Glasses](https://www.ray-ban.com/usa/ray-ban-meta-smart-glasses)
+
+{{% columns %}}
+
+{{<video src="videos/day-1-walk-1" width="344" height="460">}}
+
+<--->
+
+{{<video src="videos/day-1-walk-2" width="344" height="460">}}
+
+{{% /columns %}}
+
+<br>
 
 {{< detail-tag "`ffmpeg` command to convert the videos" >}}
   ```shell
@@ -36,16 +48,19 @@ A vibe is something that's easier to show rather than tell, so I'll be injecting
   ```
 {{< /detail-tag >}}
 
-<br>
-
-|      |     |
-| --- | --- |
-| {{<video src="videos/day-1-walk-1">}} | {{<video src="videos/day-1-walk-2">}}
-
-
-
-
 ### SUI
+
+SUI has opened their presentation with a live demo of swap speed comparison to Solana, claiming to be 6 times faster.
+
+{{< figure src="images/sui-vs-solana.jpg" title="SUI vs Solana" width="75%" height="75%">}}
+
+They've also introduced their new [Walrus protocol](https://www.walrus.xyz) for decentralized storage, most notable features are:
+
+- **Resiliency** - will continue to run even with fault tolerant of up to ⅓ writes & ⅔ reads
+- **Smart contracts** for blog storage (manage access control, retention policy etc)
+- Publishing **websites** via Walrus
+
+Another pretty exotic announcement - [a gaming console](https://www.suiplay0x1.com/) tied directly to SUI wallet.
 
 ### Aptos
 

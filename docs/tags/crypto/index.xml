@@ -2,66 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Crypto on Pavel Kiselyov - Engineering Blog</title>
-    <link>http://localhost:1313/tags/crypto/</link>
+    <link>https://pavel-main.github.io/tags/crypto/</link>
     <description>Recent content in Crypto on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>🇭🇰 Consensus Hong Kong 2025</title>
-      <link>http://localhost:1313/posts/consensus-hong-kong-2025/</link>
-      <pubDate>Tue, 25 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/consensus-hong-kong-2025/</guid>
-      <description>&lt;p&gt;My key impressions &amp;amp; observations after attending one of the major crypto events this year - &lt;a href=&#34;https://consensus-hongkong2025.coindesk.com/&#34;&gt;Consensus by Coindesk&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pavel-main.github.io/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hard Forks of 2024</title>
-      <link>http://localhost:1313/posts/09-hard-forks-of-2024/</link>
+      <link>https://pavel-main.github.io/posts/09-hard-forks-of-2024/</link>
       <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/09-hard-forks-of-2024/</guid>
-      <description>&lt;p&gt;Following &lt;a href=&#34;http://localhost:1313/posts/06-hard-forks-of-2023/&#34;&gt;25 hard forks in 2023&lt;/a&gt;, there will be at least 6 planned protocol upgrades coming this year. Giant kudos to Bitcoin Cash development team, giving 6 months notice once again!&lt;/p&gt;</description>
+      <guid>https://pavel-main.github.io/posts/09-hard-forks-of-2024/</guid>
+      <description>&lt;p&gt;Following &lt;a href=&#34;https://pavel-main.github.io/posts/06-hard-forks-of-2023/&#34;&gt;25 hard forks in 2023&lt;/a&gt;, there will be at least 6 planned protocol upgrades coming this year. Giant kudos to Bitcoin Cash development team, giving 6 months notice once again!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hard Forks of 2023</title>
-      <link>http://localhost:1313/posts/06-hard-forks-of-2023/</link>
+      <link>https://pavel-main.github.io/posts/06-hard-forks-of-2023/</link>
       <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/06-hard-forks-of-2023/</guid>
-      <description>&lt;p&gt;Following &lt;a href=&#34;http://localhost:1313/posts/05-hard-forks-of-2022/&#34;&gt;16 hard forks in Q4 2022&lt;/a&gt;, there will be at least 5 planned protocol upgrades coming this year.&lt;/p&gt;</description>
+      <guid>https://pavel-main.github.io/posts/06-hard-forks-of-2023/</guid>
+      <description>&lt;p&gt;Following &lt;a href=&#34;https://pavel-main.github.io/posts/05-hard-forks-of-2022/&#34;&gt;16 hard forks in Q4 2022&lt;/a&gt;, there will be at least 5 planned protocol upgrades coming this year.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hard Forks of 2022</title>
-      <link>http://localhost:1313/posts/05-hard-forks-of-2022/</link>
+      <link>https://pavel-main.github.io/posts/05-hard-forks-of-2022/</link>
       <pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/05-hard-forks-of-2022/</guid>
+      <guid>https://pavel-main.github.io/posts/05-hard-forks-of-2022/</guid>
       <description>&lt;p&gt;Fall season of 2022 was a pretty intense period for crypto engineers &amp;amp; coin node operators - multiple cryptocurrencies have performed major protocol upgrades.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Self-Esteem Podcast #27</title>
-      <link>http://localhost:1313/posts/04-self-esteem-podcast/</link>
+      <link>https://pavel-main.github.io/posts/04-self-esteem-podcast/</link>
       <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/04-self-esteem-podcast/</guid>
+      <guid>https://pavel-main.github.io/posts/04-self-esteem-podcast/</guid>
       <description>&lt;p&gt;Had a live talk with a couple of Russian streamers based in Japan (Tokyo &amp;amp; Okinawa) about crypto:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://youtu.be/73QyigHW3kU&#34;&gt;🎥 Click to Play Video&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>BB-132: Pavel Kiselyov on ICO industry and Blockchain</title>
-      <link>http://localhost:1313/posts/03-basic-block-radio/</link>
+      <link>https://pavel-main.github.io/posts/03-basic-block-radio/</link>
       <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/03-basic-block-radio/</guid>
+      <guid>https://pavel-main.github.io/posts/03-basic-block-radio/</guid>
       <description>&lt;p&gt;Participated in Russian podcast called &lt;a href=&#34;https://basicblockradio.com/e132/&#34;&gt;Basic Block&lt;/a&gt; about software engineering in blockchain and cryptocurrency space.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://youtu.be/CNDCSwNzMmw&#34;&gt;🎥 Click to Play Video&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Smart Contracts for Dutch Auction (Part 2)</title>
-      <link>http://localhost:1313/posts/02-building-smart-contracts-for-dutch-auction-part-2/</link>
+      <link>https://pavel-main.github.io/posts/02-building-smart-contracts-for-dutch-auction-part-2/</link>
       <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/02-building-smart-contracts-for-dutch-auction-part-2/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/01-building-smart-contracts-for-dutch-auction-part-1/&#34;&gt;the previous article&lt;/a&gt;, we&amp;rsquo;ve figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.&lt;/p&gt;&#xA;&lt;p&gt;Now it’s time to write an actual Dutch Auction in Solidity!&lt;/p&gt;</description>
+      <guid>https://pavel-main.github.io/posts/02-building-smart-contracts-for-dutch-auction-part-2/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://pavel-main.github.io/posts/01-building-smart-contracts-for-dutch-auction-part-1/&#34;&gt;the previous article&lt;/a&gt;, we&amp;rsquo;ve figured out how typical ICOs work from a technical POV, picked up the proper toolbox for development, and learned how to deal with potential EVM problems.&lt;/p&gt;&#xA;&lt;p&gt;Now it’s time to write an actual Dutch Auction in Solidity!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Smart Contracts for Dutch Auction (Part 1)</title>
-      <link>http://localhost:1313/posts/01-building-smart-contracts-for-dutch-auction-part-1/</link>
+      <link>https://pavel-main.github.io/posts/01-building-smart-contracts-for-dutch-auction-part-1/</link>
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/01-building-smart-contracts-for-dutch-auction-part-1/</guid>
+      <guid>https://pavel-main.github.io/posts/01-building-smart-contracts-for-dutch-auction-part-1/</guid>
       <description>&lt;p&gt;In this series, we’ll talk about common challenges we encountered during the development of smart contracts for a non-standard token sale.&lt;/p&gt;&#xA;&lt;p&gt;Initial requirements for EVERY Token Sale:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Dutch auction with duration of 30 days&lt;/li&gt;&#xA;&lt;li&gt;Exponential price decay, starting from $19.99 down to $0.01 per token&lt;/li&gt;&#xA;&lt;li&gt;Ability to accept Bitcoin-funded bids&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>

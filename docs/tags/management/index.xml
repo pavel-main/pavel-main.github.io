@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Management on Pavel Kiselyov - Engineering Blog</title>
-    <link>http://localhost:1313/tags/management/</link>
+    <link>https://pavel-main.github.io/tags/management/</link>
     <description>Recent content in Management on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pavel-main.github.io/tags/management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lessons from a Year as an Engineering Manager</title>
-      <link>http://localhost:1313/posts/07-lessons-from-a-year-as-an-engineering-manager/</link>
+      <link>https://pavel-main.github.io/posts/07-lessons-from-a-year-as-an-engineering-manager/</link>
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/07-lessons-from-a-year-as-an-engineering-manager/</guid>
+      <guid>https://pavel-main.github.io/posts/07-lessons-from-a-year-as-an-engineering-manager/</guid>
       <description>&lt;p&gt;As I reflect on my first year as an Engineering Manager, I am grateful for the valuable experiences and insights that have shaped me both personally and professionally. This journey has taught me important lessons in planning, sleep management, and risk assessment, which I believe are crucial for any leader in the tech industry.&lt;/p&gt;&#xA;&lt;p&gt;In this article, I will share these three main ideas and touch on some minor factors that have contributed to my growth.&lt;/p&gt;</description>
     </item>
   </channel>
