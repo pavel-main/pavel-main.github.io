@@ -2,66 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pavel Kiselyov - Engineering Blog</title>
-    <link>https://pavel-main.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Pavel Kiselyov - Engineering Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://pavel-main.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conferences</title>
+      <link>http://localhost:1313/tags/conferences/</link>
+      <pubDate>Tue, 25 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/conferences/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Crypto</title>
-      <link>https://pavel-main.github.io/tags/crypto/</link>
-      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://pavel-main.github.io/tags/crypto/</guid>
+      <link>http://localhost:1313/tags/crypto/</link>
+      <pubDate>Tue, 25 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/crypto/</guid>
       <description></description>
     </item>
     <item>
       <title>Forks</title>
-      <link>https://pavel-main.github.io/tags/forks/</link>
+      <link>http://localhost:1313/tags/forks/</link>
       <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://pavel-main.github.io/tags/forks/</guid>
+      <guid>http://localhost:1313/tags/forks/</guid>
       <description></description>
     </item>
     <item>
       <title>Ai</title>
-      <link>https://pavel-main.github.io/tags/ai/</link>
+      <link>http://localhost:1313/tags/ai/</link>
       <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://pavel-main.github.io/tags/ai/</guid>
+      <guid>http://localhost:1313/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Podcasts</title>
-      <link>https://pavel-main.github.io/tags/podcasts/</link>
+      <link>http://localhost:1313/tags/podcasts/</link>
       <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://pavel-main.github.io/tags/podcasts/</guid>
+      <guid>http://localhost:1313/tags/podcasts/</guid>
       <description></description>
     </item>
     <item>
       <title>Engineering</title>
-      <link>https://pavel-main.github.io/tags/engineering/</link>
+      <link>http://localhost:1313/tags/engineering/</link>
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://pavel-main.github.io/tags/engineering/</guid>
+      <guid>http://localhost:1313/tags/engineering/</guid>
       <description></description>
     </item>
     <item>
       <title>Management</title>
-      <link>https://pavel-main.github.io/tags/management/</link>
+      <link>http://localhost:1313/tags/management/</link>
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://pavel-main.github.io/tags/management/</guid>
+      <guid>http://localhost:1313/tags/management/</guid>
       <description></description>
     </item>
     <item>
       <title>Ethereum</title>
-      <link>https://pavel-main.github.io/tags/ethereum/</link>
+      <link>http://localhost:1313/tags/ethereum/</link>
       <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>https://pavel-main.github.io/tags/ethereum/</guid>
+      <guid>http://localhost:1313/tags/ethereum/</guid>
       <description></description>
     </item>
     <item>
       <title>Solidity</title>
-      <link>https://pavel-main.github.io/tags/solidity/</link>
+      <link>http://localhost:1313/tags/solidity/</link>
       <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>https://pavel-main.github.io/tags/solidity/</guid>
+      <guid>http://localhost:1313/tags/solidity/</guid>
       <description></description>
     </item>
   </channel>

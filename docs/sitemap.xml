@@ -2,68 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://pavel-main.github.io/tags/crypto/</loc>
+    <loc>http://localhost:1313/posts/consensus-hong-kong-2025/</loc>
+    <lastmod>2025-02-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/conferences/</loc>
+    <lastmod>2025-02-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/crypto/</loc>
+    <lastmod>2025-02-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-02-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-02-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-02-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/forks/</loc>
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/tags/forks/</loc>
+    <loc>http://localhost:1313/posts/09-hard-forks-of-2024/</loc>
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/09-hard-forks-of-2024/</loc>
-    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/</loc>
-    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/posts/</loc>
-    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/tags/</loc>
-    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavel-main.github.io/tags/ai/</loc>
+    <loc>http://localhost:1313/tags/ai/</loc>
     <lastmod>2023-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/08-blockchain-podcast-translated-to-9-languages/</loc>
+    <loc>http://localhost:1313/posts/08-blockchain-podcast-translated-to-9-languages/</loc>
     <lastmod>2023-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/tags/podcasts/</loc>
+    <loc>http://localhost:1313/tags/podcasts/</loc>
     <lastmod>2023-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/tags/engineering/</loc>
+    <loc>http://localhost:1313/tags/engineering/</loc>
     <lastmod>2023-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/07-lessons-from-a-year-as-an-engineering-manager/</loc>
+    <loc>http://localhost:1313/posts/07-lessons-from-a-year-as-an-engineering-manager/</loc>
     <lastmod>2023-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/tags/management/</loc>
+    <loc>http://localhost:1313/tags/management/</loc>
     <lastmod>2023-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/06-hard-forks-of-2023/</loc>
+    <loc>http://localhost:1313/posts/06-hard-forks-of-2023/</loc>
     <lastmod>2023-01-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/05-hard-forks-of-2022/</loc>
+    <loc>http://localhost:1313/posts/05-hard-forks-of-2022/</loc>
     <lastmod>2022-10-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/04-self-esteem-podcast/</loc>
+    <loc>http://localhost:1313/posts/04-self-esteem-podcast/</loc>
     <lastmod>2021-05-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/03-basic-block-radio/</loc>
+    <loc>http://localhost:1313/posts/03-basic-block-radio/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/02-building-smart-contracts-for-dutch-auction-part-2/</loc>
+    <loc>http://localhost:1313/posts/02-building-smart-contracts-for-dutch-auction-part-2/</loc>
     <lastmod>2018-04-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/tags/ethereum/</loc>
+    <loc>http://localhost:1313/tags/ethereum/</loc>
     <lastmod>2018-04-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/tags/solidity/</loc>
+    <loc>http://localhost:1313/tags/solidity/</loc>
     <lastmod>2018-04-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/posts/01-building-smart-contracts-for-dutch-auction-part-1/</loc>
+    <loc>http://localhost:1313/posts/01-building-smart-contracts-for-dutch-auction-part-1/</loc>
     <lastmod>2018-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavel-main.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://pavel-main.github.io/series/</loc>
+    <loc>http://localhost:1313/series/</loc>
   </url>
 </urlset>

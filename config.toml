@@ -21,9 +21,6 @@ themeColor = "#1e2a62"
 customCss = []
 customJs = []
 
-[markup.goldmark.renderer]
-unsafe = true
-
 [menu]
 
   [[menu.main]]
@@ -38,14 +35,21 @@ unsafe = true
   tag = "tags"
 
 [markup]
+  [markup.goldmark.renderer]
+    unsafe = true
 
   [markup.highlight]
-  codeFences = true
-  guessSyntax = false
-  hl_Lines = ""
-  lineNoStart = 1
-  lineNos = false
-  lineNumbersInTable = true
-  noClasses = true # if false, you need to provide you own custom CSS
-  style = "monokai"
-  tabWidth = 4
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true # if false, you need to provide you own custom CSS
+    style = "monokai"
+    tabWidth = 4
+
+  [markup.tableOfContents]
+    ordered = true
+    startLevel = 2
+    endLevel = 2
