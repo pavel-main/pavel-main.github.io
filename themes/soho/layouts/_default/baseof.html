@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"{{with .Site.LanguageCode}} xml:lang="{{.}}" lang="{{.}}"{{end}}>
-<head>
-  <base href="{{ .Site.BaseURL }}">     
+<head>   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{ hugo.Generator }}
@@ -28,6 +27,10 @@
   <link type="text/css"
         rel="stylesheet"
         href="{{ `css/hyde.css` | relURL }}">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="{{ `css/extra.css` | relURL }}">
 
   {{ partial "theme-color.html" . }}
 
