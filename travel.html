@@ -60,6 +60,13 @@
             vector-effect: non-scaling-stroke; 
         }
         
+        /* Interactive States for Countries with Data */
+        path.country.visited, 
+        path.country.residence, 
+        path.country.layover { 
+            cursor: pointer; 
+        }
+
         path.country:hover { fill-opacity: 0.8; stroke: var(--text-color); stroke-width: 1px; }
 
         /* Strict CSS Priority */
@@ -286,7 +293,7 @@
             { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "residence", "visits": [{ "date": "2019-06-01", "end_date": "2019-10-13" }] },
             { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "trip", "visits": [{ "date": "2017-11-15", "end_date": "2017-11-20" }, { "date": "2017-06-14", "end_date": "2017-06-15" }, { "date": "2016-07-19", "end_date": "2016-07-22" }, { "date": "2016-05-19", "end_date": "2016-05-21" }] },
             { "country_code": "RUS", "country_name": "Russia", "city": "Nizhny Novgorod", "continent": "Europe", "coordinates": [44.0020, 56.3269], "type": "trip", "visits": [{ "date": "2019-07-06", "end_date": "2019-07-08" }] },
-            { "country_code": "CYP", "country_name": "Northern Cyprus", "city": "Girne", "continent": "Europe", "coordinates": [33.3199, 35.3364], "type": "trip", "visits": [{ "date": "2019-04-29" }, { "date": "2019-03-09" }, { "date": "2018-11-17" }] },
+            { "country_code": "CYP", "country_name": "Northern Cyprus", "city": "Girne", "continent": "Europe", "coordinates": [33.3199, 35.3364], "type": "trip", "visits": [{ "date": "2019-04-29", "end_date": "2019-05-01" }, { "date": "2019-03-09", "end_date": "2019-03-10" }, { "date": "2018-11-17", "end_date": "2018-11-18" }] },
             { "country_code": "NLD", "country_name": "Netherlands", "city": "Amsterdam", "continent": "Europe", "coordinates": [4.9041, 52.3676], "type": "trip", "visits": [{ "date": "2019-04-11", "end_date": "2019-04-15" }] },
             { "country_code": "GRC", "country_name": "Greece", "city": "Athens", "continent": "Europe", "coordinates": [23.7275, 37.9838], "type": "layover", "visits": [{ "date": "2019-04-01" }] },
             { "country_code": "DEU", "country_name": "Germany", "city": "Aachen", "continent": "Europe", "coordinates": [6.0839, 50.7753], "type": "trip", "visits": [{ "date": "2019-04-04", "end_date": "2019-04-11" }] },
@@ -310,19 +317,22 @@
             
             { "country_code": "RUS", "country_name": "Russia", "city": "Novosibirsk", "continent": "Asia", "coordinates": [82.9346, 55.0084], "type": "trip", "visits": [{ "date": "2018-03-31", "end_date": "2018-04-01" }, { "date": "2017-08-11", "end_date": "2017-08-12" }, { "date": "2017-03-26", "end_date": "2017-03-27" }, { "date": "2017-03-04", "end_date": "2017-03-05" }] },
             // 2017
+            { "country_code": "USA", "country_name": "USA", "city": "New York", "continent": "North America", "coordinates": [-74.0060, 40.7128], "type": "layover", "visits": [{ "date": "2017-06-13" }] },
+            { "country_code": "USA", "country_name": "USA", "city": "Los Angeles", "continent": "North America", "coordinates": [-118.2437, 34.0522], "type": "layover", "visits": [{ "date": "2017-05-13" }] },
+            { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "layover", "visits": [{ "date": "2017-05-13" }] },
             { "country_code": "USA", "country_name": "USA", "city": "Seattle", "continent": "North America", "coordinates": [-122.3321, 47.6062], "type": "trip", "visits": [{ "date": "2017-05-14", "end_date": "2017-06-12" }, { "date": "2016-06-21", "end_date": "2016-07-18" }] },
             { "country_code": "FIN", "country_name": "Finland", "city": "Helsinki", "continent": "Europe", "coordinates": [24.9384, 60.1699], "type": "layover", "visits": [{ "date": "2014-04-14" }] },
             { "country_code": "FIN", "country_name": "Finland", "city": "Helsinki", "continent": "Europe", "coordinates": [24.9384, 60.1699], "type": "trip", "visits": [{ "date": "2017-07-13", "end_date": "2017-07-17" }] },
             { "country_code": "RUS", "country_name": "Russia", "city": "Saint Petersburg", "continent": "Europe", "coordinates": [30.3351, 59.9343], "type": "trip", "visits": [{ "date": "2017-04-19", "end_date": "2017-04-25" }] },
             // 2014
-            { "country_code": "TUR", "country_name": "Turkey", "city": "Belek", "continent": "Asia", "coordinates": [31.0556, 36.8625], "type": "trip", "visits": [{ "date": "2014-05-14" }] },
-            { "country_code": "LTU", "country_name": "Lithuania", "city": "Vilnius", "continent": "Europe", "coordinates": [25.2797, 54.6872], "type": "trip", "visits": [{ "date": "2014-04-14" }, { "date": "2014-02-22", "end_date": "2014-02-25" }] },
+            { "country_code": "TUR", "country_name": "Turkey", "city": "Belek", "continent": "Asia", "coordinates": [31.0556, 36.8625], "type": "trip", "visits": [{ "date": "2014-05-14", "approximate": true }] },
+            { "country_code": "LTU", "country_name": "Lithuania", "city": "Vilnius", "continent": "Europe", "coordinates": [25.2797, 54.6872], "type": "trip", "visits": [{ "date": "2014-05-14", "approximate": true }, { "date": "2014-04-14" }, { "date": "2014-02-22", "end_date": "2014-02-25" }] },
             { "country_code": "NOR", "country_name": "Norway", "city": "Oslo", "continent": "Europe", "coordinates": [10.7522, 59.9139], "type": "layover", "visits": [{ "date": "2014-02-25" }] },
             { "country_code": "ESP", "country_name": "Spain", "city": "Malaga", "continent": "Europe", "coordinates": [-4.4214, 36.7212], "type": "residence", "visits": [{ "date": "2014-02-25", "end_date": "2014-06-13" }] },
             // 2011-2012
-             { "country_code": "RUS", "country_name": "Russia", "city": "Rostov-on-Don", "continent": "Europe", "coordinates": [39.7233, 47.2357], "type": "trip", "visits": [{ "date": "2012-12-15", "end_date": "2012-12-23" }, { "date": "2011-12-15", "end_date": "2011-12-23" }] },
+             { "country_code": "RUS", "country_name": "Russia", "city": "Rostov-on-Don", "continent": "Europe", "coordinates": [39.7233, 47.2357], "type": "trip", "visits": [{ "date": "2012-12-15", "end_date": "2012-12-23", "approximate": true }, { "date": "2011-12-15", "end_date": "2011-12-23", "approximate": true }] },
             // 2010
-            { "country_code": "UKR", "country_name": "Ukraine", "city": "Kiev", "continent": "Europe", "coordinates": [30.5234, 50.4501], "type": "residence", "visits": [{ "date": "2010-05-02", "end_date": "2010-08-07" }] },
+            { "country_code": "UKR", "country_name": "Ukraine", "city": "Kiev", "continent": "Europe", "coordinates": [30.5234, 50.4501], "type": "residence", "visits": [{ "date": "2010-05-02", "end_date": "2010-08-07", "approximate": true }] },
             // 1994 - 1999
             { "country_code": "KOR", "country_name": "South Korea", "city": "Daejeon", "continent": "Asia", "coordinates": [127.3845, 36.3504], "type": "residence", "custom_date_label": "1994 - 1999", "visits": [{ "date": "1994-01-01", "end_date": "1999-12-31" }] },
         ]
@@ -450,7 +460,8 @@
                                     code: t.country_code, 
                                     type: t.type, 
                                     custom_date_label: t.custom_date_label, 
-                                    badge_label: t.badge_label 
+                                    badge_label: t.badge_label,
+                                    approximate: v.approximate // Propagate flag
                                 });
                             });
                         });
@@ -569,6 +580,11 @@
             let dateDisplay = v.custom_date_label 
                 ? v.custom_date_label 
                 : `${v.date} ${v.end_date ? '- ' + v.end_date : ''}`;
+
+            // Add Approximate Date Marker
+            if (v.approximate) {
+                dateDisplay += ' <span title="Exact date unknown, approximate" style="cursor:help; font-size:0.8em; opacity:0.7">❓</span>';
+            }
 
             html += `
                 <div class="visit-card">
