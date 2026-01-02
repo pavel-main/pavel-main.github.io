@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Travel History</title>
+    <title>My Travel Map</title>
     
     <script src="https://d3js.org/d3.v7.min.js"></script>
     
@@ -56,11 +56,10 @@
             fill: var(--country-base); 
             stroke: var(--country-stroke); 
             stroke-width: 0.5px; 
-            transition: fill 0.3s; 
+            transition: fill 0.3s, d 0.7s ease; 
             vector-effect: non-scaling-stroke; 
         }
         
-        /* Interactive States for Countries with Data */
         path.country.visited, 
         path.country.residence, 
         path.country.layover { 
@@ -75,8 +74,8 @@
         path.country.layover { fill: var(--layover); fill-opacity: 0.6; stroke-dasharray: 2; }
         
         /* Dots */
-        circle.location-dot { stroke: var(--panel-bg); stroke-width: 0.5px; transition: 0.2s; cursor: pointer; opacity: 1; }
-        circle.location-dot:hover { r: 7px !important; stroke-width: 2px; fill: var(--text-color) !important; z-index: 100; }
+        circle.location-dot { stroke: var(--panel-bg); stroke-width: 0.5px; transition: 0.2s, cx 0.7s ease, cy 0.7s ease; cursor: pointer; opacity: 1; }
+        circle.location-dot:hover { stroke-width: 2px; fill: var(--text-color) !important; z-index: 100; }
         
         circle.dot-visit { fill: var(--highlight); }
         circle.dot-residence { fill: var(--residence); }
@@ -100,8 +99,12 @@
         }
         
         .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-        h1 { font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        h1 { font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 8px; margin: 0; }
         
+        /* Theme Toggle Icon */
+        #theme-toggle-icon { cursor: pointer; transition: transform 0.2s; font-size: 1.4rem; user-select: none; margin-left: 15px; }
+        #theme-toggle-icon:hover { transform: scale(1.2); }
+
         /* Legend Row */
         .legend-row { display: flex; gap: 12px; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; }
         .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-light); }
@@ -110,9 +113,18 @@
         .box-visit { background: var(--highlight); opacity: 0.8; }
         .box-layover { background: var(--layover); opacity: 0.8; }
         
-        .theme-switch-row { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
-        .switch-label { font-size: 0.85rem; color: var(--text-color); }
-        .theme-btn { background: var(--bg-color); border: 1px solid var(--border); color: var(--text-color); padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; }
+        .control-row { display: flex; align-items: center; justify-content: space-between; margin-top: 0.8rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+        .control-label { font-size: 0.85rem; color: var(--text-color); }
+        
+        select.proj-select {
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            color: var(--text-color);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            outline: none;
+        }
 
         #stats-trigger { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--panel-bg); color: var(--text-color); padding: 12px 24px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; box-shadow: var(--shadow); border: 1px solid var(--border); cursor: pointer; z-index: 50; transition: transform 0.2s, background 0.2s; display: flex; align-items: center; gap: 8px; }
         #stats-trigger:hover { transform: translateX(-50%) scale(1.05); color: var(--highlight); }
@@ -126,8 +138,38 @@
         .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--text-color); line-height: 1; margin-bottom: 0.5rem; }
         .stat-sub { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
 
-        .cardinal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-        .cardinal-item { background: var(--bg-color); padding: 10px; border-radius: 8px; border: 1px solid var(--border); }
+        /* Cross Layout Grid */
+        .cardinal-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            grid-template-rows: auto auto auto;
+            grid-template-areas: 
+                ". north ."
+                "west . east"
+                ". south .";
+            gap: 1rem; 
+            margin-top: 1rem; 
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cardinal-item { 
+            background: var(--bg-color); 
+            padding: 10px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border); 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .cardinal-north { grid-area: north; }
+        .cardinal-south { grid-area: south; }
+        .cardinal-west  { grid-area: west; }
+        .cardinal-east  { grid-area: east; }
+
         .cardinal-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px; font-weight: 700; }
         .cardinal-val { font-size: 0.95rem; font-weight: 600; color: var(--highlight); }
         .cardinal-coords { font-size: 0.75rem; color: var(--text-light); margin-top: 4px; font-family: monospace; display: block; border-top: 1px solid var(--border); padding-top: 4px; margin-top: 6px; }
@@ -160,7 +202,8 @@
 
 <div id="floating-panel">
     <div class="panel-header">
-        <h1>🌍 My Travels</h1>
+        <h1>🌍 My Travel Map</h1>
+        <span id="theme-toggle-icon" onclick="toggleTheme()" title="Toggle Dark Mode">🌚</span>
     </div>
     
     <div class="legend-row">
@@ -175,9 +218,12 @@
         </div>
     </div>
 
-    <div class="theme-switch-row">
-        <span class="switch-label">Appearance</span>
-        <button class="theme-btn" onclick="toggleTheme()">Switch Mode</button>
+    <div class="control-row">
+        <span class="control-label">Projection</span>
+        <select class="proj-select" id="projection-select" onchange="updateProjection()">
+            <option value="mercator" selected>Mercator</option>
+            <option value="natural">Natural Earth</option>
+        </select>
     </div>
 </div>
 
@@ -186,7 +232,7 @@
 </div>
 
 <button id="stats-trigger" onclick="toggleStatsPanel()">
-    <span>View Global Stats</span><span style="font-size: 1.2em">📊</span>
+    <span>View Stats</span><span style="font-size: 1.2em">📊</span>
 </button>
 
 <div id="stats-overlay">
@@ -339,207 +385,219 @@
     };
 
     // --- MAP INITIALIZATION ---
-    let svg, g, zoom, width, height;
+    let svg, g, zoom, width, height, projection, pathGenerator;
+    let loadedFeatures = null; // Store map data to avoid re-fetching
+    let sortedTravels = [];   // Store processed travel data
 
     function initMap() {
         const container = document.getElementById('map-container');
         width = container.clientWidth;
         height = container.clientHeight;
 
-        const projection = d3.geoNaturalEarth1().scale(width / 5.5).translate([width / 2, height / 2]);
-        const path = d3.geoPath().projection(projection);
-
-        svg = d3.select("#map-container").append("svg").attr("width", "100%").attr("height", "100%").attr("viewBox", `0 0 ${width} ${height}`).attr("preserveAspectRatio", "xMidYMid slice");
+        svg = d3.select("#map-container").append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid slice");
+            
         g = svg.append("g");
         
-        const countryGroup = g.append("g");
-        const dotGroup = g.append("g"); 
+        g.append("g").attr("id", "country-layer"); // Layer 1
+        g.append("g").attr("id", "dot-layer");     // Layer 2
 
-        zoom = d3.zoom().scaleExtent([1, 10]).translateExtent([[-100, -100], [width + 100, height + 100]]).on("zoom", (event) => {
-            g.attr("transform", event.transform);
-            g.selectAll("path").style("stroke-width", 0.5 / event.transform.k + "px");
-            // Increased base size from 2.5 to 3.8
-            const r = Math.max(1.5, 3.8 / Math.sqrt(event.transform.k)); 
-            g.selectAll("circle").attr("r", r).style("stroke-width", (0.5 / event.transform.k) + "px");
-        });
+        // Setup Zoom
+        zoom = d3.zoom().scaleExtent([1, 15])
+            .translateExtent([[-100, -100], [width + 100, height + 100]])
+            .on("zoom", (event) => {
+                g.attr("transform", event.transform);
+                g.selectAll("path").style("stroke-width", 0.5 / event.transform.k + "px");
+                
+                // Constant dot size logic
+                const baseRadius = 5; 
+                g.selectAll("circle").attr("r", baseRadius / event.transform.k)
+                    .style("stroke-width", (1 / event.transform.k) + "px");
+            });
 
         svg.call(zoom);
 
-        // --- DATA LOADING & FIXES ---
+        // Load Data Once
         const worldUrl = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";
-       
         d3.json(worldUrl).then((worldData) => {
-
-            // 1. Split French Guiana from France (FRA)
-            const france = worldData.features.find(f => f.id === "FRA");
-            const guianaFeatures = [];
-
-            if (france && france.geometry.type === "MultiPolygon") {
-                const franceCoords = [];
-                const guianaCoords = [];
-
-                france.geometry.coordinates.forEach(polygon => {
-                    const [lon, lat] = polygon[0][0];
-                    // Guiana is in S. America (~ lat < 10, lon < -40)
-                    if (lat < 10 && lon < -40) {
-                        guianaCoords.push(polygon);
-                    } else {
-                        franceCoords.push(polygon);
-                    }
-                });
-
-                france.geometry.coordinates = franceCoords; // Keep Metropolitan France
-
-                if (guianaCoords.length > 0) {
-                    guianaFeatures.push({
-                        type: "Feature",
-                        id: "GUF",
-                        properties: { name: "French Guiana" },
-                        geometry: { type: "MultiPolygon", coordinates: guianaCoords }
-                    });
-                }
-            }
-
-            // 2. Combine Features
-            const combinedFeatures = [
-                ...worldData.features,
-                ...guianaFeatures
-            ];
-
-            // 3. Draw Map
-            countryGroup.selectAll("path")
-                .data(combinedFeatures)
-                .join("path")
-                .attr("d", path)
-                .attr("class", d => {
-                    // Check if specific code (e.g. ENG) or general code (GBR) matches
-                    const countryTrips = travelData.travels.filter(t => 
-                        t.country_code === d.id || 
-                        (d.id === 'GBR' && ['ENG','SCT','WLS','NIR'].includes(t.country_code))
-                    );
-                    
-                    let baseClass = "country";
-                    
-                    if (countryTrips.length > 0) {
-                        if (countryTrips.some(t => t.type === 'residence')) baseClass += " residence";
-                        else if (countryTrips.some(t => t.type === 'trip')) baseClass += " visited";
-                        else if (countryTrips.some(t => t.type === 'layover')) baseClass += " layover";
-                    }
-                    return baseClass;
-                })
-                .on("mouseover", (e, d) => showTooltip(e, d.properties.name))
-                .on("mouseout", hideTooltip)
-                .on("click", (e, d) => {
-                    const countryCode = d.id;
-                    
-                    let relevantTravels = [];
-                    let overrideTitle = null;
-                    let overrideCode = null;
-
-                    // SPECIAL HANDLING: Great Britain (GBR)
-                    // If clicking GBR, aggregate all UK nations (ENG, SCT, WLS, NIR)
-                    if (countryCode === 'GBR') {
-                        relevantTravels = travelData.travels.filter(t => 
-                            ['ENG','SCT','WLS','NIR','GBR'].includes(t.country_code)
-                        );
-                        overrideTitle = "Great Britain";
-                        overrideCode = "GBR";
-                    } else {
-                        // Standard Country Click
-                        relevantTravels = travelData.travels.filter(t => t.country_code === countryCode);
-                    }
-                    
-                    if (relevantTravels.length > 0) {
-                        const aggregatedVisits = [];
-                        relevantTravels.forEach(t => {
-                            t.visits.forEach(v => {
-                                aggregatedVisits.push({ 
-                                    ...v, 
-                                    city: t.city, 
-                                    country: t.country_name, 
-                                    code: t.country_code, 
-                                    type: t.type, 
-                                    custom_date_label: t.custom_date_label, 
-                                    badge_label: t.badge_label,
-                                    approximate: v.approximate // Propagate flag
-                                });
-                            });
-                        });
-                        aggregatedVisits.sort((a, b) => new Date(b.date) - new Date(a.date));
-                        
-                        openSidebar({ 
-                            type: 'country_aggregation', 
-                            country_name: overrideTitle || relevantTravels[0].country_name, 
-                            country_code: overrideCode, // Pass override code (GBR) if exists
-                            visits: aggregatedVisits 
-                        });
-                        e.stopPropagation();
-                    }
-                });
-
-            // 4. PRE-PROCESS DOTS: Group by City+Country to fix "Clicking Moscow shows only one"
-            const cityGroups = {};
-            travelData.travels.forEach(t => {
-                if(!t.coordinates) return;
-                const key = `${t.city}|${t.country_name}`;
-                
-                if (!cityGroups[key]) {
-                    cityGroups[key] = {
-                        ...t,
-                        visits: [] // We will rebuild the visits list
-                    };
-                }
-                
-                // Add all visits from this entry
-                t.visits.forEach(v => {
-                    cityGroups[key].visits.push({
-                        ...v,
-                        type: t.type, // Ensure visit inherits the type (residence/trip)
-                        code: t.country_code,
-                        badge_label: t.badge_label
-                    });
-                });
-
-                // Priority Logic for the Dot Color: Residence > Trip > Layover
-                const priorities = { 'residence': 3, 'trip': 2, 'layover': 1 };
-                const currentPriority = priorities[cityGroups[key].type] || 0;
-                const newPriority = priorities[t.type] || 0;
-
-                if (newPriority > currentPriority) {
-                    cityGroups[key].type = t.type;
-                }
-            });
-            const uniqueCities = Object.values(cityGroups);
-
-            // 5. Draw Dots
-            const sortedTravels = uniqueCities.sort((a, b) => {
-                if (a.type === 'residence') return 1;
-                if (b.type === 'residence') return -1;
-                return 0;
-            });
-
-            dotGroup.selectAll("circle")
-                .data(sortedTravels)
-                .join("circle")
-                .attr("cx", d => projection(d.coordinates)[0])
-                .attr("cy", d => projection(d.coordinates)[1])
-                .attr("r", 3.8) // Increased size
-                .attr("class", d => {
-                    if (d.type === 'residence') return "location-dot dot-residence";
-                    if (d.type === 'layover') return "location-dot dot-layover";
-                    return "location-dot dot-visit";
-                })
-                .on("mouseover", (e, d) => showTooltip(e, `${d.city}, ${d.country_name}`))
-                .on("mouseout", hideTooltip)
-                .on("click", (e, d) => {
-                    // Sort visits inside the sidebar
-                    d.visits.sort((a, b) => new Date(b.date) - new Date(a.date));
-                    openSidebar({ ...d, visits: d.visits.map(v => ({...v, city: d.city, country: d.country_name, code: d.country_code || d.code, type: v.type, custom_date_label: d.custom_date_label, badge_label: d.badge_label }))});
-                    e.stopPropagation();
-                });
-
+            loadedFeatures = processWorldData(worldData);
+            processTravelData(); // Prepare dots
+            updateProjection();  // Draw Map
             renderStats();
         });
+    }
+    
+    // --- MAP LOGIC SEPARATION ---
+
+    function processWorldData(worldData) {
+        const france = worldData.features.find(f => f.id === "FRA");
+        const guianaFeatures = [];
+
+        if (france && france.geometry.type === "MultiPolygon") {
+            const franceCoords = [];
+            const guianaCoords = [];
+
+            france.geometry.coordinates.forEach(polygon => {
+                const [lon, lat] = polygon[0][0];
+                if (lat < 10 && lon < -40) guianaCoords.push(polygon);
+                else franceCoords.push(polygon);
+            });
+
+            france.geometry.coordinates = franceCoords; 
+
+            if (guianaCoords.length > 0) {
+                guianaFeatures.push({
+                    type: "Feature",
+                    id: "GUF",
+                    properties: { name: "French Guiana" },
+                    geometry: { type: "MultiPolygon", coordinates: guianaCoords }
+                });
+            }
+        }
+        return [...worldData.features, ...guianaFeatures];
+    }
+
+    function processTravelData() {
+        const cityGroups = {};
+        travelData.travels.forEach(t => {
+            if(!t.coordinates) return;
+            const key = `${t.city}|${t.country_name}`;
+            
+            if (!cityGroups[key]) {
+                cityGroups[key] = { ...t, visits: [] };
+            }
+            
+            t.visits.forEach(v => {
+                cityGroups[key].visits.push({
+                    ...v, type: t.type, code: t.country_code, badge_label: t.badge_label
+                });
+            });
+
+            const priorities = { 'residence': 3, 'trip': 2, 'layover': 1 };
+            const currentPriority = priorities[cityGroups[key].type] || 0;
+            const newPriority = priorities[t.type] || 0;
+            if (newPriority > currentPriority) cityGroups[key].type = t.type;
+        });
+
+        sortedTravels = Object.values(cityGroups).sort((a, b) => {
+            if (a.type === 'residence') return 1;
+            if (b.type === 'residence') return -1;
+            return 0;
+        });
+    }
+
+    // --- PROJECTION SWITCHER ---
+    function updateProjection() {
+        if (!loadedFeatures) return;
+
+        const type = document.getElementById("projection-select").value;
+
+        // Define Projections
+        if (type === 'mercator') {
+            projection = d3.geoMercator()
+                .scale(width / 6.5)
+                .translate([width / 2, height / 1.5]); // Adjust Mercator center
+        } else {
+            projection = d3.geoNaturalEarth1()
+                .scale(width / 5.5)
+                .translate([width / 2, height / 2]);
+        }
+
+        pathGenerator = d3.geoPath().projection(projection);
+
+        // Update Paths (Countries)
+        const countrySelection = g.select("#country-layer").selectAll("path")
+            .data(loadedFeatures, d => d.id || d.properties.name);
+
+        countrySelection.join(
+            enter => enter.append("path")
+                .attr("class", d => getCountryClass(d))
+                .attr("d", pathGenerator)
+                .on("mouseover", (e, d) => showTooltip(e, d.properties.name))
+                .on("mouseout", hideTooltip)
+                .on("click", handleCountryClick),
+            update => update.transition().duration(750).attr("d", pathGenerator)
+        );
+
+        // Update Dots
+        const dotSelection = g.select("#dot-layer").selectAll("circle")
+            .data(sortedTravels);
+
+        dotSelection.join(
+            enter => enter.append("circle")
+                .attr("class", d => `location-dot dot-${d.type === 'residence' ? 'residence' : d.type === 'layover' ? 'layover' : 'visit'}`)
+                .attr("r", 5) // Initial render size (will be adjusted by zoom)
+                .attr("cx", d => projection(d.coordinates)[0])
+                .attr("cy", d => projection(d.coordinates)[1])
+                .on("mouseover", (e, d) => showTooltip(e, `${d.city}, ${d.country_name}`))
+                .on("mouseout", hideTooltip)
+                .on("click", handleDotClick),
+            update => update.transition().duration(750)
+                .attr("cx", d => projection(d.coordinates)[0])
+                .attr("cy", d => projection(d.coordinates)[1])
+        );
+
+        // Reset Zoom on Projection Change for cleanliness
+        svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
+    }
+
+    function getCountryClass(d) {
+        const countryTrips = travelData.travels.filter(t => 
+            t.country_code === d.id || (d.id === 'GBR' && ['ENG','SCT','WLS','NIR'].includes(t.country_code))
+        );
+        let baseClass = "country";
+        if (countryTrips.length > 0) {
+            if (countryTrips.some(t => t.type === 'residence')) baseClass += " residence";
+            else if (countryTrips.some(t => t.type === 'trip')) baseClass += " visited";
+            else if (countryTrips.some(t => t.type === 'layover')) baseClass += " layover";
+        }
+        return baseClass;
+    }
+
+    // --- CLICK HANDLERS (Moved out of Init) ---
+    function handleCountryClick(e, d) {
+        const countryCode = d.id;
+        let relevantTravels = [];
+        let overrideTitle = null;
+        let overrideCode = null;
+
+        if (countryCode === 'GBR') {
+            relevantTravels = travelData.travels.filter(t => ['ENG','SCT','WLS','NIR','GBR'].includes(t.country_code));
+            overrideTitle = "Great Britain";
+            overrideCode = "GBR";
+        } else {
+            relevantTravels = travelData.travels.filter(t => t.country_code === countryCode);
+        }
+        
+        if (relevantTravels.length > 0) {
+            const aggregatedVisits = [];
+            relevantTravels.forEach(t => {
+                t.visits.forEach(v => {
+                    aggregatedVisits.push({ 
+                        ...v, city: t.city, country: t.country_name, code: t.country_code, 
+                        type: t.type, custom_date_label: t.custom_date_label, badge_label: t.badge_label,
+                        approximate: v.approximate 
+                    });
+                });
+            });
+            aggregatedVisits.sort((a, b) => new Date(b.date) - new Date(a.date));
+            openSidebar({ 
+                type: 'country_aggregation', 
+                country_name: overrideTitle || relevantTravels[0].country_name, 
+                country_code: overrideCode,
+                visits: aggregatedVisits 
+            });
+            e.stopPropagation();
+        }
+    }
+
+    function handleDotClick(e, d) {
+        d.visits.sort((a, b) => new Date(b.date) - new Date(a.date));
+        openSidebar({ ...d, visits: d.visits.map(v => ({...v, city: d.city, country: d.country_name, code: d.country_code || d.code, type: v.type, custom_date_label: d.custom_date_label, badge_label: d.badge_label }))});
+        e.stopPropagation();
     }
 
     window.addEventListener('resize', () => { d3.select("svg").remove(); initMap(); });
@@ -564,7 +622,6 @@
         const countryName = data.country_name || data.country; 
         const titleText = data.type === 'country_aggregation' ? countryName : `${data.city}, ${countryName}`;
         
-        // Prioritize explicit code passed (e.g. GBR), otherwise fallback to visit code
         const code = data.country_code || (data.visits && data.visits[0] ? data.visits[0].code : null);
         
         title.textContent = `${getFlag(code)} ${titleText}`;
@@ -573,7 +630,6 @@
         let html = '';
         data.visits.forEach(v => {
             const badgeClass = v.type; 
-            // Prefer custom badge label (e.g. Birth Place) over generic type
             const badgeLabel = v.badge_label || (v.type.charAt(0).toUpperCase() + v.type.slice(1));
             const cityHtml = data.type === 'country_aggregation' ? `<span class="city-label">${v.city}</span>` : '';
             
@@ -581,7 +637,6 @@
                 ? v.custom_date_label 
                 : `${v.date} ${v.end_date ? '- ' + v.end_date : ''}`;
 
-            // Add Approximate Date Marker
             if (v.approximate) {
                 dateDisplay += ' <span title="Exact date unknown, approximate" style="cursor:help; font-size:0.8em; opacity:0.7">❓</span>';
             }
@@ -605,8 +660,15 @@
     d3.select("#map-container").on("click", () => { closeSidebar(); document.getElementById('stats-overlay').classList.remove('visible'); });
 
     function toggleTheme() {
-        const isDark = document.body.getAttribute('data-theme') === 'dark';
-        document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        const body = document.body;
+        const isDark = body.getAttribute('data-theme') === 'dark';
+        body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        
+        // Update Icon
+        const icon = document.getElementById('theme-toggle-icon');
+        // If it was dark (isDark is true), we are now light -> Show Moon (to toggle back to dark)
+        // If it was light (isDark is false), we are now dark -> Show Sun (to toggle back to light)
+        icon.textContent = isDark ? '🌚' : '☀️';
     }
 
     // --- STATS ---
@@ -639,23 +701,24 @@
             return Math.abs(val).toFixed(2) + '° ' + (val >= 0 ? 'E' : 'W');
         };
 
+        // Grid Area classes (cardinal-north, cardinal-south, etc.)
         const extremeHtml = `
-            <div class="cardinal-item">
+            <div class="cardinal-item cardinal-north">
                 <div class="cardinal-label">Northernmost ⬆️</div>
                 <div class="cardinal-val">${getFlag(northPlace.country_code)} ${northPlace.city}, ${northPlace.country_name}</div>
                 <div class="cardinal-coords">${formatCoord(maxLat, 'lat')}, ${formatCoord(northPlace.coordinates[0], 'lon')}</div>
             </div>
-            <div class="cardinal-item">
+            <div class="cardinal-item cardinal-south">
                 <div class="cardinal-label">Southernmost ⬇️</div>
                 <div class="cardinal-val">${getFlag(southPlace.country_code)} ${southPlace.city}, ${southPlace.country_name}</div>
                 <div class="cardinal-coords">${formatCoord(minLat, 'lat')}, ${formatCoord(southPlace.coordinates[0], 'lon')}</div>
             </div>
-            <div class="cardinal-item">
+            <div class="cardinal-item cardinal-east">
                 <div class="cardinal-label">Easternmost ➡️</div>
                 <div class="cardinal-val">${getFlag(eastPlace.country_code)} ${eastPlace.city}, ${eastPlace.country_name}</div>
                 <div class="cardinal-coords">${formatCoord(maxLon, 'lon')}, ${formatCoord(eastPlace.coordinates[1], 'lat')}</div>
             </div>
-            <div class="cardinal-item">
+            <div class="cardinal-item cardinal-west">
                 <div class="cardinal-label">Westernmost ⬅️</div>
                 <div class="cardinal-val">${getFlag(westPlace.country_code)} ${westPlace.city}, ${westPlace.country_name}</div>
                 <div class="cardinal-coords">${formatCoord(minLon, 'lon')}, ${formatCoord(westPlace.coordinates[1], 'lat')}</div>
