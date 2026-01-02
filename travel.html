@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel History</title>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <style>
+        :root {
+            /* Light Mode by Default */
+            --bg-color: #f8fafc;
+            --panel-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #334155;
+            --text-light: #64748b;
+            
+            /* Status Colors */
+            --highlight: #0077be; /* Ocean Blue */
+            --residence: #581c87; /* Residence (Dark Purple) */
+            --layover: #f59e0b; /* Layover (Orange) */
+            
+            --country-base: #e2e8f0;
+            --country-stroke: #ffffff;
+            --water: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --panel-bg: rgba(30, 41, 59, 0.95);
+            --text-color: #f1f5f9;
+            --text-light: #94a3b8;
+            
+            --highlight: #38bdf8; /* Lighter Blue for contrast in dark mode */
+            --residence: #7e22ce;
+            --layover: #fbbf24;
+            
+            --country-base: #1e293b;
+            --country-stroke: #0f172a;
+            --water: #0f172a;
+            --border: #334155;
+            --shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        
+        body { background: var(--water); color: var(--text-color); height: 100vh; overflow: hidden; transition: 0.3s; }
+
+        /* --- MAP STYLES --- */
+        #map-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: grab; }
+        #map-container:active { cursor: grabbing; }
+
+        path.country { 
+            fill: var(--country-base); 
+            stroke: var(--country-stroke); 
+            stroke-width: 0.5px; 
+            transition: fill 0.3s; 
+            vector-effect: non-scaling-stroke; 
+        }
+        
+        path.country:hover { fill-opacity: 0.8; stroke: var(--text-color); stroke-width: 1px; }
+
+        /* Strict CSS Priority */
+        path.country.residence { fill: var(--residence) !important; fill-opacity: 0.85; }
+        path.country.visited { fill: var(--highlight); fill-opacity: 0.7; }
+        path.country.layover { fill: var(--layover); fill-opacity: 0.6; stroke-dasharray: 2; }
+        
+        /* Dots */
+        circle.location-dot { stroke: var(--panel-bg); stroke-width: 1px; transition: 0.2s; cursor: pointer; opacity: 1; }
+        circle.location-dot:hover { r: 8px !important; stroke-width: 2px; fill: var(--text-color) !important; z-index: 100; }
+        
+        circle.dot-visit { fill: var(--highlight); }
+        circle.dot-residence { fill: var(--residence); }
+        circle.dot-layover { fill: var(--layover); }
+
+        /* Tooltip */
+        #tooltip { position: absolute; background: var(--panel-bg); color: var(--text-color); padding: 6px 10px; border-radius: 4px; font-size: 0.8rem; pointer-events: none; box-shadow: var(--shadow); opacity: 0; z-index: 1000; border: 1px solid var(--border); transition: opacity 0.1s; backdrop-filter: blur(5px); }
+
+        /* --- UI COMPONENTS --- */
+        #floating-panel { 
+            position: absolute; top: 20px; left: 20px; 
+            background: var(--panel-bg); 
+            padding: 1.25rem; 
+            border-radius: 12px; 
+            box-shadow: var(--shadow); 
+            border: 1px solid var(--border); 
+            z-index: 50; 
+            width: auto; 
+            min-width: 280px;
+            backdrop-filter: blur(8px); 
+        }
+        
+        .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        h1 { font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        
+        /* Legend Row */
+        .legend-row { display: flex; gap: 12px; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-light); }
+        .color-box { width: 12px; height: 12px; border-radius: 3px; }
+        .box-residence { background: var(--residence); opacity: 0.9; }
+        .box-visit { background: var(--highlight); opacity: 0.8; }
+        .box-layover { background: var(--layover); opacity: 0.8; }
+        
+        .theme-switch-row { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+        .switch-label { font-size: 0.85rem; color: var(--text-color); }
+        .theme-btn { background: var(--bg-color); border: 1px solid var(--border); color: var(--text-color); padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; }
+
+        #stats-trigger { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--panel-bg); color: var(--text-color); padding: 12px 24px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; box-shadow: var(--shadow); border: 1px solid var(--border); cursor: pointer; z-index: 50; transition: transform 0.2s, background 0.2s; display: flex; align-items: center; gap: 8px; }
+        #stats-trigger:hover { transform: translateX(-50%) scale(1.05); color: var(--highlight); }
+
+        #stats-overlay { position: absolute; bottom: 0; left: 0; width: 100%; max-height: 80vh; background: var(--panel-bg); border-top-left-radius: 20px; border-top-right-radius: 20px; box-shadow: 0 -5px 30px rgba(0,0,0,0.2); z-index: 60; transform: translateY(110%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; border-top: 1px solid var(--border); backdrop-filter: blur(10px); }
+        #stats-overlay.visible { transform: translateY(0); }
+        .stats-header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .stats-content { padding: 2rem; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; padding-bottom: 4rem; }
+        
+        .stat-group h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 1rem; }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--text-color); line-height: 1; margin-bottom: 0.5rem; }
+        .stat-sub { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
+
+        .cardinal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+        .cardinal-item { background: var(--bg-color); padding: 10px; border-radius: 8px; border: 1px solid var(--border); }
+        .cardinal-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px; font-weight: 700; }
+        .cardinal-val { font-size: 0.95rem; font-weight: 600; color: var(--highlight); }
+        .cardinal-coords { font-size: 0.75rem; color: var(--text-light); margin-top: 4px; font-family: monospace; display: block; border-top: 1px solid var(--border); padding-top: 4px; margin-top: 6px; }
+
+        .accordion-item { border-bottom: 1px solid var(--border); }
+        .accordion-header { padding: 0.8rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        .accordion-header:hover { color: var(--highlight); }
+        .accordion-header-sub { font-size: 0.8rem; color: var(--text-light); margin-right: auto; margin-left: 10px; }
+        .accordion-body { display: none; padding-bottom: 1rem; font-size: 0.9rem; color: var(--text-light); padding-left: 1rem; border-left: 2px solid var(--border); margin-left: 4px; }
+        .accordion-body.show { display: block; animation: fadeIn 0.3s ease; }
+        .trip-entry { margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+        #sidebar { width: 380px; background: var(--panel-bg); border-left: 1px solid var(--border); position: absolute; right: 0; top: 0; bottom: 0; transform: translateX(100%); transition: transform 0.3s ease; z-index: 70; display: flex; flex-direction: column; box-shadow: -5px 0 20px rgba(0,0,0,0.1); backdrop-filter: blur(10px); }
+        #sidebar.open { transform: translateX(0); }
+        .sidebar-header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .sidebar-content { padding: 1.5rem; overflow-y: auto; flex: 1; }
+        .close-btn { background: none; border: none; font-size: 1.5rem; color: var(--text-color); cursor: pointer; }
+        .visit-card { background: var(--bg-color); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+        .badge { padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-left: auto; }
+        .badge.trip { background: var(--highlight); color: white; }
+        .badge.residence { background: var(--residence); color: white; }
+        .badge.layover { background: var(--layover); color: #000; }
+        .city-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-light); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .location-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--bg-color); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); margin: 3px; font-size: 0.85rem; width: 100%; }
+    </style>
+</head>
+<body>
+
+<div id="floating-panel">
+    <div class="panel-header">
+        <h1>🌍 My Travels</h1>
+    </div>
+    
+    <div class="legend-row">
+        <div class="legend-item">
+            <div class="color-box box-residence"></div><span>Residence</span>
+        </div>
+        <div class="legend-item">
+            <div class="color-box box-visit"></div><span>Visited</span>
+        </div>
+        <div class="legend-item">
+            <div class="color-box box-layover"></div><span>Layover</span>
+        </div>
+    </div>
+
+    <div class="theme-switch-row">
+        <span class="switch-label">Appearance</span>
+        <button class="theme-btn" onclick="toggleTheme()">Switch Mode</button>
+    </div>
+</div>
+
+<div id="map-container">
+    <div id="tooltip"></div>
+</div>
+
+<button id="stats-trigger" onclick="toggleStatsPanel()">
+    <span>View Global Stats</span><span style="font-size: 1.2em">📊</span>
+</button>
+
+<div id="stats-overlay">
+    <div class="stats-header">
+        <h2>Travel Statistics</h2>
+        <button class="close-btn" onclick="toggleStatsPanel()">×</button>
+    </div>
+    <div class="stats-content">
+        <div class="stat-group">
+            <h3>Global Overview</h3>
+            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: space-between;">
+                <div><div class="stat-number" id="stat-countries">0</div><div class="stat-sub">Countries</div></div>
+                <div><div class="stat-number" id="stat-trips">0</div><div class="stat-sub">Trips</div></div>
+                <div><div class="stat-number" id="stat-percentage">0%</div><div class="stat-sub">World Seen</div></div>
+            </div>
+            
+            <h3>Continent Coverage</h3>
+            <div id="continent-stats"></div>
+
+            <h3 style="margin-top: 2rem;">Cardinal Extremes</h3>
+            <div class="cardinal-grid" id="cardinal-stats"></div>
+        </div>
+        
+        <div class="stat-group">
+            <h3>Yearly Breakdown</h3>
+            <div id="year-stats"></div>
+        </div>
+    </div>
+</div>
+
+<div id="sidebar">
+    <div class="sidebar-header">
+        <h2 id="sidebar-title">Location</h2>
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+    </div>
+    <div class="sidebar-content" id="sidebar-body"></div>
+</div>
+
+<script>
+    // --- HELPERS ---
+    // Custom Flag Mapper
+    const iso3toFlag = {
+        // Standard
+        "HKG": "🇭🇰", "MAC": "🇲🇴", "QAT": "🇶🇦", "ARG": "🇦🇷", "SRB": "🇷🇸", "TUR": "🇹🇷", "CHN": "🇨🇳",
+        "USA": "🇺🇸", "SYC": "🇸🇨", "GEO": "🇬🇪", "ITA": "🇮🇹", "JOR": "🇯🇴", "EGY": "🇪🇬",
+        "MUS": "🇲🇺", "MAR": "🇲🇦", "MDV": "🇲🇻", "ESP": "🇪🇸", "FRA": "🇫🇷", "MCO": "🇲🇨", "IRL": "🇮🇪",
+        "ARE": "🇦🇪", "RUS": "🇷🇺", "CYP": "🇨🇾", "NLD": "🇳🇱", "GRC": "🇬🇷", "DEU": "🇩🇪", "BEL": "🇧🇪",
+        "PSE": "🇵🇸", "ISR": "🇮🇱", "BHR": "🇧🇭", "FIN": "🇫🇮", "CZE": "🇨🇿", "NOR": "🇳🇴", "DNK": "🇩🇰",
+        "UKR": "🇺🇦", "KOR": "🇰🇷", "CHE": "🇨🇭", "LTU": "🇱🇹",
+        // UK Subdivisions
+        "ENG": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "SCT": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "WLS": "🏴󠁧󠁢󠁷󠁬󠁳󠁿", "NIR": "🇬🇧", "GBR": "🇬🇧"
+    };
+
+    function getFlag(code) {
+        return iso3toFlag[code] || "🏳️";
+    }
+
+    const continentTotals = {
+        "Europe": 44, "Asia": 48, "Africa": 54,
+        "North America": 23, "South America": 12, "Oceania": 14
+    };
+
+    // --- DATA ---
+    const travelData = {
+        "travels": [
+            // 2025
+            { "country_code": "CHN", "country_name": "China", "city": "Shenzhen", "continent": "Asia", "coordinates": [114.0579, 22.5431], "type": "layover", "visits": [{ "date": "2025-02-20" }] },
+            { "country_code": "HKG", "country_name": "Hong Kong", "city": "Hong Kong", "continent": "Asia", "coordinates": [114.1694, 22.3193], "type": "trip", "visits": [{ "date": "2025-02-17", "end_date": "2025-02-21" }] },
+            { "country_code": "MAC", "country_name": "Macao", "city": "Macao", "continent": "Asia", "coordinates": [113.5439, 22.1987], "type": "trip", "visits": [{ "date": "2025-02-18" }] },
+            { "country_code": "QAT", "country_name": "Qatar", "city": "Doha", "continent": "Asia", "coordinates": [51.5310, 25.2854], "type": "trip", "visits": [{ "date": "2025-12-16", "end_date": "2025-12-26" }] },
+            { "country_code": "ARG", "country_name": "Argentina", "city": "Buenos Aires", "continent": "South America", "coordinates": [-58.3816, -34.6037], "type": "trip", "visits": [{ "date": "2025-11-02", "end_date": "2025-11-07" }] },
+            { "country_code": "SRB", "country_name": "Serbia", "city": "Belgrade", "continent": "Europe", "coordinates": [20.4489, 44.7866], "type": "trip", "visits": [{ "date": "2025-07-15", "end_date": "2025-07-23" }, { "date": "2024-07-09", "end_date": "2024-07-12" }] },
+            { "country_code": "TUR", "country_name": "Turkey", "city": "Kemer", "continent": "Asia", "coordinates": [30.5602, 36.5993], "type": "trip", "visits": [{ "date": "2025-05-29", "end_date": "2025-06-09" }] },
+            // 2024
+            { "country_code": "USA", "country_name": "USA", "city": "Dallas", "continent": "North America", "coordinates": [-96.7970, 32.7767], "type": "trip", "visits": [{ "date": "2024-09-21", "end_date": "2024-09-25" }] },
+            { "country_code": "USA", "country_name": "USA", "city": "New York", "continent": "North America", "coordinates": [-74.0060, 40.7128], "type": "trip", "visits": [{ "date": "2024-06-16", "end_date": "2024-06-21" }] },
+            { "country_code": "SYC", "country_name": "Seychelles", "city": "Victoria", "continent": "Africa", "coordinates": [55.4513, -4.6191], "type": "trip", "visits": [{ "date": "2024-03-18", "end_date": "2024-03-29" }] },
+            { "country_code": "QAT", "country_name": "Qatar", "city": "Doha", "continent": "Asia", "coordinates": [51.5310, 25.2954], "type": "trip", "visits": [{ "date": "2024-03-18", "end_date": "2024-03-20" }] },
+            // 2023
+            { "country_code": "TUR", "country_name": "Turkey", "city": "Istanbul", "continent": "Asia", "coordinates": [28.9784, 41.0082], "type": "trip", "visits": [{ "date": "2023-12-22", "end_date": "2023-12-29" }] },
+            { "country_code": "CHE", "country_name": "Switzerland", "city": "Lugano", "continent": "Europe", "coordinates": [8.9511, 46.0037], "type": "trip", "visits": [{ "date": "2023-09-07" }] },
+            { "country_code": "ITA", "country_name": "Italy", "city": "Milan", "continent": "Europe", "coordinates": [9.1900, 45.4642], "type": "trip", "visits": [{ "date": "2023-09-04", "end_date": "2023-09-09" }] },
+            { "country_code": "ENG", "country_name": "England", "city": "London", "continent": "Europe", "coordinates": [-0.1276, 51.5074], "type": "residence", "visits": [{ "date": "2019-10-13", "end_date": "Present" }] },
+            { "country_code": "JOR", "country_name": "Jordan", "city": "Dead Sea", "continent": "Asia", "coordinates": [35.5833, 31.5000], "type": "trip", "visits": [{ "date": "2023-06-06", "end_date": "2023-06-13" }] },
+            { "country_code": "EGY", "country_name": "Egypt", "city": "Sharm El Sheikh", "continent": "Africa", "coordinates": [34.3296, 27.9158], "type": "trip", "visits": [{ "date": "2023-03-18", "end_date": "2023-03-22" }] },
+            // 2022
+            { "country_code": "ARE", "country_name": "UAE", "city": "Dubai", "continent": "Asia", "coordinates": [55.2708, 25.2048], "type": "trip", "visits": [{ "date": "2022-03-18", "end_date": "2022-03-30" }, { "date": "2019-08-26", "end_date": "2019-09-02" }, { "date": "2018-12-03", "end_date": "2018-12-12" }] },
+            { "country_code": "MUS", "country_name": "Mauritius", "city": "Mauritius", "continent": "Africa", "coordinates": [57.5522, -20.3484], "type": "trip", "visits": [{ "date": "2022-12-15", "end_date": "2022-12-22" }] },
+            { "country_code": "MDV", "country_name": "Maldives", "city": "Dhaalu Atoll", "continent": "Asia", "coordinates": [72.9667, 2.9167], "type": "trip", "visits": [{ "date": "2022-01-11", "end_date": "2022-01-18" }] },
+            { "country_code": "MAR", "country_name": "Morocco", "city": "Marrakesh", "continent": "Africa", "coordinates": [-7.9811, 31.6295], "type": "trip", "visits": [{ "date": "2022-11-21", "end_date": "2022-11-25" }] },
+            { "country_code": "ITA", "country_name": "Italy", "city": "Venice", "continent": "Europe", "coordinates": [12.3153, 45.4408], "type": "trip", "visits": [{ "date": "2022-07-05", "end_date": "2022-07-12" }] },
+            // 2021
+            { "country_code": "ESP", "country_name": "Spain", "city": "Barcelona", "continent": "Europe", "coordinates": [2.1686, 41.3874], "type": "trip", "visits": [{ "date": "2021-09-22", "end_date": "2021-09-29" }] },
+            { "country_code": "SCT", "country_name": "Scotland", "city": "Edinburgh", "continent": "Europe", "coordinates": [-3.1883, 55.9533], "type": "trip", "visits": [{ "date": "2021-06-22", "end_date": "2021-06-25" }] },
+            { "country_code": "WLS", "country_name": "Wales", "city": "Snowdonia", "continent": "Europe", "coordinates": [-3.8614, 53.0734], "type": "trip", "visits": [{ "date": "2021-08-29" }] },
+            // 2020
+            { "country_code": "FRA", "country_name": "France", "city": "Nice", "continent": "Europe", "coordinates": [7.2690, 43.7102], "type": "trip", "visits": [{ "date": "2020-08-03", "end_date": "2020-08-08" }] },
+            { "country_code": "MCO", "country_name": "Monaco", "city": "Monaco", "continent": "Europe", "coordinates": [7.4246, 43.7384], "type": "trip", "visits": [{ "date": "2020-08-06" }] },
+            { "country_code": "NIR", "country_name": "Northern Ireland", "city": "Belfast", "continent": "Europe", "coordinates": [-5.9399, 54.5973], "type": "trip", "visits": [{ "date": "2020-01-13", "end_date": "2020-01-18" }] },
+            { "country_code": "IRL", "country_name": "Ireland", "city": "Dublin", "continent": "Europe", "coordinates": [-6.2603, 53.3498], "type": "trip", "visits": [{ "date": "2020-01-13", "end_date": "2020-01-18" }] },
+            // 2019
+            { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "residence", "visits": [{ "date": "2019-06-01", "end_date": "2019-10-13" }] },
+            { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "trip", "visits": [{ "date": "2017-11-15" }, { "date": "2017-06-14" }, { "date": "2016-07-19" }, { "date": "2016-05-19" }] },
+            { "country_code": "RUS", "country_name": "Russia", "city": "Nizhny Novgorod", "continent": "Europe", "coordinates": [44.0020, 56.3269], "type": "trip", "visits": [{ "date": "2019-07-06", "end_date": "2019-07-08" }] },
+            { "country_code": "CYP", "country_name": "Northern Cyprus", "city": "Girne", "continent": "Europe", "coordinates": [33.3199, 35.3364], "type": "trip", "visits": [{ "date": "2019-04-29" }, { "date": "2019-03-09" }, { "date": "2018-11-17" }] },
+            { "country_code": "NLD", "country_name": "Netherlands", "city": "Amsterdam", "continent": "Europe", "coordinates": [4.9041, 52.3676], "type": "trip", "visits": [{ "date": "2019-04-11", "end_date": "2019-04-15" }] },
+            { "country_code": "GRC", "country_name": "Greece", "city": "Athens", "continent": "Europe", "coordinates": [23.7275, 37.9838], "type": "layover", "visits": [{ "date": "2019-04-01" }] },
+            { "country_code": "DEU", "country_name": "Germany", "city": "Aachen", "continent": "Europe", "coordinates": [6.0839, 50.7753], "type": "trip", "visits": [{ "date": "2019-04-04", "end_date": "2019-04-11" }] },
+            { "country_code": "DEU", "country_name": "Germany", "city": "Munich", "continent": "Europe", "coordinates": [11.5820, 48.1351], "type": "trip", "visits": [{ "date": "2019-04-01", "end_date": "2019-04-04" }] },
+            { "country_code": "BEL", "country_name": "Belgium", "city": "Brussels", "continent": "Europe", "coordinates": [4.3517, 50.8503], "type": "trip", "visits": [{ "date": "2019-04-07" }] },
+            { "country_code": "CYP", "country_name": "Cyprus", "city": "Limassol", "continent": "Europe", "coordinates": [33.0413, 34.6786], "type": "residence", "visits": [{ "date": "2018-04-26", "end_date": "2019-06-01" }] },
+            // 2018
+            { "country_code": "PSE", "country_name": "Palestine", "city": "Jerusalem", "continent": "Asia", "coordinates": [35.2137, 31.7683], "type": "trip", "visits": [{ "date": "2019-01-03" }] },
+            { "country_code": "CZE", "country_name": "Czechia", "city": "Prague", "continent": "Europe", "coordinates": [14.4378, 50.0755], "type": "trip", "visits": [{ "date": "2018-09-06", "end_date": "2018-09-14" }] },
+            { "country_code": "FRA", "country_name": "France", "city": "Paris", "continent": "Europe", "coordinates": [2.3522, 48.8566], "type": "trip", "visits": [{ "date": "2018-04-19", "end_date": "2018-04-26" }] },
+            { "country_code": "ISR", "country_name": "Israel", "city": "Tel Aviv", "continent": "Asia", "coordinates": [34.7818, 32.0853], "type": "trip", "visits": [{ "date": "2018-12-30", "end_date": "2019-01-06" }] },
+            { "country_code": "BHR", "country_name": "Bahrain", "city": "Manama", "continent": "Asia", "coordinates": [50.5860, 26.2285], "type": "layover", "visits": [{ "date": "2018-12-03" }] },
+            { "country_code": "CYP", "country_name": "Cyprus", "city": "Limassol", "continent": "Europe", "coordinates": [33.0413, 34.6786], "type": "trip", "visits": [{ "date": "2018-02-02", "end_date": "2018-02-09" }] },
+            { "country_code": "RUS", "country_name": "Russia", "city": "Tomsk", "continent": "Asia", "coordinates": [84.9562, 56.5010], "type": "residence", "visits": [{ "date": "1994-01-01", "end_date": "2009-12-31" }] },
+            { "country_code": "RUS", "country_name": "Russia", "city": "Novosibirsk", "continent": "Asia", "coordinates": [82.9346, 55.0084], "type": "trip", "visits": [{ "date": "2018-03-31" }, { "date": "2017-08-11" }, { "date": "2017-03-26" }, { "date": "2017-03-04" }] },
+            // 2017
+            { "country_code": "USA", "country_name": "USA", "city": "Seattle", "continent": "North America", "coordinates": [-122.3321, 47.6062], "type": "trip", "visits": [{ "date": "2017-05-14", "end_date": "2017-06-12" }, { "date": "2016-06-21", "end_date": "2016-07-18" }] },
+            { "country_code": "FIN", "country_name": "Finland", "city": "Helsinki", "continent": "Europe", "coordinates": [24.9384, 60.1699], "type": "layover", "visits": [{ "date": "2014-04-14" }] },
+            { "country_code": "FIN", "country_name": "Finland", "city": "Helsinki", "continent": "Europe", "coordinates": [24.9384, 60.1699], "type": "trip", "visits": [{ "date": "2017-07-13", "end_date": "2017-07-17" }] },
+            { "country_code": "RUS", "country_name": "Russia", "city": "Saint Petersburg", "continent": "Europe", "coordinates": [30.3351, 59.9343], "type": "trip", "visits": [{ "date": "2017-04-19", "end_date": "2017-04-25" }] },
+            // 2014
+            { "country_code": "LTU", "country_name": "Lithuania", "city": "Vilnius", "continent": "Europe", "coordinates": [25.2797, 54.6872], "type": "trip", "visits": [{ "date": "2014-04-14" }, { "date": "2014-02-25" }] },
+            { "country_code": "NOR", "country_name": "Norway", "city": "Oslo", "continent": "Europe", "coordinates": [10.7522, 59.9139], "type": "layover", "visits": [{ "date": "2014-02-25" }] },
+            { "country_code": "ESP", "country_name": "Spain", "city": "Malaga", "continent": "Europe", "coordinates": [-4.4214, 36.7212], "type": "residence", "visits": [{ "date": "2014-02-25", "end_date": "2014-06-13" }] },
+            // 2011-2012
+             { "country_code": "RUS", "country_name": "Russia", "city": "Rostov-on-Don", "continent": "Europe", "coordinates": [39.7233, 47.2357], "type": "trip", "visits": [{ "date": "2012-12-15", "end_date": "2012-12-23" }, { "date": "2011-12-15", "end_date": "2011-12-23" }] },
+            // 2010
+            { "country_code": "UKR", "country_name": "Ukraine", "city": "Kiev", "continent": "Europe", "coordinates": [30.5234, 50.4501], "type": "residence", "visits": [{ "date": "2010-05-02", "end_date": "2010-08-07" }] },
+            // 1994 - 1999
+            { "country_code": "KOR", "country_name": "South Korea", "city": "Daejeon", "continent": "Asia", "coordinates": [127.3845, 36.3504], "type": "residence", "custom_date_label": "1994 - 1999", "visits": [{ "date": "1994-01-01", "end_date": "1999-12-31" }] },
+        ]
+    };
+
+    // --- MAP INITIALIZATION ---
+    let svg, g, zoom, width, height;
+
+    function initMap() {
+        const container = document.getElementById('map-container');
+        width = container.clientWidth;
+        height = container.clientHeight;
+
+        const projection = d3.geoNaturalEarth1().scale(width / 5.5).translate([width / 2, height / 2]);
+        const path = d3.geoPath().projection(projection);
+
+        svg = d3.select("#map-container").append("svg").attr("width", "100%").attr("height", "100%").attr("viewBox", `0 0 ${width} ${height}`).attr("preserveAspectRatio", "xMidYMid slice");
+        g = svg.append("g");
+        
+        const countryGroup = g.append("g");
+        const dotGroup = g.append("g"); 
+
+        zoom = d3.zoom().scaleExtent([1, 10]).translateExtent([[-100, -100], [width + 100, height + 100]]).on("zoom", (event) => {
+            g.attr("transform", event.transform);
+            g.selectAll("path").style("stroke-width", 0.5 / event.transform.k + "px");
+            const r = Math.max(2, 5 / Math.sqrt(event.transform.k)); 
+            g.selectAll("circle").attr("r", r).style("stroke-width", (1 / event.transform.k) + "px");
+        });
+
+        svg.call(zoom);
+
+        d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then(data => {
+            
+            countryGroup.selectAll("path")
+                .data(data.features)
+                .join("path")
+                .attr("d", path)
+                .attr("class", d => {
+                    const countryTrips = travelData.travels.filter(t => t.country_code === d.id);
+                    let baseClass = "country";
+                    
+                    if (countryTrips.length > 0) {
+                        if (countryTrips.some(t => t.type === 'residence')) baseClass += " residence";
+                        else if (countryTrips.some(t => t.type === 'trip')) baseClass += " visited";
+                        else if (countryTrips.some(t => t.type === 'layover')) baseClass += " layover";
+                    }
+                    return baseClass;
+                })
+                .on("mouseover", (e, d) => showTooltip(e, d.properties.name))
+                .on("mouseout", hideTooltip)
+                .on("click", (e, d) => {
+                    const countryCode = d.id;
+                    const relevantTravels = travelData.travels.filter(t => t.country_code === countryCode);
+                    if (relevantTravels.length > 0) {
+                        const aggregatedVisits = [];
+                        relevantTravels.forEach(t => {
+                            t.visits.forEach(v => {
+                                aggregatedVisits.push({ ...v, city: t.city, country: t.country_name, code: t.country_code, type: t.type, custom_date_label: t.custom_date_label });
+                            });
+                        });
+                        aggregatedVisits.sort((a, b) => new Date(b.date) - new Date(a.date));
+                        openSidebar({ type: 'country_aggregation', country_name: relevantTravels[0].country_name, visits: aggregatedVisits });
+                        e.stopPropagation();
+                    }
+                });
+
+            // Draw Dots
+            const sortedTravels = [...travelData.travels].filter(t => t.coordinates).sort((a, b) => {
+                if (a.type === 'residence') return 1;
+                if (b.type === 'residence') return -1;
+                return 0;
+            });
+
+            dotGroup.selectAll("circle")
+                .data(sortedTravels)
+                .join("circle")
+                .attr("cx", d => projection(d.coordinates)[0])
+                .attr("cy", d => projection(d.coordinates)[1])
+                .attr("r", 5)
+                .attr("class", d => {
+                    if (d.type === 'residence') return "location-dot dot-residence";
+                    if (d.type === 'layover') return "location-dot dot-layover";
+                    return "location-dot dot-visit";
+                })
+                .on("mouseover", (e, d) => showTooltip(e, `${d.city}, ${d.country_name}`))
+                .on("mouseout", hideTooltip)
+                .on("click", (e, d) => {
+                    openSidebar({ ...d, visits: d.visits.map(v => ({...v, city: d.city, country: d.country_name, code: d.country_code, type: d.type, custom_date_label: d.custom_date_label }))});
+                    e.stopPropagation();
+                });
+
+            renderStats();
+        });
+    }
+
+    window.addEventListener('resize', () => { d3.select("svg").remove(); initMap(); });
+    initMap();
+
+    // --- UI ---
+    const tooltip = document.getElementById('tooltip');
+    function showTooltip(event, text) {
+        if(!text) return;
+        tooltip.textContent = text;
+        tooltip.style.opacity = 1;
+        tooltip.style.left = (event.pageX + 10) + 'px';
+        tooltip.style.top = (event.pageY - 20) + 'px';
+    }
+    function hideTooltip() { tooltip.style.opacity = 0; }
+    
+    function openSidebar(data) {
+        const sb = document.getElementById('sidebar');
+        const title = document.getElementById('sidebar-title');
+        const body = document.getElementById('sidebar-body');
+        
+        const countryName = data.country_name || data.country; 
+        const titleText = data.type === 'country_aggregation' ? countryName : `${data.city}, ${countryName}`;
+        
+        const code = data.country_code || (data.visits && data.visits[0] ? data.visits[0].code : null);
+        
+        title.textContent = `${getFlag(code)} ${titleText}`;
+        sb.classList.add('open');
+        
+        let html = '';
+        data.visits.forEach(v => {
+            const badgeClass = v.type; 
+            const badgeLabel = v.type.charAt(0).toUpperCase() + v.type.slice(1);
+            const cityHtml = data.type === 'country_aggregation' ? `<span class="city-label">${v.city}</span>` : '';
+            
+            let dateDisplay = v.custom_date_label 
+                ? v.custom_date_label 
+                : `${v.date} ${v.end_date ? '- ' + v.end_date : ''}`;
+
+            html += `
+                <div class="visit-card">
+                    ${cityHtml}
+                    <div style="display:flex; justify-content:space-between; margin-bottom:5px; align-items:center;">
+                        <strong>${dateDisplay}</strong>
+                        <span class="badge ${badgeClass}">${badgeLabel}</span>
+                    </div>
+                </div>
+            `;
+        });
+        body.innerHTML = html;
+        document.getElementById('stats-overlay').classList.remove('visible');
+    }
+    
+    function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); }
+    function toggleStatsPanel() { document.getElementById('stats-overlay').classList.toggle('visible'); closeSidebar(); }
+    d3.select("#map-container").on("click", () => { closeSidebar(); document.getElementById('stats-overlay').classList.remove('visible'); });
+
+    function toggleTheme() {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    }
+    // Removed automatic dark mode preference detection to enforce light default
+    // if (window.matchMedia("(prefers-color-scheme: dark)").matches) toggleTheme();
+
+    // --- STATS ---
+    function renderStats() {
+        const travels = travelData.travels;
+        const uniqueCountries = new Set(travels.map(t => t.country_name));
+        const totalTrips = travels.filter(t => t.type !== 'residence').reduce((acc, t) => acc + t.visits.length, 0);
+        
+        const totalWorldCountries = 195;
+        const percentage = ((uniqueCountries.size / totalWorldCountries) * 100).toFixed(1);
+
+        document.getElementById('stat-countries').textContent = uniqueCountries.size;
+        document.getElementById('stat-trips').textContent = totalTrips;
+        document.getElementById('stat-percentage').textContent = percentage + "%";
+
+        // -- Cardinal Extremes Logic --
+        let maxLat = -90, minLat = 90, maxLon = -180, minLon = 180;
+        let northPlace, southPlace, eastPlace, westPlace;
+
+        travels.forEach(t => {
+            const [lon, lat] = t.coordinates;
+            if (lat > maxLat) { maxLat = lat; northPlace = t; }
+            if (lat < minLat) { minLat = lat; southPlace = t; }
+            if (lon > maxLon) { maxLon = lon; eastPlace = t; }
+            if (lon < minLon) { minLon = lon; westPlace = t; }
+        });
+
+        const formatCoord = (val, type) => {
+            if (type === 'lat') return Math.abs(val).toFixed(2) + '° ' + (val >= 0 ? 'N' : 'S');
+            return Math.abs(val).toFixed(2) + '° ' + (val >= 0 ? 'E' : 'W');
+        };
+
+        const extremeHtml = `
+            <div class="cardinal-item">
+                <div class="cardinal-label">Northernmost ⬆️</div>
+                <div class="cardinal-val">${getFlag(northPlace.country_code)} ${northPlace.city}, ${northPlace.country_name}</div>
+                <div class="cardinal-coords">${formatCoord(maxLat, 'lat')}, ${formatCoord(northPlace.coordinates[0], 'lon')}</div>
+            </div>
+            <div class="cardinal-item">
+                <div class="cardinal-label">Southernmost ⬇️</div>
+                <div class="cardinal-val">${getFlag(southPlace.country_code)} ${southPlace.city}, ${southPlace.country_name}</div>
+                <div class="cardinal-coords">${formatCoord(minLat, 'lat')}, ${formatCoord(southPlace.coordinates[0], 'lon')}</div>
+            </div>
+            <div class="cardinal-item">
+                <div class="cardinal-label">Easternmost ➡️</div>
+                <div class="cardinal-val">${getFlag(eastPlace.country_code)} ${eastPlace.city}, ${eastPlace.country_name}</div>
+                <div class="cardinal-coords">${formatCoord(maxLon, 'lon')}, ${formatCoord(eastPlace.coordinates[1], 'lat')}</div>
+            </div>
+            <div class="cardinal-item">
+                <div class="cardinal-label">Westernmost ⬅️</div>
+                <div class="cardinal-val">${getFlag(westPlace.country_code)} ${westPlace.city}, ${westPlace.country_name}</div>
+                <div class="cardinal-coords">${formatCoord(minLon, 'lon')}, ${formatCoord(westPlace.coordinates[1], 'lat')}</div>
+            </div>
+        `;
+        document.getElementById('cardinal-stats').innerHTML = extremeHtml;
+
+        // -- Yearly Breakdown --
+        const tripsByYear = {};
+        travels.forEach(t => {
+            t.visits.forEach(v => {
+                const year = v.date.split('-')[0];
+                if(year === 'Present') return;
+                if (!tripsByYear[year]) tripsByYear[year] = [];
+                tripsByYear[year].push({ city: t.city, country: t.country_name, code: t.country_code, date: v.date, type: t.type, custom_date_label: t.custom_date_label });
+            });
+        });
+
+        const yearStatsContainer = document.getElementById('year-stats');
+        yearStatsContainer.innerHTML = '';
+        Object.keys(tripsByYear).sort().reverse().forEach((year) => {
+            const trips = tripsByYear[year];
+            trips.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const wrapper = document.createElement('div');
+            wrapper.className = 'accordion-item';
+            const innerList = trips.map(t => {
+                const dateText = t.custom_date_label ? t.custom_date_label : t.date;
+                return `
+                <div class="trip-entry"><span>${getFlag(t.code)} ${t.city}, ${t.country}</span><span style="font-size:0.8rem; opacity:0.7">${dateText}</span></div>
+            `}).join('');
+            wrapper.innerHTML = `
+                <div class="accordion-header" onclick="toggleAccordion('year-${year}')"><span>${year}</span><span>${trips.length} entries</span></div>
+                <div id="year-${year}" class="accordion-body">${innerList}</div>
+            `;
+            yearStatsContainer.appendChild(wrapper);
+        });
+
+        // -- Continents --
+        const continents = ['Europe', 'Asia', 'Africa', 'North America', 'South America', 'Oceania'];
+        const contStats = document.getElementById('continent-stats');
+        contStats.innerHTML = '';
+        continents.forEach((cont, i) => {
+            const continentTravels = travels.filter(t => t.continent === cont);
+            const uniqueMap = new Map();
+            continentTravels.forEach(t => {
+                if(!uniqueMap.has(t.country_name)) {
+                    uniqueMap.set(t.country_name, t.country_code);
+                }
+            });
+            
+            const sortedCountries = Array.from(uniqueMap.entries())
+                .map(([name, code]) => ({ name, code }))
+                .sort((a, b) => a.name.localeCompare(b.name));
+
+            const listHtml = sortedCountries.map(c => {
+                return `<div class="location-tag">${getFlag(c.code)} ${c.name}</div>`;
+            }).join('');
+
+            const div = document.createElement('div');
+            div.className = 'accordion-item';
+            div.innerHTML = `
+                <div class="accordion-header" onclick="toggleAccordion('cont-${i}')">
+                    <span>${cont}</span>
+                    <span class="accordion-header-sub">Visited ${sortedCountries.length} of ${continentTotals[cont]}</span>
+                </div>
+                <div id="cont-${i}" class="accordion-body">
+                    ${sortedCountries.length ? listHtml : '<span style="opacity:0.6">No visits</span>'}
+                </div>
+            `;
+            contStats.appendChild(div);
+        });
+    }
+
+    window.toggleAccordion = (id) => { document.getElementById(id).classList.toggle('show'); }
+
+</script>
+</body>
+</html>
