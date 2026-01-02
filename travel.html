@@ -68,8 +68,8 @@
         path.country.layover { fill: var(--layover); fill-opacity: 0.6; stroke-dasharray: 2; }
         
         /* Dots */
-        circle.location-dot { stroke: var(--panel-bg); stroke-width: 1px; transition: 0.2s; cursor: pointer; opacity: 1; }
-        circle.location-dot:hover { r: 8px !important; stroke-width: 2px; fill: var(--text-color) !important; z-index: 100; }
+        circle.location-dot { stroke: var(--panel-bg); stroke-width: 0.5px; transition: 0.2s; cursor: pointer; opacity: 1; }
+        circle.location-dot:hover { r: 7px !important; stroke-width: 2px; fill: var(--text-color) !important; z-index: 100; }
         
         circle.dot-visit { fill: var(--highlight); }
         circle.dot-residence { fill: var(--residence); }
@@ -228,7 +228,7 @@
         "MUS": "🇲🇺", "MAR": "🇲🇦", "MDV": "🇲🇻", "ESP": "🇪🇸", "FRA": "🇫🇷", "MCO": "🇲🇨", "IRL": "🇮🇪",
         "ARE": "🇦🇪", "RUS": "🇷🇺", "CYP": "🇨🇾", "NLD": "🇳🇱", "GRC": "🇬🇷", "DEU": "🇩🇪", "BEL": "🇧🇪",
         "PSE": "🇵🇸", "ISR": "🇮🇱", "BHR": "🇧🇭", "FIN": "🇫🇮", "CZE": "🇨🇿", "NOR": "🇳🇴", "DNK": "🇩🇰",
-        "UKR": "🇺🇦", "KOR": "🇰🇷", "CHE": "🇨🇭", "LTU": "🇱🇹",
+        "UKR": "🇺🇦", "KOR": "🇰🇷", "CHE": "🇨🇭", "LTU": "🇱🇹", "GUF": "🇬🇫",
         // UK Subdivisions
         "ENG": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "SCT": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "WLS": "🏴󠁧󠁢󠁷󠁬󠁳󠁿", "NIR": "🇬🇧", "GBR": "🇬🇧"
     };
@@ -254,10 +254,11 @@
             { "country_code": "SRB", "country_name": "Serbia", "city": "Belgrade", "continent": "Europe", "coordinates": [20.4489, 44.7866], "type": "trip", "visits": [{ "date": "2025-07-15", "end_date": "2025-07-23" }, { "date": "2024-07-09", "end_date": "2024-07-12" }] },
             { "country_code": "TUR", "country_name": "Turkey", "city": "Kemer", "continent": "Asia", "coordinates": [30.5602, 36.5993], "type": "trip", "visits": [{ "date": "2025-05-29", "end_date": "2025-06-09" }] },
             // 2024
+            { "country_code": "QAT", "country_name": "Qatar", "city": "Doha", "continent": "Asia", "coordinates": [51.5310, 25.2954], "type": "layover", "visits": [{ "date": "2024-03-27", "end_date": "2024-03-29" }] },
             { "country_code": "USA", "country_name": "USA", "city": "Dallas", "continent": "North America", "coordinates": [-96.7970, 32.7767], "type": "trip", "visits": [{ "date": "2024-09-21", "end_date": "2024-09-25" }] },
             { "country_code": "USA", "country_name": "USA", "city": "New York", "continent": "North America", "coordinates": [-74.0060, 40.7128], "type": "trip", "visits": [{ "date": "2024-06-16", "end_date": "2024-06-21" }] },
             { "country_code": "SYC", "country_name": "Seychelles", "city": "Victoria", "continent": "Africa", "coordinates": [55.4513, -4.6191], "type": "trip", "visits": [{ "date": "2024-03-18", "end_date": "2024-03-29" }] },
-            { "country_code": "QAT", "country_name": "Qatar", "city": "Doha", "continent": "Asia", "coordinates": [51.5310, 25.2954], "type": "trip", "visits": [{ "date": "2024-03-18", "end_date": "2024-03-20" }] },
+            { "country_code": "QAT", "country_name": "Qatar", "city": "Doha", "continent": "Asia", "coordinates": [51.5310, 25.2954], "type": "layover", "visits": [{ "date": "2024-03-18", "end_date": "2024-03-20" }] },
             // 2023
             { "country_code": "TUR", "country_name": "Turkey", "city": "Istanbul", "continent": "Asia", "coordinates": [28.9784, 41.0082], "type": "trip", "visits": [{ "date": "2023-12-22", "end_date": "2023-12-29" }] },
             { "country_code": "CHE", "country_name": "Switzerland", "city": "Lugano", "continent": "Europe", "coordinates": [8.9511, 46.0037], "type": "trip", "visits": [{ "date": "2023-09-07" }] },
@@ -270,6 +271,7 @@
             { "country_code": "MUS", "country_name": "Mauritius", "city": "Mauritius", "continent": "Africa", "coordinates": [57.5522, -20.3484], "type": "trip", "visits": [{ "date": "2022-12-15", "end_date": "2022-12-22" }] },
             { "country_code": "MDV", "country_name": "Maldives", "city": "Dhaalu Atoll", "continent": "Asia", "coordinates": [72.9667, 2.9167], "type": "trip", "visits": [{ "date": "2022-01-11", "end_date": "2022-01-18" }] },
             { "country_code": "MAR", "country_name": "Morocco", "city": "Marrakesh", "continent": "Africa", "coordinates": [-7.9811, 31.6295], "type": "trip", "visits": [{ "date": "2022-11-21", "end_date": "2022-11-25" }] },
+            { "country_code": "ITA", "country_name": "Italy", "city": "Florence", "continent": "Europe", "coordinates": [11.2558, 43.7696], "type": "trip", "visits": [{ "date": "2022-07-07" }] },
             { "country_code": "ITA", "country_name": "Italy", "city": "Venice", "continent": "Europe", "coordinates": [12.3153, 45.4408], "type": "trip", "visits": [{ "date": "2022-07-05", "end_date": "2022-07-12" }] },
             // 2021
             { "country_code": "ESP", "country_name": "Spain", "city": "Barcelona", "continent": "Europe", "coordinates": [2.1686, 41.3874], "type": "trip", "visits": [{ "date": "2021-09-22", "end_date": "2021-09-29" }] },
@@ -278,11 +280,11 @@
             // 2020
             { "country_code": "FRA", "country_name": "France", "city": "Nice", "continent": "Europe", "coordinates": [7.2690, 43.7102], "type": "trip", "visits": [{ "date": "2020-08-03", "end_date": "2020-08-08" }] },
             { "country_code": "MCO", "country_name": "Monaco", "city": "Monaco", "continent": "Europe", "coordinates": [7.4246, 43.7384], "type": "trip", "visits": [{ "date": "2020-08-06" }] },
-            { "country_code": "NIR", "country_name": "Northern Ireland", "city": "Belfast", "continent": "Europe", "coordinates": [-5.9399, 54.5973], "type": "trip", "visits": [{ "date": "2020-01-13", "end_date": "2020-01-18" }] },
-            { "country_code": "IRL", "country_name": "Ireland", "city": "Dublin", "continent": "Europe", "coordinates": [-6.2603, 53.3498], "type": "trip", "visits": [{ "date": "2020-01-13", "end_date": "2020-01-18" }] },
+            { "country_code": "NIR", "country_name": "Northern Ireland", "city": "Belfast", "continent": "Europe", "coordinates": [-5.9399, 54.5973], "type": "trip", "visits": [{ "date": "2020-01-15", "end_date": "2020-01-18" }] },
+            { "country_code": "IRL", "country_name": "Ireland", "city": "Dublin", "continent": "Europe", "coordinates": [-6.2603, 53.3498], "type": "trip", "visits": [{ "date": "2020-01-13", "end_date": "2020-01-15" }] },
             // 2019
             { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "residence", "visits": [{ "date": "2019-06-01", "end_date": "2019-10-13" }] },
-            { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "trip", "visits": [{ "date": "2017-11-15" }, { "date": "2017-06-14" }, { "date": "2016-07-19" }, { "date": "2016-05-19" }] },
+            { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "trip", "visits": [{ "date": "2017-11-15", "end_date": "2017-11-20" }, { "date": "2017-06-14", "end_date": "2017-06-15" }, { "date": "2016-07-19", "end_date": "2016-07-22" }, { "date": "2016-05-19", "end_date": "2016-05-21" }] },
             { "country_code": "RUS", "country_name": "Russia", "city": "Nizhny Novgorod", "continent": "Europe", "coordinates": [44.0020, 56.3269], "type": "trip", "visits": [{ "date": "2019-07-06", "end_date": "2019-07-08" }] },
             { "country_code": "CYP", "country_name": "Northern Cyprus", "city": "Girne", "continent": "Europe", "coordinates": [33.3199, 35.3364], "type": "trip", "visits": [{ "date": "2019-04-29" }, { "date": "2019-03-09" }, { "date": "2018-11-17" }] },
             { "country_code": "NLD", "country_name": "Netherlands", "city": "Amsterdam", "continent": "Europe", "coordinates": [4.9041, 52.3676], "type": "trip", "visits": [{ "date": "2019-04-11", "end_date": "2019-04-15" }] },
@@ -298,15 +300,23 @@
             { "country_code": "ISR", "country_name": "Israel", "city": "Tel Aviv", "continent": "Asia", "coordinates": [34.7818, 32.0853], "type": "trip", "visits": [{ "date": "2018-12-30", "end_date": "2019-01-06" }] },
             { "country_code": "BHR", "country_name": "Bahrain", "city": "Manama", "continent": "Asia", "coordinates": [50.5860, 26.2285], "type": "layover", "visits": [{ "date": "2018-12-03" }] },
             { "country_code": "CYP", "country_name": "Cyprus", "city": "Limassol", "continent": "Europe", "coordinates": [33.0413, 34.6786], "type": "trip", "visits": [{ "date": "2018-02-02", "end_date": "2018-02-09" }] },
-            { "country_code": "RUS", "country_name": "Russia", "city": "Tomsk", "continent": "Asia", "coordinates": [84.9562, 56.5010], "type": "residence", "visits": [{ "date": "1994-01-01", "end_date": "2009-12-31" }] },
-            { "country_code": "RUS", "country_name": "Russia", "city": "Novosibirsk", "continent": "Asia", "coordinates": [82.9346, 55.0084], "type": "trip", "visits": [{ "date": "2018-03-31" }, { "date": "2017-08-11" }, { "date": "2017-03-26" }, { "date": "2017-03-04" }] },
+            
+            // SPECIAL: Tomsk Birth Place
+            { 
+                "country_code": "RUS", "country_name": "Russia", "city": "Tomsk", "continent": "Asia", "coordinates": [84.9562, 56.5010], 
+                "type": "residence", "custom_date_label": "1988", "badge_label": "Birth Place",
+                "visits": [{ "date": "1988-01-01" }] 
+            },
+            
+            { "country_code": "RUS", "country_name": "Russia", "city": "Novosibirsk", "continent": "Asia", "coordinates": [82.9346, 55.0084], "type": "trip", "visits": [{ "date": "2018-03-31", "end_date": "2018-04-01" }, { "date": "2017-08-11", "end_date": "2017-08-12" }, { "date": "2017-03-26", "end_date": "2017-03-27" }, { "date": "2017-03-04", "end_date": "2017-03-05" }] },
             // 2017
             { "country_code": "USA", "country_name": "USA", "city": "Seattle", "continent": "North America", "coordinates": [-122.3321, 47.6062], "type": "trip", "visits": [{ "date": "2017-05-14", "end_date": "2017-06-12" }, { "date": "2016-06-21", "end_date": "2016-07-18" }] },
             { "country_code": "FIN", "country_name": "Finland", "city": "Helsinki", "continent": "Europe", "coordinates": [24.9384, 60.1699], "type": "layover", "visits": [{ "date": "2014-04-14" }] },
             { "country_code": "FIN", "country_name": "Finland", "city": "Helsinki", "continent": "Europe", "coordinates": [24.9384, 60.1699], "type": "trip", "visits": [{ "date": "2017-07-13", "end_date": "2017-07-17" }] },
             { "country_code": "RUS", "country_name": "Russia", "city": "Saint Petersburg", "continent": "Europe", "coordinates": [30.3351, 59.9343], "type": "trip", "visits": [{ "date": "2017-04-19", "end_date": "2017-04-25" }] },
             // 2014
-            { "country_code": "LTU", "country_name": "Lithuania", "city": "Vilnius", "continent": "Europe", "coordinates": [25.2797, 54.6872], "type": "trip", "visits": [{ "date": "2014-04-14" }, { "date": "2014-02-25" }] },
+            { "country_code": "TUR", "country_name": "Turkey", "city": "Belek", "continent": "Asia", "coordinates": [31.0556, 36.8625], "type": "trip", "visits": [{ "date": "2014-05-14" }] },
+            { "country_code": "LTU", "country_name": "Lithuania", "city": "Vilnius", "continent": "Europe", "coordinates": [25.2797, 54.6872], "type": "trip", "visits": [{ "date": "2014-04-14" }, { "date": "2014-02-22", "end_date": "2014-02-25" }] },
             { "country_code": "NOR", "country_name": "Norway", "city": "Oslo", "continent": "Europe", "coordinates": [10.7522, 59.9139], "type": "layover", "visits": [{ "date": "2014-02-25" }] },
             { "country_code": "ESP", "country_name": "Spain", "city": "Malaga", "continent": "Europe", "coordinates": [-4.4214, 36.7212], "type": "residence", "visits": [{ "date": "2014-02-25", "end_date": "2014-06-13" }] },
             // 2011-2012
@@ -338,20 +348,66 @@
         zoom = d3.zoom().scaleExtent([1, 10]).translateExtent([[-100, -100], [width + 100, height + 100]]).on("zoom", (event) => {
             g.attr("transform", event.transform);
             g.selectAll("path").style("stroke-width", 0.5 / event.transform.k + "px");
-            const r = Math.max(2, 5 / Math.sqrt(event.transform.k)); 
-            g.selectAll("circle").attr("r", r).style("stroke-width", (1 / event.transform.k) + "px");
+            // Increased base size from 2.5 to 3.8
+            const r = Math.max(1.5, 3.8 / Math.sqrt(event.transform.k)); 
+            g.selectAll("circle").attr("r", r).style("stroke-width", (0.5 / event.transform.k) + "px");
         });
 
         svg.call(zoom);
 
-        d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then(data => {
-            
+        // --- DATA LOADING & FIXES ---
+        const worldUrl = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";
+       
+        d3.json(worldUrl).then((worldData) => {
+
+            // 1. Split French Guiana from France (FRA)
+            const france = worldData.features.find(f => f.id === "FRA");
+            const guianaFeatures = [];
+
+            if (france && france.geometry.type === "MultiPolygon") {
+                const franceCoords = [];
+                const guianaCoords = [];
+
+                france.geometry.coordinates.forEach(polygon => {
+                    const [lon, lat] = polygon[0][0];
+                    // Guiana is in S. America (~ lat < 10, lon < -40)
+                    if (lat < 10 && lon < -40) {
+                        guianaCoords.push(polygon);
+                    } else {
+                        franceCoords.push(polygon);
+                    }
+                });
+
+                france.geometry.coordinates = franceCoords; // Keep Metropolitan France
+
+                if (guianaCoords.length > 0) {
+                    guianaFeatures.push({
+                        type: "Feature",
+                        id: "GUF",
+                        properties: { name: "French Guiana" },
+                        geometry: { type: "MultiPolygon", coordinates: guianaCoords }
+                    });
+                }
+            }
+
+            // 2. Combine Features
+            const combinedFeatures = [
+                ...worldData.features,
+                ...guianaFeatures
+            ];
+
+            // 3. Draw Map
             countryGroup.selectAll("path")
-                .data(data.features)
+                .data(combinedFeatures)
                 .join("path")
                 .attr("d", path)
                 .attr("class", d => {
-                    const countryTrips = travelData.travels.filter(t => t.country_code === d.id);
+                    // Check if specific code (e.g. ENG) or general code (GBR) matches
+                    const countryTrips = travelData.travels.filter(t => 
+                        t.country_code === d.id || 
+                        (d.id === 'GBR' && ['ENG','SCT','WLS','NIR'].includes(t.country_code))
+                    );
+                    
                     let baseClass = "country";
                     
                     if (countryTrips.length > 0) {
@@ -365,22 +421,87 @@
                 .on("mouseout", hideTooltip)
                 .on("click", (e, d) => {
                     const countryCode = d.id;
-                    const relevantTravels = travelData.travels.filter(t => t.country_code === countryCode);
+                    
+                    let relevantTravels = [];
+                    let overrideTitle = null;
+                    let overrideCode = null;
+
+                    // SPECIAL HANDLING: Great Britain (GBR)
+                    // If clicking GBR, aggregate all UK nations (ENG, SCT, WLS, NIR)
+                    if (countryCode === 'GBR') {
+                        relevantTravels = travelData.travels.filter(t => 
+                            ['ENG','SCT','WLS','NIR','GBR'].includes(t.country_code)
+                        );
+                        overrideTitle = "Great Britain";
+                        overrideCode = "GBR";
+                    } else {
+                        // Standard Country Click
+                        relevantTravels = travelData.travels.filter(t => t.country_code === countryCode);
+                    }
+                    
                     if (relevantTravels.length > 0) {
                         const aggregatedVisits = [];
                         relevantTravels.forEach(t => {
                             t.visits.forEach(v => {
-                                aggregatedVisits.push({ ...v, city: t.city, country: t.country_name, code: t.country_code, type: t.type, custom_date_label: t.custom_date_label });
+                                aggregatedVisits.push({ 
+                                    ...v, 
+                                    city: t.city, 
+                                    country: t.country_name, 
+                                    code: t.country_code, 
+                                    type: t.type, 
+                                    custom_date_label: t.custom_date_label, 
+                                    badge_label: t.badge_label 
+                                });
                             });
                         });
                         aggregatedVisits.sort((a, b) => new Date(b.date) - new Date(a.date));
-                        openSidebar({ type: 'country_aggregation', country_name: relevantTravels[0].country_name, visits: aggregatedVisits });
+                        
+                        openSidebar({ 
+                            type: 'country_aggregation', 
+                            country_name: overrideTitle || relevantTravels[0].country_name, 
+                            country_code: overrideCode, // Pass override code (GBR) if exists
+                            visits: aggregatedVisits 
+                        });
                         e.stopPropagation();
                     }
                 });
 
-            // Draw Dots
-            const sortedTravels = [...travelData.travels].filter(t => t.coordinates).sort((a, b) => {
+            // 4. PRE-PROCESS DOTS: Group by City+Country to fix "Clicking Moscow shows only one"
+            const cityGroups = {};
+            travelData.travels.forEach(t => {
+                if(!t.coordinates) return;
+                const key = `${t.city}|${t.country_name}`;
+                
+                if (!cityGroups[key]) {
+                    cityGroups[key] = {
+                        ...t,
+                        visits: [] // We will rebuild the visits list
+                    };
+                }
+                
+                // Add all visits from this entry
+                t.visits.forEach(v => {
+                    cityGroups[key].visits.push({
+                        ...v,
+                        type: t.type, // Ensure visit inherits the type (residence/trip)
+                        code: t.country_code,
+                        badge_label: t.badge_label
+                    });
+                });
+
+                // Priority Logic for the Dot Color: Residence > Trip > Layover
+                const priorities = { 'residence': 3, 'trip': 2, 'layover': 1 };
+                const currentPriority = priorities[cityGroups[key].type] || 0;
+                const newPriority = priorities[t.type] || 0;
+
+                if (newPriority > currentPriority) {
+                    cityGroups[key].type = t.type;
+                }
+            });
+            const uniqueCities = Object.values(cityGroups);
+
+            // 5. Draw Dots
+            const sortedTravels = uniqueCities.sort((a, b) => {
                 if (a.type === 'residence') return 1;
                 if (b.type === 'residence') return -1;
                 return 0;
@@ -391,7 +512,7 @@
                 .join("circle")
                 .attr("cx", d => projection(d.coordinates)[0])
                 .attr("cy", d => projection(d.coordinates)[1])
-                .attr("r", 5)
+                .attr("r", 3.8) // Increased size
                 .attr("class", d => {
                     if (d.type === 'residence') return "location-dot dot-residence";
                     if (d.type === 'layover') return "location-dot dot-layover";
@@ -400,7 +521,9 @@
                 .on("mouseover", (e, d) => showTooltip(e, `${d.city}, ${d.country_name}`))
                 .on("mouseout", hideTooltip)
                 .on("click", (e, d) => {
-                    openSidebar({ ...d, visits: d.visits.map(v => ({...v, city: d.city, country: d.country_name, code: d.country_code, type: d.type, custom_date_label: d.custom_date_label }))});
+                    // Sort visits inside the sidebar
+                    d.visits.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    openSidebar({ ...d, visits: d.visits.map(v => ({...v, city: d.city, country: d.country_name, code: d.country_code || d.code, type: v.type, custom_date_label: d.custom_date_label, badge_label: d.badge_label }))});
                     e.stopPropagation();
                 });
 
@@ -430,6 +553,7 @@
         const countryName = data.country_name || data.country; 
         const titleText = data.type === 'country_aggregation' ? countryName : `${data.city}, ${countryName}`;
         
+        // Prioritize explicit code passed (e.g. GBR), otherwise fallback to visit code
         const code = data.country_code || (data.visits && data.visits[0] ? data.visits[0].code : null);
         
         title.textContent = `${getFlag(code)} ${titleText}`;
@@ -438,7 +562,8 @@
         let html = '';
         data.visits.forEach(v => {
             const badgeClass = v.type; 
-            const badgeLabel = v.type.charAt(0).toUpperCase() + v.type.slice(1);
+            // Prefer custom badge label (e.g. Birth Place) over generic type
+            const badgeLabel = v.badge_label || (v.type.charAt(0).toUpperCase() + v.type.slice(1));
             const cityHtml = data.type === 'country_aggregation' ? `<span class="city-label">${v.city}</span>` : '';
             
             let dateDisplay = v.custom_date_label 
@@ -467,8 +592,6 @@
         const isDark = document.body.getAttribute('data-theme') === 'dark';
         document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
     }
-    // Removed automatic dark mode preference detection to enforce light default
-    // if (window.matchMedia("(prefers-color-scheme: dark)").matches) toggleTheme();
 
     // --- STATS ---
     function renderStats() {
@@ -548,7 +671,7 @@
                 <div class="trip-entry"><span>${getFlag(t.code)} ${t.city}, ${t.country}</span><span style="font-size:0.8rem; opacity:0.7">${dateText}</span></div>
             `}).join('');
             wrapper.innerHTML = `
-                <div class="accordion-header" onclick="toggleAccordion('year-${year}')"><span>${year}</span><span>${trips.length} entries</span></div>
+                <div class="accordion-header" onclick="toggleAccordion('year-${year}')"><span>${year}</span><span>${trips.length} trips</span></div>
                 <div id="year-${year}" class="accordion-body">${innerList}</div>
             `;
             yearStatsContainer.appendChild(wrapper);
