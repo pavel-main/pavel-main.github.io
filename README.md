@@ -1,1 +1,3 @@
-# pavel-main.github.io
+# Index
+
+- [My Travel Map](travel.html)
