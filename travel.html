@@ -91,7 +91,6 @@
         path.country:hover { fill-opacity: 0.8; stroke: var(--text-color); stroke-width: 1px; }
 
         /* Strict CSS Priority */
-        /* UPDATE: Removed fill-opacity to ensure they cover the vignette */
         path.country.residence { fill: var(--residence) !important; fill-opacity: 1; }
         path.country.visited { fill: var(--highlight); fill-opacity: 1; }
         path.country.layover { fill: var(--layover); fill-opacity: 1; stroke-dasharray: 2; }
@@ -384,6 +383,7 @@
             { 
                 "country_code": "RUS", "country_name": "Russia", "city": "Tomsk", "continent": "Asia", "coordinates": [84.9562, 56.5010], 
                 "type": "residence", "custom_date_label": "1988", "badge_label": "Birth Place",
+                "exclude_from_stats": true, // <--- ADDED
                 "visits": [{ "date": "1988-01-01" }] 
             },
             
@@ -711,7 +711,8 @@
         // UPDATED: Calculate Unique Years INCLUDING residences
         const uniqueYears = new Set();
         travels.forEach(t => {
-            // Removed check for t.type !== 'residence'
+            if (t.exclude_from_stats) return; // SKIP if flagged
+            
             t.visits.forEach(v => {
                 if (v.date) uniqueYears.add(v.date.split('-')[0]);
             });
@@ -770,6 +771,8 @@
         // -- Yearly Breakdown --
         const tripsByYear = {};
         travels.forEach(t => {
+            if (t.exclude_from_stats) return; // SKIP if flagged
+            
             t.visits.forEach(v => {
                 const year = v.date.split('-')[0];
                 if(year === 'Present') return;
