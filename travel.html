@@ -519,9 +519,7 @@
                 g.attr("transform", event.transform);
                 g.selectAll("path").style("stroke-width", 0.5 / event.transform.k + "px");
                 
-                const baseRadius = 5; 
-                g.selectAll("circle").attr("r", baseRadius / event.transform.k)
-                    .style("stroke-width", (1 / event.transform.k) + "px");
+                zoomCircles(g, event.transform.k);
             });
 
         svg.call(zoom);
@@ -534,7 +532,16 @@
             initTimeline(); 
             updateProjection();
             renderStats();
+            zoomCircles(g, 1);
         });
+    }
+
+    function zoomCircles(g, coeffient) {
+        const baseRadius = 5;
+
+        g.selectAll("circle")
+            .attr("r", baseRadius / coeffient)
+            .style("stroke-width", (1 / coeffient) + "px");
     }
     
     // --- TIMELINE LOGIC ---
@@ -587,6 +594,7 @@
         const newDate = new Date(year, month, 0); // Last day of month
         
         currentFilterDate = newDate;
+        zoomCircles(g, 1);
         updateTimelineLabel(newDate); // Pass the date object for formatting
         updateProjection();
     }
