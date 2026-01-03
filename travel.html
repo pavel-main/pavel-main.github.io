@@ -25,6 +25,10 @@
             --water: #f1f5f9;
             --border: #e2e8f0;
             --shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+            /* Texture Variables (Light) */
+            --dot-color: #cbd5e1; 
+            --vignette: rgba(148, 163, 184, 0.15);
         }
 
         [data-theme="dark"] {
@@ -42,11 +46,29 @@
             --water: #0f172a;
             --border: #334155;
             --shadow: 0 4px 15px rgba(0,0,0,0.4);
+
+            /* Texture Variables (Dark) */
+            --dot-color: #1e293b;
+            --vignette: rgba(0, 0, 0, 0.6);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         
-        body { background: var(--water); color: var(--text-color); height: 100vh; overflow: hidden; transition: 0.3s; }
+        /* Updated Body Background for Texture */
+        body { 
+            background-color: var(--water); 
+            color: var(--text-color); 
+            height: 100vh; 
+            overflow: hidden; 
+            transition: background-color 0.3s;
+            
+            /* Dot Pattern + Vignette */
+            background-image: 
+                radial-gradient(var(--dot-color) 1.5px, transparent 1.5px),
+                radial-gradient(circle at center, transparent 40%, var(--vignette) 100%);
+            background-size: 30px 30px, 100% 100%;
+            background-attachment: fixed;
+        }
 
         /* --- MAP STYLES --- */
         #map-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: grab; }
@@ -69,9 +91,10 @@
         path.country:hover { fill-opacity: 0.8; stroke: var(--text-color); stroke-width: 1px; }
 
         /* Strict CSS Priority */
-        path.country.residence { fill: var(--residence) !important; fill-opacity: 0.85; }
-        path.country.visited { fill: var(--highlight); fill-opacity: 0.7; }
-        path.country.layover { fill: var(--layover); fill-opacity: 0.6; stroke-dasharray: 2; }
+        /* UPDATE: Removed fill-opacity to ensure they cover the vignette */
+        path.country.residence { fill: var(--residence) !important; fill-opacity: 1; }
+        path.country.visited { fill: var(--highlight); fill-opacity: 1; }
+        path.country.layover { fill: var(--layover); fill-opacity: 1; stroke-dasharray: 2; }
         
         /* Dots */
         circle.location-dot { stroke: var(--panel-bg); stroke-width: 0.5px; transition: 0.2s, cx 0.7s ease, cy 0.7s ease; cursor: pointer; opacity: 1; }
@@ -223,6 +246,7 @@
         <select class="proj-select" id="projection-select" onchange="updateProjection()">
             <option value="mercator" selected>Mercator</option>
             <option value="natural">Natural Earth</option>
+            <option value="flat">Flat Earth</option>
         </select>
     </div>
 </div>
@@ -246,6 +270,7 @@
             <div style="display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: space-between;">
                 <div><div class="stat-number" id="stat-countries">0</div><div class="stat-sub">Countries</div></div>
                 <div><div class="stat-number" id="stat-trips">0</div><div class="stat-sub">Trips</div></div>
+                <div><div class="stat-number" id="stat-years">0</div><div class="stat-sub">Travel Years</div></div>
                 <div><div class="stat-number" id="stat-percentage">0%</div><div class="stat-sub">World Seen</div></div>
             </div>
             
@@ -310,7 +335,8 @@
             { "country_code": "QAT", "country_name": "Qatar", "city": "Doha", "continent": "Asia", "coordinates": [51.5310, 25.2954], "type": "layover", "visits": [{ "date": "2024-03-27", "end_date": "2024-03-29" }] },
             { "country_code": "USA", "country_name": "USA", "city": "Dallas", "continent": "North America", "coordinates": [-96.7970, 32.7767], "type": "trip", "visits": [{ "date": "2024-09-21", "end_date": "2024-09-25" }] },
             { "country_code": "USA", "country_name": "USA", "city": "New York", "continent": "North America", "coordinates": [-74.0060, 40.7128], "type": "trip", "visits": [{ "date": "2024-06-16", "end_date": "2024-06-21" }] },
-            { "country_code": "SYC", "country_name": "Seychelles", "city": "Victoria", "continent": "Africa", "coordinates": [55.4513, -4.6191], "type": "trip", "visits": [{ "date": "2024-03-18", "end_date": "2024-03-29" }] },
+            /* UPDATED SEYCHELLES DATE */
+            { "country_code": "SYC", "country_name": "Seychelles", "city": "Victoria", "continent": "Africa", "coordinates": [55.4513, -4.6191], "type": "trip", "visits": [{ "date": "2024-03-20", "end_date": "2024-03-27" }] },
             { "country_code": "QAT", "country_name": "Qatar", "city": "Doha", "continent": "Asia", "coordinates": [51.5310, 25.2954], "type": "layover", "visits": [{ "date": "2024-03-18", "end_date": "2024-03-20" }] },
             // 2023
             { "country_code": "TUR", "country_name": "Turkey", "city": "Istanbul", "continent": "Asia", "coordinates": [28.9784, 41.0082], "type": "trip", "visits": [{ "date": "2023-12-22", "end_date": "2023-12-29" }] },
@@ -500,6 +526,11 @@
             projection = d3.geoMercator()
                 .scale(width / 6.5)
                 .translate([width / 2, height / 1.5]); // Adjust Mercator center
+        } else if (type === 'flat') {
+            projection = d3.geoAzimuthalEquidistant()
+                .scale(width / 6.5)
+                .translate([width / 2, height / 2])
+                .rotate([0, -90]) // North Pole Center
         } else {
             projection = d3.geoNaturalEarth1()
                 .scale(width / 5.5)
@@ -677,12 +708,22 @@
         const uniqueCountries = new Set(travels.map(t => t.country_name));
         const totalTrips = travels.filter(t => t.type !== 'residence').reduce((acc, t) => acc + t.visits.length, 0);
         
+        // UPDATED: Calculate Unique Years INCLUDING residences
+        const uniqueYears = new Set();
+        travels.forEach(t => {
+            // Removed check for t.type !== 'residence'
+            t.visits.forEach(v => {
+                if (v.date) uniqueYears.add(v.date.split('-')[0]);
+            });
+        });
+
         const totalWorldCountries = 195;
         const percentage = ((uniqueCountries.size / totalWorldCountries) * 100).toFixed(1);
 
         document.getElementById('stat-countries').textContent = uniqueCountries.size;
         document.getElementById('stat-trips').textContent = totalTrips;
         document.getElementById('stat-percentage').textContent = percentage + "%";
+        document.getElementById('stat-years').textContent = uniqueYears.size; // Update new stat
 
         // -- Cardinal Extremes Logic --
         let maxLat = -90, minLat = 90, maxLon = -180, minLon = 180;
