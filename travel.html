@@ -135,6 +135,73 @@
         .box-visit { background: var(--highlight); opacity: 0.8; }
         .box-layover { background: var(--layover); opacity: 0.8; }
         
+        /* --- TIMELINE CONTROLS --- */
+        .timeline-container {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .time-display {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Play Button */
+        .play-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            color: var(--text-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .play-btn:hover { background: var(--border); }
+
+        /* Range Input */
+        input[type=range] {
+            flex: 1;
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: var(--highlight);
+            cursor: pointer;
+            margin-top: -5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: var(--border);
+            border-radius: 2px;
+        }
+
         .control-row { display: flex; align-items: center; justify-content: space-between; margin-top: 0.8rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
         .control-label { font-size: 0.85rem; color: var(--text-color); }
         
@@ -237,6 +304,17 @@
         </div>
         <div class="legend-item">
             <div class="color-box box-layover"></div><span>Layover</span>
+        </div>
+    </div>
+
+    <div class="timeline-container">
+        <div class="time-display">
+            <span>History</span>
+            <span id="current-date-label">Loading...</span>
+        </div>
+        <div class="timeline-controls">
+            <button class="play-btn" id="play-pause-btn" onclick="togglePlay()">▶</button>
+            <input type="range" id="time-slider" min="0" max="100" value="100" oninput="handleSliderChange()">
         </div>
     </div>
 
@@ -383,7 +461,7 @@
             { 
                 "country_code": "RUS", "country_name": "Russia", "city": "Tomsk", "continent": "Asia", "coordinates": [84.9562, 56.5010], 
                 "type": "residence", "custom_date_label": "1988", "badge_label": "Birth Place",
-                "exclude_from_stats": true, // <--- ADDED
+                "exclude_from_stats": true, 
                 "visits": [{ "date": "1988-01-01" }] 
             },
             
@@ -410,10 +488,13 @@
         ]
     };
 
-    // --- MAP INITIALIZATION ---
+    // --- GLOBAL VARS ---
     let svg, g, zoom, width, height, projection, pathGenerator;
-    let loadedFeatures = null; // Store map data to avoid re-fetching
-    let sortedTravels = [];   // Store processed travel data
+    let loadedFeatures = null;
+    let sortedTravels = [];
+    let timelineSteps = []; // Stores unique YYYY-MM strings
+    let playInterval = null;
+    let currentFilterDate = new Date(); // Defaults to now
 
     function initMap() {
         const container = document.getElementById('map-container');
@@ -438,7 +519,6 @@
                 g.attr("transform", event.transform);
                 g.selectAll("path").style("stroke-width", 0.5 / event.transform.k + "px");
                 
-                // Constant dot size logic
                 const baseRadius = 5; 
                 g.selectAll("circle").attr("r", baseRadius / event.transform.k)
                     .style("stroke-width", (1 / event.transform.k) + "px");
@@ -446,17 +526,109 @@
 
         svg.call(zoom);
 
-        // Load Data Once
+        // Load Data
         const worldUrl = "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson";
         d3.json(worldUrl).then((worldData) => {
             loadedFeatures = processWorldData(worldData);
-            processTravelData(); // Prepare dots
-            updateProjection();  // Draw Map
+            processTravelData();
+            initTimeline(); 
+            updateProjection();
             renderStats();
         });
     }
     
-    // --- MAP LOGIC SEPARATION ---
+    // --- TIMELINE LOGIC ---
+    function initTimeline() {
+        const dateSet = new Set();
+        const now = new Date();
+        const currentYM = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+        
+        // Always include "Now" so the slider can reach the end
+        dateSet.add(currentYM);
+
+        travelData.travels.forEach(t => {
+            if (t.exclude_from_stats) return; // Skip Birth Place
+            t.visits.forEach(v => {
+                if (v.date) {
+                    // Extract YYYY-MM
+                    const ym = v.date.substring(0, 7);
+                    dateSet.add(ym);
+                }
+            });
+        });
+
+        // Convert to array and sort chronologically
+        timelineSteps = Array.from(dateSet).sort();
+        
+        // Add one month prior to start to animate the first appearance
+        if (timelineSteps.length > 0) {
+            const firstYM = timelineSteps[0];
+            const [y, m] = firstYM.split('-').map(Number);
+            const prevDate = new Date(y, m - 2); // m is 1-based, JS Date month is 0-based. So m-1 is current, m-2 is prev.
+            const prevYM = `${prevDate.getFullYear()}-${String(prevDate.getMonth() + 1).padStart(2, '0')}`;
+            timelineSteps.unshift(prevYM);
+        }
+        
+        const slider = document.getElementById("time-slider");
+        slider.min = 0;
+        slider.max = timelineSteps.length - 1;
+        slider.value = timelineSteps.length - 1; // Default to end
+        
+        // Initial set
+        handleSliderChange();
+    }
+
+    function handleSliderChange() {
+        const sliderVal = parseInt(document.getElementById("time-slider").value);
+        const ymStr = timelineSteps[sliderVal];
+        
+        // Set filter date to end of that month to include trips IN that month
+        const [year, month] = ymStr.split('-').map(Number);
+        const newDate = new Date(year, month, 0); // Last day of month
+        
+        currentFilterDate = newDate;
+        updateTimelineLabel(newDate); // Pass the date object for formatting
+        updateProjection();
+    }
+
+    function updateTimelineLabel(date) {
+        const options = { year: 'numeric', month: 'long' };
+        document.getElementById("current-date-label").textContent = date.toLocaleDateString('en-US', options);
+    }
+
+    function togglePlay() {
+        const btn = document.getElementById("play-pause-btn");
+        const slider = document.getElementById("time-slider");
+        
+        if (playInterval) {
+            // Pause
+            clearInterval(playInterval);
+            playInterval = null;
+            btn.textContent = "▶";
+        } else {
+            // Play
+            btn.textContent = "⏸";
+            
+            // If already at end, restart
+            if (parseInt(slider.value) >= parseInt(slider.max)) {
+                slider.value = 0;
+            }
+
+            playInterval = setInterval(() => {
+                let val = parseInt(slider.value);
+                if (val < slider.max) {
+                    slider.value = val + 1;
+                    handleSliderChange();
+                } else {
+                    clearInterval(playInterval);
+                    playInterval = null;
+                    btn.textContent = "▶";
+                }
+            }, 600); // Slower speed so jumps are visible (600ms)
+        }
+    }
+
+    // --- MAP LOGIC ---
 
     function processWorldData(worldData) {
         const france = worldData.features.find(f => f.id === "FRA");
@@ -515,22 +687,21 @@
         });
     }
 
-    // --- PROJECTION SWITCHER ---
+    // --- PROJECTION SWITCHER & RENDERER ---
     function updateProjection() {
         if (!loadedFeatures) return;
 
         const type = document.getElementById("projection-select").value;
 
-        // Define Projections
         if (type === 'mercator') {
             projection = d3.geoMercator()
                 .scale(width / 6.5)
-                .translate([width / 2, height / 1.5]); // Adjust Mercator center
+                .translate([width / 2, height / 1.5]); 
         } else if (type === 'flat') {
             projection = d3.geoAzimuthalEquidistant()
                 .scale(width / 6.5)
                 .translate([width / 2, height / 2])
-                .rotate([0, -90]) // North Pole Center
+                .rotate([0, -90]) 
         } else {
             projection = d3.geoNaturalEarth1()
                 .scale(width / 5.5)
@@ -539,56 +710,92 @@
 
         pathGenerator = d3.geoPath().projection(projection);
 
+        // FILTER DATA BASED ON TIMELINE
+        const limitDateStr = currentFilterDate.toISOString().split('T')[0];
+        
+        // 1. Filter Dots
+        const activeTravels = sortedTravels.filter(t => {
+            // Check if any visit in this city happened before limitDate
+            return t.visits.some(v => v.date <= limitDateStr);
+        });
+
+        // 2. Determine Active Country Codes
+        const activeCountryCodes = new Set();
+        const countryTypeMap = new Map(); // Store best type (residence > trip) per country
+        const priorities = { 'residence': 3, 'trip': 2, 'layover': 1, 'none': 0 };
+
+        travelData.travels.forEach(t => {
+            // Check visits for this country entry
+            const hasPastVisit = t.visits.some(v => v.date <= limitDateStr);
+            if (hasPastVisit) {
+                activeCountryCodes.add(t.country_code);
+                
+                // Determine priority type
+                const currentBest = countryTypeMap.get(t.country_code) || 'none';
+                if ((priorities[t.type] || 0) > (priorities[currentBest] || 0)) {
+                    countryTypeMap.set(t.country_code, t.type);
+                }
+
+                // UK Logic
+                if (['ENG','SCT','WLS','NIR'].includes(t.country_code)) {
+                    activeCountryCodes.add('GBR');
+                    const currentGBR = countryTypeMap.get('GBR') || 'none';
+                    // If the specific UK country type (e.g., residence) is higher priority than what GBR currently is, upgrade GBR.
+                    if ((priorities[t.type] || 0) > (priorities[currentGBR] || 0)) {
+                        countryTypeMap.set('GBR', t.type);
+                    }
+                }
+            }
+        });
+
+        // Helper for Country Class
+        const getDynamicClass = (d) => {
+            if (!activeCountryCodes.has(d.id)) return "country";
+            const type = countryTypeMap.get(d.id);
+            if (type === 'residence') return "country residence";
+            if (type === 'trip') return "country visited";
+            if (type === 'layover') return "country layover";
+            return "country";
+        };
+
         // Update Paths (Countries)
         const countrySelection = g.select("#country-layer").selectAll("path")
             .data(loadedFeatures, d => d.id || d.properties.name);
 
         countrySelection.join(
             enter => enter.append("path")
-                .attr("class", d => getCountryClass(d))
+                .attr("class", d => getDynamicClass(d))
                 .attr("d", pathGenerator)
                 .on("mouseover", (e, d) => showTooltip(e, d.properties.name))
                 .on("mouseout", hideTooltip)
                 .on("click", handleCountryClick),
-            update => update.transition().duration(750).attr("d", pathGenerator)
+            update => update
+                .attr("class", d => getDynamicClass(d)) // Update class based on time
+                .transition().duration(200).attr("d", pathGenerator) // Smoother transition for play mode
         );
 
         // Update Dots
         const dotSelection = g.select("#dot-layer").selectAll("circle")
-            .data(sortedTravels);
+            .data(activeTravels, d => `${d.city}-${d.country_name}`); // Key function for stability
 
         dotSelection.join(
             enter => enter.append("circle")
                 .attr("class", d => `location-dot dot-${d.type === 'residence' ? 'residence' : d.type === 'layover' ? 'layover' : 'visit'}`)
-                .attr("r", 5) // Initial render size (will be adjusted by zoom)
+                .attr("r", 0) // Animate in from 0
                 .attr("cx", d => projection(d.coordinates)[0])
                 .attr("cy", d => projection(d.coordinates)[1])
                 .on("mouseover", (e, d) => showTooltip(e, `${d.city}, ${d.country_name}`))
                 .on("mouseout", hideTooltip)
-                .on("click", handleDotClick),
-            update => update.transition().duration(750)
+                .on("click", handleDotClick)
+                .call(enter => enter.transition().duration(500).attr("r", 5)),
+            update => update.transition().duration(200)
                 .attr("cx", d => projection(d.coordinates)[0])
-                .attr("cy", d => projection(d.coordinates)[1])
+                .attr("cy", d => projection(d.coordinates)[1]),
+            exit => exit.transition().duration(200).attr("r", 0).remove()
         );
-
-        // Reset Zoom on Projection Change for cleanliness
-        svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
     }
 
-    function getCountryClass(d) {
-        const countryTrips = travelData.travels.filter(t => 
-            t.country_code === d.id || (d.id === 'GBR' && ['ENG','SCT','WLS','NIR'].includes(t.country_code))
-        );
-        let baseClass = "country";
-        if (countryTrips.length > 0) {
-            if (countryTrips.some(t => t.type === 'residence')) baseClass += " residence";
-            else if (countryTrips.some(t => t.type === 'trip')) baseClass += " visited";
-            else if (countryTrips.some(t => t.type === 'layover')) baseClass += " layover";
-        }
-        return baseClass;
-    }
-
-    // --- CLICK HANDLERS (Moved out of Init) ---
+    // --- CLICK HANDLERS ---
     function handleCountryClick(e, d) {
         const countryCode = d.id;
         let relevantTravels = [];
@@ -711,7 +918,7 @@
         // UPDATED: Calculate Unique Years INCLUDING residences
         const uniqueYears = new Set();
         travels.forEach(t => {
-            if (t.exclude_from_stats) return; // SKIP if flagged
+            if (t.exclude_from_stats) return; 
             
             t.visits.forEach(v => {
                 if (v.date) uniqueYears.add(v.date.split('-')[0]);
@@ -771,7 +978,7 @@
         // -- Yearly Breakdown --
         const tripsByYear = {};
         travels.forEach(t => {
-            if (t.exclude_from_stats) return; // SKIP if flagged
+            if (t.exclude_from_stats) return; 
             
             t.visits.forEach(v => {
                 const year = v.date.split('-')[0];
