@@ -379,13 +379,15 @@
     const iso3toFlag = {
         // Standard
         "HKG": "🇭🇰", "MAC": "🇲🇴", "QAT": "🇶🇦", "ARG": "🇦🇷", "SRB": "🇷🇸", "TUR": "🇹🇷", "CHN": "🇨🇳",
-        "USA": "🇺🇸", "SYC": "🇸🇨", "GEO": "🇬🇪", "ITA": "🇮🇹", "JOR": "🇯🇴", "EGY": "🇪🇬",
-        "MUS": "🇲🇺", "MAR": "🇲🇦", "MDV": "🇲🇻", "ESP": "🇪🇸", "FRA": "🇫🇷", "MCO": "🇲🇨", "IRL": "🇮🇪",
-        "ARE": "🇦🇪", "RUS": "🇷🇺", "CYP": "🇨🇾", "NLD": "🇳🇱", "GRC": "🇬🇷", "DEU": "🇩🇪", "BEL": "🇧🇪",
-        "PSE": "🇵🇸", "ISR": "🇮🇱", "BHR": "🇧🇭", "FIN": "🇫🇮", "CZE": "🇨🇿", "NOR": "🇳🇴", "DNK": "🇩🇰",
-        "UKR": "🇺🇦", "KOR": "🇰🇷", "CHE": "🇨🇭", "LTU": "🇱🇹", "GUF": "🇬🇫",
+        "USA": "🇺🇸", "SYC": "🇸🇨", "GEO": "🇬🇪", "ITA": "🇮🇹", "JOR": "🇯🇴", "EGY": "🇪🇬", "MUS": "🇲🇺", 
+        "MAR": "🇲🇦", "MDV": "🇲🇻", "ESP": "🇪🇸", "FRA": "🇫🇷", "MCO": "🇲🇨", "IRL": "🇮🇪", "ARE": "🇦🇪", 
+        "RUS": "🇷🇺", "CYP": "🇨🇾", "NLD": "🇳🇱", "GRC": "🇬🇷", "DEU": "🇩🇪", "BEL": "🇧🇪", "PSE": "🇵🇸", 
+        "ISR": "🇮🇱", "BHR": "🇧🇭", "FIN": "🇫🇮", "CZE": "🇨🇿", "NOR": "🇳🇴", "DNK": "🇩🇰", "UKR": "🇺🇦", 
+        "KOR": "🇰🇷", "CHE": "🇨🇭", "LTU": "🇱🇹",
         // UK Subdivisions
-        "ENG": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "SCT": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "WLS": "🏴󠁧󠁢󠁷󠁬󠁳󠁿", "NIR": "🇬🇧", "GBR": "🇬🇧"
+        "ENG": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "SCT": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "WLS": "🏴󠁧󠁢󠁷󠁬󠁳󠁿", "NIR": "🇬🇧", "GBR": "🇬🇧",
+        // Special
+        "NCY": "🏴‍☠️"
     };
 
     function getFlag(code) {
@@ -442,7 +444,7 @@
             { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "residence", "visits": [{ "date": "2019-06-01", "end_date": "2019-10-13" }] },
             { "country_code": "RUS", "country_name": "Russia", "city": "Moscow", "continent": "Europe", "coordinates": [37.6173, 55.7558], "type": "trip", "visits": [{ "date": "2017-11-15", "end_date": "2017-11-20" }, { "date": "2017-06-14", "end_date": "2017-06-15" }, { "date": "2016-07-19", "end_date": "2016-07-22" }, { "date": "2016-05-19", "end_date": "2016-05-21" }] },
             { "country_code": "RUS", "country_name": "Russia", "city": "Nizhny Novgorod", "continent": "Europe", "coordinates": [44.0020, 56.3269], "type": "trip", "visits": [{ "date": "2019-07-06", "end_date": "2019-07-08" }] },
-            { "country_code": "CYP", "country_name": "Northern Cyprus", "city": "Girne", "continent": "Europe", "coordinates": [33.3199, 35.3364], "type": "trip", "visits": [{ "date": "2019-04-29", "end_date": "2019-05-01" }, { "date": "2019-03-09", "end_date": "2019-03-10" }, { "date": "2018-11-17", "end_date": "2018-11-18" }] },
+            { "country_code": "NCY", "country_name": "Northern Cyprus", "city": "Girne", "continent": "Europe", "coordinates": [33.3199, 35.3364], "type": "trip", "visits": [{ "date": "2019-04-29", "end_date": "2019-05-01" }, { "date": "2019-03-09", "end_date": "2019-03-10" }, { "date": "2018-11-17", "end_date": "2018-11-18" }] },
             { "country_code": "NLD", "country_name": "Netherlands", "city": "Amsterdam", "continent": "Europe", "coordinates": [4.9041, 52.3676], "type": "trip", "visits": [{ "date": "2019-04-11", "end_date": "2019-04-15" }] },
             { "country_code": "GRC", "country_name": "Greece", "city": "Athens", "continent": "Europe", "coordinates": [23.7275, 37.9838], "type": "layover", "visits": [{ "date": "2019-04-01" }] },
             { "country_code": "DEU", "country_name": "Germany", "city": "Aachen", "continent": "Europe", "coordinates": [6.0839, 50.7753], "type": "trip", "visits": [{ "date": "2019-04-04", "end_date": "2019-04-11" }] },
@@ -481,7 +483,7 @@
             // 2010
             { "country_code": "UKR", "country_name": "Ukraine", "city": "Kiev", "continent": "Europe", "coordinates": [30.5234, 50.4501], "type": "residence", "visits": [{ "date": "2010-05-02", "end_date": "2010-08-07", "approximate": true }] },
             // 1994 - 1999
-            { "country_code": "KOR", "country_name": "South Korea", "city": "Daejeon", "continent": "Asia", "coordinates": [127.3845, 36.3504], "type": "residence", "custom_date_label": "1994 - 1999", "visits": [{ "date": "1994-01-01", "end_date": "1999-12-31" }] },
+            { "country_code": "KOR", "country_name": "South Korea", "city": "Daejeon", "continent": "Asia", "coordinates": [127.3845, 36.3504], "type": "residence", "custom_date_label": "1994 - 1999", "visits": [{ "date": "1994-01-01", "end_date": "1999-12-31", "approximate": true }] },
             // SPECIAL: Tomsk Birth Place
             { 
                 "country_code": "RUS", "country_name": "Russia", "city": "Tomsk", "continent": "Asia", "coordinates": [84.9562, 56.5010], 
@@ -888,7 +890,7 @@
                 : `${v.date} ${v.end_date ? '- ' + v.end_date : ''}`;
 
             if (v.approximate) {
-                dateDisplay += ' <span title="Exact date unknown, approximate" style="cursor:help; font-size:0.8em; opacity:0.7">❓</span>';
+                dateDisplay += ' <span title="Approximate" style="cursor:help; font-size:0.8em; opacity:0.7">❓</span>';
             }
 
             html += `
@@ -996,7 +998,7 @@
                 const year = v.date.split('-')[0];
                 if(year === 'Present') return;
                 if (!tripsByYear[year]) tripsByYear[year] = [];
-                tripsByYear[year].push({ city: t.city, country: t.country_name, code: t.country_code, date: v.date, type: t.type, custom_date_label: t.custom_date_label });
+                tripsByYear[year].push({ city: t.city, country: t.country_name, code: t.country_code, date: v.date, type: t.type, custom_date_label: t.custom_date_label, approximate: v.approximate });
             });
         });
 
@@ -1008,7 +1010,10 @@
             const wrapper = document.createElement('div');
             wrapper.className = 'accordion-item';
             const innerList = trips.map(t => {
-                const dateText = t.custom_date_label ? t.custom_date_label : t.date;
+                let dateText = t.custom_date_label ? t.custom_date_label : t.date;
+                if (t.approximate) {
+                    dateText = ' <span title="Approximate" style="cursor:help; opacity:0.7">❓</span>' + dateText;
+                }
                 return `
                 <div class="trip-entry"><span>${getFlag(t.code)} ${t.city}, ${t.country}</span><span style="font-size:0.8rem; opacity:0.7">${dateText}</span></div>
             `}).join('');
