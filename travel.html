@@ -359,8 +359,16 @@
         </div>
         
         <div class="stat-group">
-            <h3>Travel Companions</h3>
-            <div id="companion-stats" style="display:flex; gap:1.5rem; margin-bottom:2rem; flex-wrap:wrap;"></div>
+            <div style="display:flex; gap:3rem; margin-bottom:2rem; flex-wrap:wrap;">
+                <div>
+                    <h3 style="margin-top:0;">Trips per Companion</h3>
+                    <div id="companion-stats" style="display:flex; gap:1.5rem; flex-wrap:wrap;"></div>
+                </div>
+                <div>
+                    <h3 style="margin-top:0;">Countries per Companion</h3>
+                    <div id="companion-country-stats" style="display:flex; gap:1.5rem; flex-wrap:wrap;"></div>
+                </div>
+            </div>
 
             <h3>Yearly Breakdown</h3>
             <div id="year-stats"></div>
@@ -978,6 +986,25 @@
         compContainer.innerHTML = Object.entries(companionTypes).map(([key, info]) => {
             const count = companionCounts[key] || 0;
             const pct = companionTotal ? ((count / companionTotal) * 100).toFixed(0) : 0;
+            return `<div style="text-align:center;">
+                <div style="font-size:1.8rem;">${info.emoji}</div>
+                <div style="font-size:1.2rem; font-weight:700; color:var(--text-color);">${count}</div>
+                <div style="font-size:0.8rem; color:var(--text-light);">${info.label} (${pct}%)</div>
+            </div>`;
+        }).join('');
+
+        // -- Companion Country Stats --
+        const companionCountries = { solo: new Set(), partner: new Set(), family: new Set() };
+        travels.forEach(t => {
+            if (t.exclude_from_stats || t.type === 'residence') return;
+            const comp = t.companion || "solo";
+            companionCountries[comp].add(t.country_code);
+        });
+        const companionCountryTotal = new Set([...companionCountries.solo, ...companionCountries.partner, ...companionCountries.family]).size;
+        const compCountryContainer = document.getElementById('companion-country-stats');
+        compCountryContainer.innerHTML = Object.entries(companionTypes).map(([key, info]) => {
+            const count = companionCountries[key].size;
+            const pct = companionCountryTotal ? ((count / companionCountryTotal) * 100).toFixed(0) : 0;
             return `<div style="text-align:center;">
                 <div style="font-size:1.8rem;">${info.emoji}</div>
                 <div style="font-size:1.2rem; font-weight:700; color:var(--text-color);">${count}</div>
