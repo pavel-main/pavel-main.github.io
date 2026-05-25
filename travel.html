@@ -319,6 +319,12 @@
     </div>
 
     <div class="control-row">
+        <label class="control-label" style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+            <input type="checkbox" id="aviation-toggle" onchange="toggleAviation()" style="cursor:pointer;"> Aviation
+        </label>
+    </div>
+
+    <div class="control-row">
         <span class="control-label">Projection</span>
         <select class="proj-select" id="projection-select" onchange="updateProjection()">
             <option value="mercator" selected>Mercator</option>
@@ -369,6 +375,9 @@
                     <div id="companion-country-stats" style="display:flex; gap:1.5rem; flex-wrap:wrap;"></div>
                 </div>
             </div>
+
+            <h3>Aviation Log</h3>
+            <div id="flight-stats" style="margin-bottom: 2rem;"></div>
 
             <h3>Yearly Breakdown</h3>
             <div id="year-stats"></div>
@@ -514,9 +523,18 @@
                 "type": "residence", "companion": "solo", "custom_date_label": "1988", "badge_label": "Birth Place",
                 "exclude_from_stats": true, 
                 "visits": [{ "date": "1988-01-01" }] 
-            }        
+            }
         ]
     };
+
+    // --- AVIATION DATA ---
+    const flightData = [
+        { city: "Larnaca", types: [{ mode: "plane", date: "2018-12-22" }], coordinates: [33.0413, 34.6786] },
+        { city: "New York", types: [{ mode: "heli", date: "2023-02-08" }], coordinates: [-74.0060, 40.7128] },
+        { city: "Mauritius", types: [{ mode: "heli", date: "2022-12-20" }, { mode: "plane", date: "2022-12-21" }], coordinates: [57.5522, -20.3484] },
+        { city: "Headcorn", types: [{ mode: "heli", date: "2021-07-17" }], coordinates: [0.6290, 51.1590] }
+    ];
+    const aviationIcons = { plane: "✈️", heli: "🚁" };
 
     // --- GLOBAL VARS ---
     let svg, g, zoom, width, height, projection, pathGenerator;
@@ -541,6 +559,7 @@
         
         g.append("g").attr("id", "country-layer"); // Layer 1
         g.append("g").attr("id", "dot-layer");     // Layer 2
+        g.append("g").attr("id", "aviation-layer").style("display", "none"); // Layer 3
 
         // Setup Zoom
         zoom = d3.zoom().scaleExtent([1, 15])
@@ -572,6 +591,10 @@
         g.selectAll("circle")
             .attr("r", baseRadius / coeffient)
             .style("stroke-width", (1 / coeffient) + "px");
+
+        g.selectAll("text.aviation-icon")
+            .style("font-size", (14 / coeffient) + "px")
+            .attr("dy", (-12 / coeffient));
     }
     
     // --- TIMELINE LOGIC ---
@@ -831,6 +854,55 @@
                 .attr("cy", d => projection(d.coordinates)[1]),
             exit => exit.transition().duration(200).attr("r", 0).remove()
         );
+
+        renderAviation();
+    }
+
+    // --- AVIATION LAYER ---
+    function renderAviation() {
+        if (!projection) return;
+        const layer = g.select("#aviation-layer");
+
+        const items = [];
+        flightData.forEach(f => {
+            const label = f.types.map(t => aviationIcons[t.mode]).join('');
+            items.push({ ...f, label });
+        });
+
+        const sel = layer.selectAll("text.aviation-icon")
+            .data(items, d => d.city);
+
+        sel.join(
+            enter => enter.append("text")
+                .attr("class", "aviation-icon")
+                .attr("x", d => projection(d.coordinates)[0])
+                .attr("y", d => projection(d.coordinates)[1])
+                .attr("text-anchor", "middle")
+                .attr("dominant-baseline", "central")
+                .attr("dy", "-12")
+                .style("font-size", "14px")
+                .style("pointer-events", "all")
+                .style("cursor", "pointer")
+                .text(d => d.label)
+                .on("mouseover", (e, d) => {
+                    const details = d.types.map(t => {
+                        const dt = new Date(t.date + 'T00:00:00');
+                        const dateStr = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+                        return `${t.mode === 'heli' ? 'Helicopter' : 'Plane'} (${dateStr})`;
+                    }).join(', ');
+                    showTooltip(e, `${d.city} — ${details}`);
+                })
+                .on("mouseout", hideTooltip),
+            update => update
+                .attr("x", d => projection(d.coordinates)[0])
+                .attr("y", d => projection(d.coordinates)[1])
+        );
+    }
+
+    function toggleAviation() {
+        const visible = document.getElementById('aviation-toggle').checked;
+        g.select("#aviation-layer").style("display", visible ? null : "none");
+        if (visible) renderAviation();
     }
 
     // --- CLICK HANDLERS ---
@@ -1053,6 +1125,21 @@
             </div>
         `;
         document.getElementById('cardinal-stats').innerHTML = extremeHtml;
+
+        // -- Aviation Log --
+        const flightCodeMap = { "Larnaca": "CYP", "New York": "USA", "Mauritius": "MUS", "Headcorn": "ENG" };
+        const flightContainer = document.getElementById('flight-stats');
+        const allFlights = flightData.flatMap(f => f.types.map(t => ({ city: f.city, ...t })));
+        allFlights.sort((a, b) => a.date.localeCompare(b.date));
+        flightContainer.innerHTML = allFlights.map(t => {
+            const code = flightCodeMap[t.city] || "";
+            const d = new Date(t.date + 'T00:00:00');
+            const dateStr = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+            return `<div class="location-tag" style="justify-content:space-between;">
+                <span>${getFlag(code)} ${t.city} ${aviationIcons[t.mode]} ${t.mode === 'heli' ? 'Helicopter' : 'Plane'}</span>
+                <span style="font-size:0.8rem; color:var(--text-light);">${dateStr}</span>
+            </div>`;
+        }).join('');
 
         // -- Yearly Breakdown --
         const tripsByYear = {};
