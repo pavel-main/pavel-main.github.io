@@ -1009,11 +1009,20 @@
     function toggleStatsPanel() { document.getElementById('stats-overlay').classList.toggle('visible'); closeSidebar(); }
     d3.select("#map-container").on("click", () => { closeSidebar(); document.getElementById('stats-overlay').classList.remove('visible'); });
 
+    // Set initial theme based on system preference
+    (function() {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            document.body.setAttribute('data-theme', 'dark');
+            document.getElementById('theme-toggle-icon').textContent = '🌞';
+        }
+    })();
+
     function toggleTheme() {
         const body = document.body;
         const isDark = body.getAttribute('data-theme') === 'dark';
         body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        
+
         // Update Icon
         const icon = document.getElementById('theme-toggle-icon');
         // If it was dark (isDark is true), we are now light -> Show Moon (to toggle back to dark)
